@@ -1,0 +1,17 @@
+name: Validate Design Skills
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install lightweight validation dependencies
+        run: pip install 'PyYAML>=6,<7' 'Pillow>=10,<13'
+      - name: Validate skills, screenshot assets, catalog and semantic color contrasts
+        run: python tools/validate_skills.py

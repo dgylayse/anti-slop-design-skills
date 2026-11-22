@@ -1,0 +1,746 @@
+{
+  "name": "anti-slop-design-skills",
+  "version": "3.0.0",
+  "license": "MIT",
+  "skill_count": 82,
+  "skills": [
+    {
+      "name": "design-director",
+      "category": "meta",
+      "era": "meta",
+      "description": "Use before designing any website, application, dashboard or campaign to choose a distinctive historical art direction, coherent tokens, responsive structure and accessible execution instead of generic AI-template UI.",
+      "skill": "meta/design-director/SKILL.md",
+      "preview": "meta/design-director/preview.png",
+      "demo": "meta/design-director/demo.html"
+    },
+    {
+      "name": "acid-graphics-90s",
+      "category": "styles",
+      "era": "1990s acid graphics",
+      "description": "Use for music interfaces with 1990s acid graphics visual direction: acid composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/acid-graphics-90s/SKILL.md",
+      "preview": "styles/acid-graphics-90s/preview.png",
+      "demo": "styles/acid-graphics-90s/demo.html"
+    },
+    {
+      "name": "alpine-trail-map",
+      "category": "styles",
+      "era": "1960s Alpine route maps",
+      "description": "Use this 1960s Alpine route maps visual system for outdoors websites. Distinct landscape composition with original mountain motif; accessible responsive implementation.",
+      "skill": "styles/alpine-trail-map/SKILL.md",
+      "preview": "styles/alpine-trail-map/preview.png",
+      "demo": "styles/alpine-trail-map/demo.html"
+    },
+    {
+      "name": "apothecary-label",
+      "category": "styles",
+      "era": "Victorian pharmaceutical labels",
+      "description": "Use this Victorian pharmaceutical labels visual system for wellness websites. Distinct framed composition with original botanical motif; accessible responsive implementation.",
+      "skill": "styles/apothecary-label/SKILL.md",
+      "preview": "styles/apothecary-label/preview.png",
+      "demo": "styles/apothecary-label/demo.html"
+    },
+    {
+      "name": "art-deco-metropolis",
+      "category": "styles",
+      "era": "1920s Art Deco",
+      "description": "Use for hospitality interfaces with 1920s Art Deco visual direction: deco composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/art-deco-metropolis/SKILL.md",
+      "preview": "styles/art-deco-metropolis/preview.png",
+      "demo": "styles/art-deco-metropolis/demo.html"
+    },
+    {
+      "name": "art-nouveau-atelier",
+      "category": "styles",
+      "era": "1890s Art Nouveau",
+      "description": "Use for luxury interfaces with 1890s Art Nouveau visual direction: nouveau composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/art-nouveau-atelier/SKILL.md",
+      "preview": "styles/art-nouveau-atelier/preview.png",
+      "demo": "styles/art-nouveau-atelier/demo.html"
+    },
+    {
+      "name": "automotive-heritage-catalog",
+      "category": "styles",
+      "era": "1970s automobile catalogs",
+      "description": "Use this 1970s automobile catalogs visual system for automotive websites. Distinct vehicle composition with original car motif; accessible responsive implementation.",
+      "skill": "styles/automotive-heritage-catalog/SKILL.md",
+      "preview": "styles/automotive-heritage-catalog/preview.png",
+      "demo": "styles/automotive-heritage-catalog/demo.html"
+    },
+    {
+      "name": "bauhaus-1925",
+      "category": "styles",
+      "era": "1920s Bauhaus",
+      "description": "Use for exhibition interfaces with 1920s Bauhaus visual direction: bauhaus composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/bauhaus-1925/SKILL.md",
+      "preview": "styles/bauhaus-1925/preview.png",
+      "demo": "styles/bauhaus-1925/demo.html"
+    },
+    {
+      "name": "bistro-menu-illustrated",
+      "category": "styles",
+      "era": "1950s hand-illustrated bistro menus",
+      "description": "Use this 1950s hand-illustrated bistro menus visual system for restaurant websites. Distinct menu composition with original bistro motif; accessible responsive implementation.",
+      "skill": "styles/bistro-menu-illustrated/SKILL.md",
+      "preview": "styles/bistro-menu-illustrated/preview.png",
+      "demo": "styles/bistro-menu-illustrated/demo.html"
+    },
+    {
+      "name": "blueprint-technical",
+      "category": "styles",
+      "era": "Architectural blueprint",
+      "description": "Use for engineering interfaces with Architectural blueprint visual direction: blueprint composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/blueprint-technical/SKILL.md",
+      "preview": "styles/blueprint-technical/preview.png",
+      "demo": "styles/blueprint-technical/demo.html"
+    },
+    {
+      "name": "children-picturebook",
+      "category": "styles",
+      "era": "1960s picture-book illustration",
+      "description": "Use this 1960s picture-book illustration visual system for kids learning websites. Distinct playful composition with original kids motif; accessible responsive implementation.",
+      "skill": "styles/children-picturebook/SKILL.md",
+      "preview": "styles/children-picturebook/preview.png",
+      "demo": "styles/children-picturebook/demo.html"
+    },
+    {
+      "name": "cinema-ticket-retro",
+      "category": "styles",
+      "era": "1950s cinema ticket ephemera",
+      "description": "Use this 1950s cinema ticket ephemera visual system for events websites. Distinct ticket composition with original ticket motif; accessible responsive implementation.",
+      "skill": "styles/cinema-ticket-retro/SKILL.md",
+      "preview": "styles/cinema-ticket-retro/preview.png",
+      "demo": "styles/cinema-ticket-retro/demo.html"
+    },
+    {
+      "name": "cinematic-noir",
+      "category": "styles",
+      "era": "1940s film-noir posters",
+      "description": "Use this 1940s film-noir posters visual system for cinema websites. Distinct immersive composition with original noir motif; accessible responsive implementation.",
+      "skill": "styles/cinematic-noir/SKILL.md",
+      "preview": "styles/cinematic-noir/preview.png",
+      "demo": "styles/cinematic-noir/demo.html"
+    },
+    {
+      "name": "coastal-hotel-postcard",
+      "category": "styles",
+      "era": "Mid-century coastal postcards",
+      "description": "Use this Mid-century coastal postcards visual system for hospitality websites. Distinct scenic composition with original coast motif; accessible responsive implementation.",
+      "skill": "styles/coastal-hotel-postcard/SKILL.md",
+      "preview": "styles/coastal-hotel-postcard/preview.png",
+      "demo": "styles/coastal-hotel-postcard/demo.html"
+    },
+    {
+      "name": "concrete-architecture",
+      "category": "styles",
+      "era": "Concrete modernism / 1970s",
+      "description": "Use this Concrete modernism / 1970s visual system for architecture websites. Distinct asymmetric composition with original architecture motif; accessible responsive implementation.",
+      "skill": "styles/concrete-architecture/SKILL.md",
+      "preview": "styles/concrete-architecture/preview.png",
+      "demo": "styles/concrete-architecture/demo.html"
+    },
+    {
+      "name": "constructivist-poster",
+      "category": "styles",
+      "era": "1920s constructivism",
+      "description": "Use for culture interfaces with 1920s constructivism visual direction: construct composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/constructivist-poster/SKILL.md",
+      "preview": "styles/constructivist-poster/preview.png",
+      "demo": "styles/constructivist-poster/demo.html"
+    },
+    {
+      "name": "dark-precision",
+      "category": "styles",
+      "era": "Precision interface",
+      "description": "Use for technology interfaces with Precision interface visual direction: wave composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/dark-precision/SKILL.md",
+      "preview": "styles/dark-precision/preview.png",
+      "demo": "styles/dark-precision/demo.html"
+    },
+    {
+      "name": "dieter-rams-industrial",
+      "category": "styles",
+      "era": "1960s industrial",
+      "description": "Use for product interfaces with 1960s industrial visual direction: dial composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/dieter-rams-industrial/SKILL.md",
+      "preview": "styles/dieter-rams-industrial/preview.png",
+      "demo": "styles/dieter-rams-industrial/demo.html"
+    },
+    {
+      "name": "editorial-fashion-runway",
+      "category": "styles",
+      "era": "High-fashion magazine / 1980s",
+      "description": "Use this High-fashion magazine / 1980s visual system for fashion websites. Distinct vertical composition with original fashion motif; accessible responsive implementation.",
+      "skill": "styles/editorial-fashion-runway/SKILL.md",
+      "preview": "styles/editorial-fashion-runway/preview.png",
+      "demo": "styles/editorial-fashion-runway/demo.html"
+    },
+    {
+      "name": "fine-art-gallery",
+      "category": "styles",
+      "era": "Minimal gallery catalogs / 1990s",
+      "description": "Use this Minimal gallery catalogs / 1990s visual system for gallery websites. Distinct gallery composition with original gallery motif; accessible responsive implementation.",
+      "skill": "styles/fine-art-gallery/SKILL.md",
+      "preview": "styles/fine-art-gallery/preview.png",
+      "demo": "styles/fine-art-gallery/demo.html"
+    },
+    {
+      "name": "handmade-zine-collage",
+      "category": "styles",
+      "era": "DIY zine / risograph",
+      "description": "Use for art interfaces with DIY zine / risograph visual direction: collage composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/handmade-zine-collage/SKILL.md",
+      "preview": "styles/handmade-zine-collage/preview.png",
+      "demo": "styles/handmade-zine-collage/demo.html"
+    },
+    {
+      "name": "isotype-information",
+      "category": "styles",
+      "era": "1930s Isotype",
+      "description": "Use for education interfaces with 1930s Isotype visual direction: isotype composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/isotype-information/SKILL.md",
+      "preview": "styles/isotype-information/preview.png",
+      "demo": "styles/isotype-information/demo.html"
+    },
+    {
+      "name": "japanese-woodblock-modern",
+      "category": "styles",
+      "era": "Traditional woodblock composition",
+      "description": "Use this Traditional woodblock composition visual system for art websites. Distinct panorama composition with original woodblock motif; accessible responsive implementation.",
+      "skill": "styles/japanese-woodblock-modern/SKILL.md",
+      "preview": "styles/japanese-woodblock-modern/preview.png",
+      "demo": "styles/japanese-woodblock-modern/demo.html"
+    },
+    {
+      "name": "japanese-zen-minimalism",
+      "category": "styles",
+      "era": "Japanese minimalism",
+      "description": "Use for wellness interfaces with Japanese minimalism visual direction: zen composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/japanese-zen-minimalism/SKILL.md",
+      "preview": "styles/japanese-zen-minimalism/preview.png",
+      "demo": "styles/japanese-zen-minimalism/demo.html"
+    },
+    {
+      "name": "memphis-milano",
+      "category": "styles",
+      "era": "1980s Memphis",
+      "description": "Use for retail interfaces with 1980s Memphis visual direction: memphis composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/memphis-milano/SKILL.md",
+      "preview": "styles/memphis-milano/preview.png",
+      "demo": "styles/memphis-milano/demo.html"
+    },
+    {
+      "name": "mid-century-editorial",
+      "category": "styles",
+      "era": "1950s mid-century",
+      "description": "Use for editorial interfaces with 1950s mid-century visual direction: cutout composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/mid-century-editorial/SKILL.md",
+      "preview": "styles/mid-century-editorial/preview.png",
+      "demo": "styles/mid-century-editorial/demo.html"
+    },
+    {
+      "name": "modern-folk-textile",
+      "category": "styles",
+      "era": "Folk textiles / graphic modernism",
+      "description": "Use this Folk textiles / graphic modernism visual system for craft websites. Distinct textile composition with original textile motif; accessible responsive implementation.",
+      "skill": "styles/modern-folk-textile/SKILL.md",
+      "preview": "styles/modern-folk-textile/preview.png",
+      "demo": "styles/modern-folk-textile/demo.html"
+    },
+    {
+      "name": "neo-brutalist",
+      "category": "styles",
+      "era": "Contemporary brutalism",
+      "description": "Use for culture interfaces with Contemporary brutalism visual direction: sticker composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/neo-brutalist/SKILL.md",
+      "preview": "styles/neo-brutalist/preview.png",
+      "demo": "styles/neo-brutalist/demo.html"
+    },
+    {
+      "name": "new-york-school",
+      "category": "styles",
+      "era": "1950s NYC graphic",
+      "description": "Use for editorial interfaces with 1950s NYC graphic visual direction: type composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/new-york-school/SKILL.md",
+      "preview": "styles/new-york-school/preview.png",
+      "demo": "styles/new-york-school/demo.html"
+    },
+    {
+      "name": "pixel-workbench",
+      "category": "styles",
+      "era": "1990s pixel UI",
+      "description": "Use for devtools interfaces with 1990s pixel UI visual direction: pixel composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/pixel-workbench/SKILL.md",
+      "preview": "styles/pixel-workbench/preview.png",
+      "demo": "styles/pixel-workbench/demo.html"
+    },
+    {
+      "name": "postmodern-library",
+      "category": "styles",
+      "era": "1980s postmodern",
+      "description": "Use for museum interfaces with 1980s postmodern visual direction: columns composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/postmodern-library/SKILL.md",
+      "preview": "styles/postmodern-library/preview.png",
+      "demo": "styles/postmodern-library/demo.html"
+    },
+    {
+      "name": "psychedelic-seventies",
+      "category": "styles",
+      "era": "1970s psychedelic print",
+      "description": "Use this 1970s psychedelic print visual system for festival websites. Distinct psychedelic composition with original psychedelic motif; accessible responsive implementation.",
+      "skill": "styles/psychedelic-seventies/SKILL.md",
+      "preview": "styles/psychedelic-seventies/preview.png",
+      "demo": "styles/psychedelic-seventies/demo.html"
+    },
+    {
+      "name": "scientific-field-notes",
+      "category": "styles",
+      "era": "19th-century naturalist notebooks",
+      "description": "Use this 19th-century naturalist notebooks visual system for research websites. Distinct ledger composition with original science motif; accessible responsive implementation.",
+      "skill": "styles/scientific-field-notes/SKILL.md",
+      "preview": "styles/scientific-field-notes/preview.png",
+      "demo": "styles/scientific-field-notes/demo.html"
+    },
+    {
+      "name": "space-age-1969",
+      "category": "styles",
+      "era": "1960s space-age",
+      "description": "Use for product interfaces with 1960s space-age visual direction: orbit composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/space-age-1969/SKILL.md",
+      "preview": "styles/space-age-1969/preview.png",
+      "demo": "styles/space-age-1969/demo.html"
+    },
+    {
+      "name": "stadium-scoreboard",
+      "category": "styles",
+      "era": "1980s stadium scoreboards",
+      "description": "Use this 1980s stadium scoreboards visual system for sports websites. Distinct scoreboard composition with original stadium motif; accessible responsive implementation.",
+      "skill": "styles/stadium-scoreboard/SKILL.md",
+      "preview": "styles/stadium-scoreboard/preview.png",
+      "demo": "styles/stadium-scoreboard/demo.html"
+    },
+    {
+      "name": "swiss-editorial",
+      "category": "styles",
+      "era": "1950s Swiss",
+      "description": "Use for editorial interfaces with 1950s Swiss visual direction: grid composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/swiss-editorial/SKILL.md",
+      "preview": "styles/swiss-editorial/preview.png",
+      "demo": "styles/swiss-editorial/demo.html"
+    },
+    {
+      "name": "terminal-amber-crt",
+      "category": "styles",
+      "era": "1970s monochrome terminals",
+      "description": "Use this 1970s monochrome terminals visual system for developer tools websites. Distinct console composition with original terminal motif; accessible responsive implementation.",
+      "skill": "styles/terminal-amber-crt/SKILL.md",
+      "preview": "styles/terminal-amber-crt/preview.png",
+      "demo": "styles/terminal-amber-crt/demo.html"
+    },
+    {
+      "name": "terracotta-studio",
+      "category": "styles",
+      "era": "Artisanal studio",
+      "description": "Use for commerce interfaces with Artisanal studio visual direction: ceramic composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/terracotta-studio/SKILL.md",
+      "preview": "styles/terracotta-studio/preview.png",
+      "demo": "styles/terracotta-studio/demo.html"
+    },
+    {
+      "name": "tropical-travel-poster",
+      "category": "styles",
+      "era": "1950s travel advertisements",
+      "description": "Use this 1950s travel advertisements visual system for travel websites. Distinct travel composition with original tropical motif; accessible responsive implementation.",
+      "skill": "styles/tropical-travel-poster/SKILL.md",
+      "preview": "styles/tropical-travel-poster/preview.png",
+      "demo": "styles/tropical-travel-poster/demo.html"
+    },
+    {
+      "name": "vintage-broadsheet",
+      "category": "styles",
+      "era": "Historic broadsheet",
+      "description": "Use for publishing interfaces with Historic broadsheet visual direction: newspaper composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/vintage-broadsheet/SKILL.md",
+      "preview": "styles/vintage-broadsheet/preview.png",
+      "demo": "styles/vintage-broadsheet/demo.html"
+    },
+    {
+      "name": "warm-analog",
+      "category": "styles",
+      "era": "Warm analog",
+      "description": "Use for lifestyle interfaces with Warm analog visual direction: landscape composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/warm-analog/SKILL.md",
+      "preview": "styles/warm-analog/preview.png",
+      "demo": "styles/warm-analog/demo.html"
+    },
+    {
+      "name": "web-20-skeuomorphic",
+      "category": "styles",
+      "era": "2000s skeuomorphic",
+      "description": "Use for app ui interfaces with 2000s skeuomorphic visual direction: deck composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/web-20-skeuomorphic/SKILL.md",
+      "preview": "styles/web-20-skeuomorphic/preview.png",
+      "demo": "styles/web-20-skeuomorphic/demo.html"
+    },
+    {
+      "name": "y2k-early-digital",
+      "category": "styles",
+      "era": "1998–2002 early web",
+      "description": "Use for retro web interfaces with 1998–2002 early web visual direction: windows composition, disciplined typography and responsive, accessible stateful components.",
+      "skill": "styles/y2k-early-digital/SKILL.md",
+      "preview": "styles/y2k-early-digital/preview.png",
+      "demo": "styles/y2k-early-digital/demo.html"
+    },
+    {
+      "name": "cobalt-saffron",
+      "category": "palettes",
+      "era": "palette",
+      "description": "Use this color palette for interfaces requiring educational modernism: blue-led utility with saffron as a secondary mark. Provides normalized semantic colors and contrast guidance.",
+      "skill": "palettes/cobalt-saffron/SKILL.md",
+      "preview": "palettes/cobalt-saffron/preview.png",
+      "demo": "palettes/cobalt-saffron/demo.html"
+    },
+    {
+      "name": "editorial-vermilion",
+      "category": "palettes",
+      "era": "palette",
+      "description": "Use this color palette for interfaces requiring museum paper, ink and a purposeful red headline accent. Provides normalized semantic colors and contrast guidance.",
+      "skill": "palettes/editorial-vermilion/SKILL.md",
+      "preview": "palettes/editorial-vermilion/preview.png",
+      "demo": "palettes/editorial-vermilion/demo.html"
+    },
+    {
+      "name": "forest-copper",
+      "category": "palettes",
+      "era": "palette",
+      "description": "Use this color palette for interfaces requiring leafy greens with oxidized copper for physical-product storytelling. Provides normalized semantic colors and contrast guidance.",
+      "skill": "palettes/forest-copper/SKILL.md",
+      "preview": "palettes/forest-copper/preview.png",
+      "demo": "palettes/forest-copper/demo.html"
+    },
+    {
+      "name": "industrial-yellow",
+      "category": "palettes",
+      "era": "palette",
+      "description": "Use this color palette for Technical warning ochre on utilitarian steel paper. Shared six-token contract for composing styles without overriding typography, layouts or component geometry.",
+      "skill": "palettes/industrial-yellow/SKILL.md",
+      "preview": "palettes/industrial-yellow/preview.png",
+      "demo": "palettes/industrial-yellow/demo.html"
+    },
+    {
+      "name": "ink-and-paper",
+      "category": "palettes",
+      "era": "palette",
+      "description": "Use this color palette for interfaces requiring archival ivory, precise charcoal, a single red editorial accent. Provides normalized semantic colors and contrast guidance.",
+      "skill": "palettes/ink-and-paper/SKILL.md",
+      "preview": "palettes/ink-and-paper/preview.png",
+      "demo": "palettes/ink-and-paper/demo.html"
+    },
+    {
+      "name": "nordic-muted",
+      "category": "palettes",
+      "era": "palette",
+      "description": "Use this color palette for interfaces requiring desaturated sage, limestone and deep evergreen. Provides normalized semantic colors and contrast guidance.",
+      "skill": "palettes/nordic-muted/SKILL.md",
+      "preview": "palettes/nordic-muted/preview.png",
+      "demo": "palettes/nordic-muted/demo.html"
+    },
+    {
+      "name": "obsidian-amber",
+      "category": "palettes",
+      "era": "palette",
+      "description": "Use this color palette for interfaces requiring dark material surfaces with warm, controlled operational highlights. Provides normalized semantic colors and contrast guidance.",
+      "skill": "palettes/obsidian-amber/SKILL.md",
+      "preview": "palettes/obsidian-amber/preview.png",
+      "demo": "palettes/obsidian-amber/demo.html"
+    },
+    {
+      "name": "oxblood-parchment",
+      "category": "palettes",
+      "era": "palette",
+      "description": "Use this color palette for interfaces requiring bookbinder reds and parchment for literary or heritage brands. Provides normalized semantic colors and contrast guidance.",
+      "skill": "palettes/oxblood-parchment/SKILL.md",
+      "preview": "palettes/oxblood-parchment/preview.png",
+      "demo": "palettes/oxblood-parchment/demo.html"
+    },
+    {
+      "name": "oxford-forest",
+      "category": "palettes",
+      "era": "palette",
+      "description": "Use this color palette for Scholarly green, antique paper and oxblood leather. Shared six-token contract for composing styles without overriding typography, layouts or component geometry.",
+      "skill": "palettes/oxford-forest/SKILL.md",
+      "preview": "palettes/oxford-forest/preview.png",
+      "demo": "palettes/oxford-forest/demo.html"
+    },
+    {
+      "name": "plum-marigold",
+      "category": "palettes",
+      "era": "palette",
+      "description": "Use this color palette for interfaces requiring expressive purple-plum without the generic neon gradient look. Provides normalized semantic colors and contrast guidance.",
+      "skill": "palettes/plum-marigold/SKILL.md",
+      "preview": "palettes/plum-marigold/preview.png",
+      "demo": "palettes/plum-marigold/demo.html"
+    },
+    {
+      "name": "porcelain-indigo",
+      "category": "palettes",
+      "era": "palette",
+      "description": "Use this color palette for Museum-quality cream and deep porcelain-blue linework. Shared six-token contract for composing styles without overriding typography, layouts or component geometry.",
+      "skill": "palettes/porcelain-indigo/SKILL.md",
+      "preview": "palettes/porcelain-indigo/preview.png",
+      "demo": "palettes/porcelain-indigo/demo.html"
+    },
+    {
+      "name": "rosewood-ivory",
+      "category": "palettes",
+      "era": "palette",
+      "description": "Use this color palette for Warm rosewood and antique ivory, editorial rather than pink SaaS. Shared six-token contract for composing styles without overriding typography, layouts or component geometry.",
+      "skill": "palettes/rosewood-ivory/SKILL.md",
+      "preview": "palettes/rosewood-ivory/preview.png",
+      "demo": "palettes/rosewood-ivory/demo.html"
+    },
+    {
+      "name": "sea-glass-coral",
+      "category": "palettes",
+      "era": "palette",
+      "description": "Use this color palette for Saltwater glass, mineral blues and a restrained coral marker. Shared six-token contract for composing styles without overriding typography, layouts or component geometry.",
+      "skill": "palettes/sea-glass-coral/SKILL.md",
+      "preview": "palettes/sea-glass-coral/preview.png",
+      "demo": "palettes/sea-glass-coral/demo.html"
+    },
+    {
+      "name": "sunset-terracotta",
+      "category": "palettes",
+      "era": "palette",
+      "description": "Use this color palette for Southwestern warmth, sun-bleached grounds and toasted ceramic accents. Shared six-token contract for composing styles without overriding typography, layouts or component geometry.",
+      "skill": "palettes/sunset-terracotta/SKILL.md",
+      "preview": "palettes/sunset-terracotta/preview.png",
+      "demo": "palettes/sunset-terracotta/demo.html"
+    },
+    {
+      "name": "architecture-case-studies",
+      "category": "layouts",
+      "era": "Architecture",
+      "description": "Design a complete architecture website information architecture for a practice in detail, with primary journeys, responsive sections, honest content and accessible interaction states.",
+      "skill": "layouts/architecture-case-studies/SKILL.md",
+      "preview": "layouts/architecture-case-studies/preview.png",
+      "demo": "layouts/architecture-case-studies/demo.html"
+    },
+    {
+      "name": "boutique-hotel-booking",
+      "category": "layouts",
+      "era": "Hotel",
+      "description": "Design a complete hotel website information architecture for a room with a story, with primary journeys, responsive sections, honest content and accessible interaction states.",
+      "skill": "layouts/boutique-hotel-booking/SKILL.md",
+      "preview": "layouts/boutique-hotel-booking/preview.png",
+      "demo": "layouts/boutique-hotel-booking/demo.html"
+    },
+    {
+      "name": "clean-dashboard",
+      "category": "layouts",
+      "era": "layout",
+      "description": "Use when building a signal-first workspace: Administrative, monitoring and analysis layouts with flat data hierarchy. Includes responsive ordering, interaction states and content-first page map.",
+      "skill": "layouts/clean-dashboard/SKILL.md",
+      "preview": "layouts/clean-dashboard/preview.png",
+      "demo": "layouts/clean-dashboard/demo.html"
+    },
+    {
+      "name": "commerce-lookbook",
+      "category": "layouts",
+      "era": "layout",
+      "description": "Use when building a commerce lookbook: Image-led ethical product discovery with strong product details and clear purchase flow. Includes responsive ordering, interaction states and content-first page map.",
+      "skill": "layouts/commerce-lookbook/SKILL.md",
+      "preview": "layouts/commerce-lookbook/preview.png",
+      "demo": "layouts/commerce-lookbook/demo.html"
+    },
+    {
+      "name": "dev-portfolio",
+      "category": "layouts",
+      "era": "layout",
+      "description": "Use when building a proof of work portfolio: Project-first editorial portfolio: outcomes before fake skill bars. Includes responsive ordering, interaction states and content-first page map.",
+      "skill": "layouts/dev-portfolio/SKILL.md",
+      "preview": "layouts/dev-portfolio/preview.png",
+      "demo": "layouts/dev-portfolio/demo.html"
+    },
+    {
+      "name": "event-festival-schedule",
+      "category": "layouts",
+      "era": "Events",
+      "description": "Design a complete events website information architecture for the next good night, with primary journeys, responsive sections, honest content and accessible interaction states.",
+      "skill": "layouts/event-festival-schedule/SKILL.md",
+      "preview": "layouts/event-festival-schedule/preview.png",
+      "demo": "layouts/event-festival-schedule/demo.html"
+    },
+    {
+      "name": "feature-story",
+      "category": "layouts",
+      "era": "layout",
+      "description": "Use when building a feature story: Long-form journalism with rich pull quotes, media rhythm and accessible footnotes. Includes responsive ordering, interaction states and content-first page map.",
+      "skill": "layouts/feature-story/SKILL.md",
+      "preview": "layouts/feature-story/preview.png",
+      "demo": "layouts/feature-story/demo.html"
+    },
+    {
+      "name": "fitness-class-schedule",
+      "category": "layouts",
+      "era": "Fitness",
+      "description": "Design a complete fitness website information architecture for move with intention, with primary journeys, responsive sections, honest content and accessible interaction states.",
+      "skill": "layouts/fitness-class-schedule/SKILL.md",
+      "preview": "layouts/fitness-class-schedule/preview.png",
+      "demo": "layouts/fitness-class-schedule/demo.html"
+    },
+    {
+      "name": "legal-practice",
+      "category": "layouts",
+      "era": "Legal",
+      "description": "Design a complete legal website information architecture for clear counsel, with primary journeys, responsive sections, honest content and accessible interaction states.",
+      "skill": "layouts/legal-practice/SKILL.md",
+      "preview": "layouts/legal-practice/preview.png",
+      "demo": "layouts/legal-practice/demo.html"
+    },
+    {
+      "name": "medical-practice",
+      "category": "layouts",
+      "era": "Healthcare",
+      "description": "Design a complete healthcare website information architecture for care, without confusion, with primary journeys, responsive sections, honest content and accessible interaction states.",
+      "skill": "layouts/medical-practice/SKILL.md",
+      "preview": "layouts/medical-practice/preview.png",
+      "demo": "layouts/medical-practice/demo.html"
+    },
+    {
+      "name": "museum-exhibition",
+      "category": "layouts",
+      "era": "layout",
+      "description": "Use when building a museum exhibition: Gallery-first exhibition or cultural project with curatorial hierarchy. Includes responsive ordering, interaction states and content-first page map.",
+      "skill": "layouts/museum-exhibition/SKILL.md",
+      "preview": "layouts/museum-exhibition/preview.png",
+      "demo": "layouts/museum-exhibition/demo.html"
+    },
+    {
+      "name": "no-slop-landing",
+      "category": "layouts",
+      "era": "layout",
+      "description": "Use when building a asymmetric landing: An anti-template landing page with product proof and distinct story flow. Includes responsive ordering, interaction states and content-first page map.",
+      "skill": "layouts/no-slop-landing/SKILL.md",
+      "preview": "layouts/no-slop-landing/preview.png",
+      "demo": "layouts/no-slop-landing/demo.html"
+    },
+    {
+      "name": "nonprofit-campaign",
+      "category": "layouts",
+      "era": "Nonprofit",
+      "description": "Design a complete nonprofit website information architecture for change starts here, with primary journeys, responsive sections, honest content and accessible interaction states.",
+      "skill": "layouts/nonprofit-campaign/SKILL.md",
+      "preview": "layouts/nonprofit-campaign/preview.png",
+      "demo": "layouts/nonprofit-campaign/demo.html"
+    },
+    {
+      "name": "online-course-catalog",
+      "category": "layouts",
+      "era": "Education",
+      "description": "Design a complete education website information architecture for learn by doing, with primary journeys, responsive sections, honest content and accessible interaction states.",
+      "skill": "layouts/online-course-catalog/SKILL.md",
+      "preview": "layouts/online-course-catalog/preview.png",
+      "demo": "layouts/online-course-catalog/demo.html"
+    },
+    {
+      "name": "photography-portfolio",
+      "category": "layouts",
+      "era": "Photography",
+      "description": "Design a complete photography website information architecture for let the work speak, with primary journeys, responsive sections, honest content and accessible interaction states.",
+      "skill": "layouts/photography-portfolio/SKILL.md",
+      "preview": "layouts/photography-portfolio/preview.png",
+      "demo": "layouts/photography-portfolio/demo.html"
+    },
+    {
+      "name": "real-estate-listings",
+      "category": "layouts",
+      "era": "Real Estate",
+      "description": "Design a complete real estate website information architecture for find your next place, with primary journeys, responsive sections, honest content and accessible interaction states.",
+      "skill": "layouts/real-estate-listings/SKILL.md",
+      "preview": "layouts/real-estate-listings/preview.png",
+      "demo": "layouts/real-estate-listings/demo.html"
+    },
+    {
+      "name": "restaurant-reservations",
+      "category": "layouts",
+      "era": "Restaurant",
+      "description": "Design a complete restaurant website information architecture for a table worth sharing, with primary journeys, responsive sections, honest content and accessible interaction states.",
+      "skill": "layouts/restaurant-reservations/SKILL.md",
+      "preview": "layouts/restaurant-reservations/preview.png",
+      "demo": "layouts/restaurant-reservations/demo.html"
+    },
+    {
+      "name": "saas-documentation",
+      "category": "layouts",
+      "era": "Software",
+      "description": "Design a complete software website information architecture for the manual that helps, with primary journeys, responsive sections, honest content and accessible interaction states.",
+      "skill": "layouts/saas-documentation/SKILL.md",
+      "preview": "layouts/saas-documentation/preview.png",
+      "demo": "layouts/saas-documentation/demo.html"
+    },
+    {
+      "name": "travel-destination-guide",
+      "category": "layouts",
+      "era": "Travel",
+      "description": "Design a complete travel website information architecture for go beyond the guidebook, with primary journeys, responsive sections, honest content and accessible interaction states.",
+      "skill": "layouts/travel-destination-guide/SKILL.md",
+      "preview": "layouts/travel-destination-guide/preview.png",
+      "demo": "layouts/travel-destination-guide/demo.html"
+    },
+    {
+      "name": "wedding-invitation",
+      "category": "layouts",
+      "era": "Wedding",
+      "description": "Design a complete wedding website information architecture for a day to remember, with primary journeys, responsive sections, honest content and accessible interaction states.",
+      "skill": "layouts/wedding-invitation/SKILL.md",
+      "preview": "layouts/wedding-invitation/preview.png",
+      "demo": "layouts/wedding-invitation/demo.html"
+    },
+    {
+      "name": "brutalist-hook-post",
+      "category": "social-media",
+      "era": "social-media",
+      "description": "Use when designing a brutalist hook post: High-contrast compact campaign poster with evidence-led claim. Specifies export composition, legible content, and platform-safe margins.",
+      "skill": "social-media/brutalist-hook-post/SKILL.md",
+      "preview": "social-media/brutalist-hook-post/preview.png",
+      "demo": "social-media/brutalist-hook-post/demo.html"
+    },
+    {
+      "name": "cinematic-film-poster",
+      "category": "social-media",
+      "era": "Cinema",
+      "description": "Use to design an original create poster campaigns with original noir composition, title legibility, credit hierarchy and cinematic lighting. Includes legibility, branding, accessibility and honest copy constraints.",
+      "skill": "social-media/cinematic-film-poster/SKILL.md",
+      "preview": "social-media/cinematic-film-poster/preview.png",
+      "demo": "social-media/cinematic-film-poster/demo.html"
+    },
+    {
+      "name": "editorial-carousel",
+      "category": "social-media",
+      "era": "social-media",
+      "description": "Use when designing a editorial carousel: Multi-slide educational sequence with genuine hierarchy. Specifies export composition, legible content, and platform-safe margins.",
+      "skill": "social-media/editorial-carousel/SKILL.md",
+      "preview": "social-media/editorial-carousel/preview.png",
+      "demo": "social-media/editorial-carousel/demo.html"
+    },
+    {
+      "name": "heritage-editorial-announcement",
+      "category": "social-media",
+      "era": "Editorial",
+      "description": "Use to design an original make an editorial announcement with archival grid, clear provenance and tactile classic publishing rhythm. Includes legibility, branding, accessibility and honest copy constraints.",
+      "skill": "social-media/heritage-editorial-announcement/SKILL.md",
+      "preview": "social-media/heritage-editorial-announcement/preview.png",
+      "demo": "social-media/heritage-editorial-announcement/demo.html"
+    },
+    {
+      "name": "risograph-event-poster",
+      "category": "social-media",
+      "era": "social-media",
+      "description": "Use when designing a risograph event poster: DIY-inspired event communication with large legible details. Specifies export composition, legible content, and platform-safe margins.",
+      "skill": "social-media/risograph-event-poster/SKILL.md",
+      "preview": "social-media/risograph-event-poster/preview.png",
+      "demo": "social-media/risograph-event-poster/demo.html"
+    }
+  ]
+}
