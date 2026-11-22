@@ -5,6 +5,9 @@
 - Added `ebru-marbling`, `iznik-ceramic`, `op-art-optical`, `new-wave-1980s`, `wood-type-broadside`, `thermal-receipt`, `paperback-tri-band`, `solarpunk-commons`, `vienna-secession-1905` and `illuminated-manuscript`.
 - Each new demo uses its own page composition instead of the shared split-hero skeleton, with a realistic task (booking, ordering, browsing, searching) in the preview.
 - Design Director, industry recipes, READMEs, gallery and contact sheet updated for the new styles.
+- Rebuilt six older demos with their own compositions: `swiss-editorial` (issue index grid), `warm-analog` (magazine spread), `terracotta-studio` (product page), `vintage-broadsheet` (front page), `dark-precision` (service console) and `mid-century-editorial` (cover + features).
+- Replaced repeated placeholder copy ("FORM × FEELING", "DISCOVER THE COLLECTION") in 20 older demos with style-specific content.
+- Live gallery on GitHub Pages; gallery "Read skill" links now open the file on GitHub.
 
 ## v3.0.0 — Industry & visual diversity
 - Expanded from 42 to 82 Agent Skills.

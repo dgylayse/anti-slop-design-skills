@@ -6,7 +6,7 @@
 
 An original, visual-first library of design systems for AI coding agents, built for people who want more than the default AI landing page. Explore a historically informed **visual style**, choose a real **website type**, layer one **palette**, and produce accessible UI for actual tasks.
 
-**[Browse the interactive visual gallery](gallery/index.html)** (open locally) · **[See every style at once](gallery/contact-sheet.jpg)** · [Türkçe rehber](README.tr.md)
+**[▶ Browse the live gallery](https://dgylayse.github.io/anti-slop-design-skills/)** · filter all 92 skills and open every HTML demo in your browser · **[See every style at once](gallery/contact-sheet.jpg)** · [Türkçe rehber](README.tr.md)
 
 Every skill has `SKILL.md` (agent instructions), `preview.png` (1280×800 browser screenshot), and `demo.html` (self-contained HTML/CSS/SVG source for that screenshot). All previews are original **illustrative studies**, *not functional launched websites*.
 
@@ -153,16 +153,16 @@ These are **not** color skins. They set user journeys, information architecture,
 |---|---|---|
 | Architecture | [`architecture-case-studies`](layouts/architecture-case-studies/SKILL.md) | [![architecture-case-studies](layouts/architecture-case-studies/preview.png)](layouts/architecture-case-studies/demo.html) |
 | Hotel | [`boutique-hotel-booking`](layouts/boutique-hotel-booking/SKILL.md) | [![boutique-hotel-booking](layouts/boutique-hotel-booking/preview.png)](layouts/boutique-hotel-booking/demo.html) |
-| layout | [`clean-dashboard`](layouts/clean-dashboard/SKILL.md) | [![clean-dashboard](layouts/clean-dashboard/preview.png)](layouts/clean-dashboard/demo.html) |
-| layout | [`commerce-lookbook`](layouts/commerce-lookbook/SKILL.md) | [![commerce-lookbook](layouts/commerce-lookbook/preview.png)](layouts/commerce-lookbook/demo.html) |
-| layout | [`dev-portfolio`](layouts/dev-portfolio/SKILL.md) | [![dev-portfolio](layouts/dev-portfolio/preview.png)](layouts/dev-portfolio/demo.html) |
+| Analytics dashboard | [`clean-dashboard`](layouts/clean-dashboard/SKILL.md) | [![clean-dashboard](layouts/clean-dashboard/preview.png)](layouts/clean-dashboard/demo.html) |
+| E-commerce | [`commerce-lookbook`](layouts/commerce-lookbook/SKILL.md) | [![commerce-lookbook](layouts/commerce-lookbook/preview.png)](layouts/commerce-lookbook/demo.html) |
+| Developer portfolio | [`dev-portfolio`](layouts/dev-portfolio/SKILL.md) | [![dev-portfolio](layouts/dev-portfolio/preview.png)](layouts/dev-portfolio/demo.html) |
 | Events | [`event-festival-schedule`](layouts/event-festival-schedule/SKILL.md) | [![event-festival-schedule](layouts/event-festival-schedule/preview.png)](layouts/event-festival-schedule/demo.html) |
-| layout | [`feature-story`](layouts/feature-story/SKILL.md) | [![feature-story](layouts/feature-story/preview.png)](layouts/feature-story/demo.html) |
+| Long-form story | [`feature-story`](layouts/feature-story/SKILL.md) | [![feature-story](layouts/feature-story/preview.png)](layouts/feature-story/demo.html) |
 | Fitness | [`fitness-class-schedule`](layouts/fitness-class-schedule/SKILL.md) | [![fitness-class-schedule](layouts/fitness-class-schedule/preview.png)](layouts/fitness-class-schedule/demo.html) |
 | Legal | [`legal-practice`](layouts/legal-practice/SKILL.md) | [![legal-practice](layouts/legal-practice/preview.png)](layouts/legal-practice/demo.html) |
 | Healthcare | [`medical-practice`](layouts/medical-practice/SKILL.md) | [![medical-practice](layouts/medical-practice/preview.png)](layouts/medical-practice/demo.html) |
-| layout | [`museum-exhibition`](layouts/museum-exhibition/SKILL.md) | [![museum-exhibition](layouts/museum-exhibition/preview.png)](layouts/museum-exhibition/demo.html) |
-| layout | [`no-slop-landing`](layouts/no-slop-landing/SKILL.md) | [![no-slop-landing](layouts/no-slop-landing/preview.png)](layouts/no-slop-landing/demo.html) |
+| Museum | [`museum-exhibition`](layouts/museum-exhibition/SKILL.md) | [![museum-exhibition](layouts/museum-exhibition/preview.png)](layouts/museum-exhibition/demo.html) |
+| Product landing | [`no-slop-landing`](layouts/no-slop-landing/SKILL.md) | [![no-slop-landing](layouts/no-slop-landing/preview.png)](layouts/no-slop-landing/demo.html) |
 | Nonprofit | [`nonprofit-campaign`](layouts/nonprofit-campaign/SKILL.md) | [![nonprofit-campaign](layouts/nonprofit-campaign/preview.png)](layouts/nonprofit-campaign/demo.html) |
 | Education | [`online-course-catalog`](layouts/online-course-catalog/SKILL.md) | [![online-course-catalog](layouts/online-course-catalog/preview.png)](layouts/online-course-catalog/demo.html) |
 | Photography | [`photography-portfolio`](layouts/photography-portfolio/SKILL.md) | [![photography-portfolio](layouts/photography-portfolio/preview.png)](layouts/photography-portfolio/demo.html) |

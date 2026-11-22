@@ -7,10 +7,12 @@ records=json.loads((ROOT/'manifest.json').read_text('utf-8'))['skills']
 CATS=['styles','palettes','layouts','social-media','meta']
 def esc(x):return html.escape(str(x),quote=True)
 def relative(p):return '../'+str(p)
+REPO='https://github.com/dgylayse/anti-slop-design-skills'
+def source(p):return REPO+'/blob/main/'+str(p)
 blocks=[]
 for r in records:
     image=relative(r['preview'])
-    path=relative(r['skill'])
+    path=source(r['skill'])
     demo=relative(r['demo'])
     badge=r['category'].replace('-',' ').upper()
     blocks.append(f'''<article class="tile" data-group="{esc(r['category'])}" data-keywords="{esc((r['name']+' '+r['description']+' '+r['era']).lower())}" tabindex="-1">
@@ -33,10 +35,10 @@ main{{padding:42px clamp(18px,5vw,88px) 100px}}.banner{{margin-bottom:24px;displ
 @media(max-width:1100px){{.gallery{{grid-template-columns:repeat(2,minmax(0,1fr))}}.controls{{position:static}}}}@media(max-width:690px){{.gallery{{grid-template-columns:1fr}}.stats strong{{font-size:27px}}.stats>div{{padding:14px 10px 6px}}.masthead h1{{margin-top:38px}}.controls{{padding:22px 18px}}.banner{{flex-direction:column;align-items:start}}.tile p{{min-height:auto}}.mini{{font-size:10px}}}}
 @media(prefers-reduced-motion:reduce){{html{{scroll-behavior:auto}}.tile-image img{{transition:none}}}}
 </style></head><body>
-<header class="masthead"><div class="mini"><span>AN OPEN LIBRARY OF ART DIRECTION</span><a href="../README.md">GITHUB README ↗</a></div><h1>MORE<br>CHARACTER.<br><em>LESS SLOP.</em></h1><p class="lead">These are not prompt buzzwords. Explore {len(records)} practical Agent Skills through original, browser-rendered design studies. Choose by composition, not just color.</p><div class="stats"><div><strong>{len(records)}</strong><span>Agent Skills</span></div><div><strong>{style_count}</strong><span>Visual Styles</span></div><div><strong>100%</strong><span>With previews</span></div></div></header>
+<header class="masthead"><div class="mini"><span>AN OPEN LIBRARY OF ART DIRECTION</span><a href="{REPO}">GITHUB REPO ↗</a></div><h1>MORE<br>CHARACTER.<br><em>LESS SLOP.</em></h1><p class="lead">These are not prompt buzzwords. Explore {len(records)} practical Agent Skills through original, browser-rendered design studies. Choose by composition, not just color.</p><div class="stats"><div><strong>{len(records)}</strong><span>Agent Skills</span></div><div><strong>{style_count}</strong><span>Visual Styles</span></div><div><strong>100%</strong><span>With previews</span></div></div></header>
 <div class="controls" role="region" aria-label="Catalog controls"><div><label for="search">Find a design language</label><input class="search" id="search" type="search" placeholder="Try hotel, travel, Swiss, magazine…" autocomplete="off"></div><div class="filters" role="group" aria-label="Filter by collection"><button type="button" aria-pressed="true" data-filter="all">All {len(records)}</button><button type="button" aria-pressed="false" data-filter="styles">{style_count} styles</button><button type="button" aria-pressed="false" data-filter="palettes">Palettes</button><button type="button" aria-pressed="false" data-filter="layouts">Layouts</button><button type="button" aria-pressed="false" data-filter="social-media">Social</button><button type="button" aria-pressed="false" data-filter="meta">Director</button></div><div class="count" id="count" aria-live="polite">{len(records)} shown</div></div>
 <main><div class="banner"><h2>VISUAL INDEX / 01—{len(records)}</h2><p>Each card opens a real HTML composition. Its paired SKILL.md describes how to translate the visual language into an accessible, responsive interface.</p></div><section class="gallery" id="gallery" aria-label="Design skill previews">{''.join(blocks)}</section><div class="empty" id="empty">No matching styles. Try a different term or category.</div></main>
-<footer><strong>GOOD DESIGN IS A DECISION.</strong><span>Locally rendered previews • No external fonts or image services • MIT <a href="../README.tr.md">Türkçe rehber</a></span></footer>
+<footer><strong>GOOD DESIGN IS A DECISION.</strong><span>Locally rendered previews • No external fonts or image services • MIT · <a href="{REPO}/blob/main/README.tr.md">Türkçe rehber</a></span></footer>
 <script>
 const tiles=[...document.querySelectorAll('.tile')],filters=[...document.querySelectorAll('[data-filter]')];
 const input=document.getElementById('search');let active='all';

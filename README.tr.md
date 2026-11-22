@@ -6,7 +6,7 @@
 
 Geleneksel grafik tasarımdan farklı sektörlerin gerçek web sitesi ihtiyaçlarına uzanan, **görselliği olan** bir Agent Skills kütüphanesi. Klişe yapay zekâ arayüzlerinden kurtulmanın yolu yalnızca rengi değiştirmek değil; her projeye **uygun mimari + estetik + kullanıcı yolculuğu** seçmek.
 
-- [Tüm skill'leri filtreli galeride gör](gallery/index.html) (HTML'yi yerel tarayıcıda aç)
+- **[▶ Canlı galeri](https://dgylayse.github.io/anti-slop-design-skills/)**: 92 skill'i filtrele, her HTML demoyu tarayıcıda aç
 - [52 görsel stilin tek sayfalık görseli](gallery/contact-sheet.jpg)
 - [Sektörlere göre hazır kombinasyon örnekleri](examples/industry-recipes.md)
 
@@ -60,8 +60,8 @@ boş/yükleniyor/hata durumlarını tasarla. Klişe yapay zekâ arayüzünü ve
 uydurma müşteri yorumlarını kullanma. Kodunu üret, kararı açıkla.
 ```
 
-## GitHub'a yükleme
+## Galeri ve kendi projende kullanma
 
-ZIP'i çıkart, klasörün **içindeki** tüm dosyaları yeni bir repoya yükle. README görselleri GitHub içinde gösterir. `gallery/index.html` çevrimdışı gezilebilir. İstersen statik galeriyi GitHub Pages üzerinden yayımlayabilirsin (repo kökünde `index.html` yönlendirmesi bulunur).
+Canlı galeri: https://dgylayse.github.io/anti-slop-design-skills/. Yerelde `gallery/index.html` dosyasını tarayıcıda açarak çevrimdışı da gezebilirsin. Bir stili projene eklemek için `tools/install.py` komutunu kullan ya da ilgili skill klasörünü olduğu gibi kopyala.
 
 **Kaynak yaklaşımı:** SITE123'ün sektörel örnek çeşitliliğinden kategoriler için fikir alınmıştır, hazır SITE123 şablonları veya müşteri görselleri kopyalanmamıştır. Çalışma özgün statik HTML/SVG demolarına ve tarihsel tasarım prensiplerine dayanır. MIT lisanslıdır.
