@@ -1,63 +1,351 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ebru-marbling — original style study</title><style>
-:root{--color-bg:#F4EEE1;--color-surface:#FBF7EE;--color-ink:#1E2340;--color-muted:#585467;--color-accent:#A8362B;--color-border:#2B3159;--font-display:'Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;--font-body:'Segoe UI',Candara,Arial,sans-serif}
-*{box-sizing:border-box}html,body{margin:0}body{background:var(--color-bg);color:var(--color-ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased}
-.page{width:1280px;height:800px;overflow:hidden;display:grid;grid-template-columns:560px 1fr;grid-template-rows:800px;background:var(--color-bg)}
-.endpaper{position:relative;overflow:hidden;border-right:1px solid var(--color-border)}
-.endpaper svg{position:absolute;inset:0;width:100%;height:100%}
-.plate{position:absolute;left:64px;bottom:64px;width:300px;background:var(--color-surface);padding:22px 24px 20px;border:1px solid var(--color-border);outline:1px solid var(--color-border);outline-offset:-6px}
-.plate small{display:block;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--color-muted)}
-.plate strong{display:block;font-family:var(--font-display);font-weight:400;font-size:30px;line-height:1.05;margin:8px 0 6px}
-.plate span{font-family:var(--font-display);font-style:italic;font-size:15px;color:var(--color-muted)}
-.right{display:flex;flex-direction:column;padding:0 72px 0 76px}
-header{height:92px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--color-border)}
-.mark{font-family:var(--font-display);font-size:24px;letter-spacing:.02em}.mark i{color:var(--color-accent)}
-nav{display:flex;gap:30px;font-size:13px;letter-spacing:.08em}nav a{color:inherit;text-decoration:none;padding:10px 0}nav a[aria-current]{border-bottom:2px solid var(--color-accent)}
-.intro{padding:44px 0 28px;display:grid;grid-template-columns:1fr 150px;gap:28px;align-items:end}
-.kicker{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--color-accent);font-weight:600;margin:0 0 18px}
-h1{font-family:var(--font-display);font-weight:400;font-size:58px;line-height:.98;letter-spacing:-.02em;margin:0}
-h1 em{font-style:italic;color:var(--color-accent)}
-.intro p.lede{grid-column:1/2;font-size:16px;line-height:1.6;color:var(--color-muted);max-width:500px;margin:18px 0 0}
-.drop{width:150px;height:150px;justify-self:end}
-.sessions{border-top:1px solid var(--color-border)}
-.row{display:grid;grid-template-columns:84px 1fr 180px;grid-template-areas:"d t b" "d s b";column-gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid #CFC6B3}
-.row time{font-family:var(--font-display);font-size:26px}.row time small{display:block;font-family:var(--font-body);font-size:11px;letter-spacing:.16em;color:var(--color-muted);text-transform:uppercase}
-.row b{font-family:var(--font-display);font-weight:400;font-size:21px}.row .sub{display:block;font-size:13px;color:var(--color-muted);margin-top:3px}
-.row time{grid-area:d}.row>div{grid-area:t}.row .btn{grid-area:b}.seats{grid-area:s;font-size:13px;color:var(--color-muted);margin-top:2px}.seats.low{color:var(--color-accent);font-weight:600}
-.btn{white-space:nowrap;justify-self:end;min-height:44px;padding:0 20px;display:inline-flex;align-items:center;gap:10px;border:1px solid var(--color-ink);font-size:13px;letter-spacing:.06em;color:var(--color-ink);background:transparent}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ebru-marbling — living style study</title>
+<style>
+:root{
+  --color-bg:#F4EEE1;--color-surface:#FBF7EE;--color-ink:#1E2340;--color-muted:#585467;--color-accent:#A8362B;--color-border:#2B3159;
+  --pigment-indigo:#1E2340;--pigment-madder:#A8362B;--pigment-ochre:#C99A3B;--pigment-verdigris:#2F6B6A;--size-paper:#EDE3CC;--stone:#F3ECDC;
+  --font-display:'Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;--font-body:'Segoe UI',Candara,Arial,sans-serif;
+  --focus-ring:3px solid var(--color-accent);--ease-water:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--color-bg);color:var(--color-ink);font-family:var(--font-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:var(--focus-ring);outline-offset:3px}
+button{font:inherit;color:inherit;cursor:pointer}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.kicker{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--color-accent);font-weight:600;margin:0 0 14px}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;letter-spacing:-.01em;margin:0}
+em{font-style:italic;color:var(--color-accent)}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 20px;border:1px solid var(--color-ink);background:transparent;font-size:14px;letter-spacing:.05em;text-decoration:none;position:relative;transition:background .2s,color .2s}
 .btn.primary{background:var(--color-ink);color:var(--color-surface)}
-.btn[aria-disabled=true]{border-style:dashed;color:var(--color-muted);border-color:var(--color-muted)}
-.foot{white-space:nowrap;margin-top:auto;height:82px;display:flex;align-items:center;gap:26px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-muted)}
-.pig{display:flex;align-items:center;gap:9px}.pig i{width:22px;height:22px;border-radius:50%;display:inline-block;border:1px solid var(--color-border)}
-@media(max-width:860px){.page{transform-origin:top left;transform:scale(.6)}}
-</style></head><body>
-<div class="page">
-<aside class="endpaper" aria-label="Marbled paper study">
-<svg viewBox="0 0 560 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-<defs>
-<filter id="flow" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.006 0.018" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="150" xChannelSelector="R" yChannelSelector="G"/></filter>
-<filter id="comb" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="turbulence" baseFrequency="0.003 0.07" numOctaves="1" seed="3"/><feDisplacementMap in="SourceGraphic" scale="46" xChannelSelector="R" yChannelSelector="B"/></filter>
-</defs>
-<rect width="560" height="800" fill="#EDE3CC"/>
-<g filter="url(#flow)">
-<g filter="url(#comb)">
-<rect x="-60" y="-40" width="700" height="90" fill="#1E2340"/><rect x="-60" y="50" width="700" height="34" fill="#C99A3B"/><rect x="-60" y="84" width="700" height="70" fill="#EDE3CC"/><rect x="-60" y="154" width="700" height="58" fill="#A8362B"/><rect x="-60" y="212" width="700" height="26" fill="#EDE3CC"/><rect x="-60" y="238" width="700" height="96" fill="#2F6B6A"/><rect x="-60" y="334" width="700" height="30" fill="#C99A3B"/><rect x="-60" y="364" width="700" height="80" fill="#1E2340"/><rect x="-60" y="444" width="700" height="44" fill="#EDE3CC"/><rect x="-60" y="488" width="700" height="70" fill="#A8362B"/><rect x="-60" y="558" width="700" height="28" fill="#EDE3CC"/><rect x="-60" y="586" width="700" height="100" fill="#2F6B6A"/><rect x="-60" y="686" width="700" height="40" fill="#C99A3B"/><rect x="-60" y="726" width="700" height="120" fill="#1E2340"/><rect x="-60" y="70" width="700" height="3" fill="#1E2340"/><rect x="-60" y="120" width="700" height="3" fill="#A8362B"/><rect x="-60" y="180" width="700" height="3" fill="#EDE3CC"/><rect x="-60" y="226" width="700" height="3" fill="#1E2340"/><rect x="-60" y="280" width="700" height="3" fill="#C99A3B"/><rect x="-60" y="300" width="700" height="3" fill="#EDE3CC"/><rect x="-60" y="400" width="700" height="3" fill="#2F6B6A"/><rect x="-60" y="470" width="700" height="3" fill="#A8362B"/><rect x="-60" y="520" width="700" height="3" fill="#EDE3CC"/><rect x="-60" y="570" width="700" height="3" fill="#1E2340"/><rect x="-60" y="630" width="700" height="3" fill="#EDE3CC"/><rect x="-60" y="660" width="700" height="3" fill="#A8362B"/><rect x="-60" y="760" width="700" height="3" fill="#C99A3B"/>
-</g>
-<g fill="#F4EEE1" opacity=".9"><circle cx="120" cy="140" r="22"/><circle cx="380" cy="250" r="30"/><circle cx="210" cy="420" r="18"/><circle cx="450" cy="520" r="24"/><circle cx="90" cy="610" r="16"/><circle cx="300" cy="700" r="20"/></g>
-<g fill="#A8362B"><circle cx="120" cy="140" r="9"/><circle cx="380" cy="250" r="12"/><circle cx="450" cy="520" r="10"/></g>
-</g>
-<path d="M0 0H560V800H0Z" fill="none" stroke="#2B3159" stroke-width="14" opacity=".12"/>
-</svg>
-<div class="plate"><small>Endpaper study · battal &amp; gelgit</small><strong>Paint that floats before it settles.</strong><span>Pigment, ox-gall, a comb of horsehair.</span></div>
-</aside>
-<section class="right">
-<header><div class="mark">Su <i>&amp;</i> Kâğıt</div><nav aria-label="Primary"><a href="#" aria-current="page">Workshops</a><a href="#">Papers</a><a href="#">Bindery</a><a href="#">Visit</a></nav></header>
-<div class="intro"><div><p class="kicker">Spring workshops · small tables of six</p><h1>Paint on water.<br><em>Lift</em> it onto paper.</h1><p class="lede">An Ottoman technique learned slowly: thicken the size, drop the colour, draw the comb, and keep exactly one sheet.</p></div>
-<svg class="drop" viewBox="0 0 190 190" role="img" aria-label="A marbled tulip drawn with a stylus"><circle cx="95" cy="95" r="92" fill="#FBF7EE" stroke="#2B3159"/><path d="M95 160C95 120 92 96 95 62" stroke="#2F6B6A" stroke-width="3" fill="none"/><path d="M95 66C70 64 58 40 66 24C78 40 88 44 95 30C102 44 112 40 124 24C132 40 120 64 95 66Z" fill="#A8362B"/><path d="M95 60C84 56 80 44 84 36C90 44 95 46 95 46C95 46 100 44 106 36C110 44 106 56 95 60Z" fill="#F4EEE1"/><path d="M95 128C78 120 66 104 70 92C84 100 92 112 95 128ZM95 118C110 108 122 104 128 108C120 120 106 124 95 118Z" fill="#2F6B6A"/></svg></div>
-<div class="sessions" role="list">
-<div class="row" role="listitem"><time>12<small>April · Sat</small></time><div><b>Battal — first sheets</b><span class="sub">Stone-spotted ground, four pigments · 3 hours</span></div><span class="seats">4 of 6 seats open</span><span class="btn primary">Reserve a seat →</span></div>
-<div class="row" role="listitem"><time>19<small>April · Sat</small></time><div><b>Gelgit — combed waves</b><span class="sub">Stylus and comb patterns · bring a first sheet</span></div><span class="seats low">1 seat left</span><span class="btn">Reserve →</span></div>
-<div class="row" role="listitem"><time>26<small>April · Sat</small></time><div><b>Lale — the marbled tulip</b><span class="sub">Floral drops for book covers · 4 hours</span></div><span class="seats">Full · waitlist</span><span class="btn" aria-disabled="true">Join waitlist</span></div>
+.btn:hover{background:var(--color-ink);color:var(--color-surface)}
+.btn.primary:hover{background:var(--color-accent);border-color:var(--color-accent)}
+.btn[disabled],.btn[aria-disabled=true]{border-style:dashed;color:var(--color-muted);border-color:var(--color-muted);background:transparent;cursor:not-allowed}
+.wave{display:inline-block;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='6'%3E%3Cpath d='M0 3Q6 0 12 3T24 3' fill='none' stroke='%23A8362B' stroke-width='1.4'/%3E%3C/svg%3E");background-repeat:repeat-x;background-position:0 100%;background-size:24px 6px;padding-bottom:6px;text-decoration:none}
+.wave:hover{animation:flow 1.2s linear infinite}
+@keyframes flow{to{background-position:24px 100%}}
+
+/* ---------- hero ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,46fr) minmax(0,54fr);min-height:clamp(640px,100vh,880px)}
+.tray{position:relative;overflow:hidden;background:var(--size-paper);border-right:1px solid var(--color-border);touch-action:none}
+.tray canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:crosshair}
+.tray canvas:focus-visible{outline-offset:-6px}
+.plate{position:absolute;left:28px;top:28px;max-width:300px;background:var(--color-surface);padding:16px 18px 14px;border:1px solid var(--color-border);outline:1px solid var(--color-border);outline-offset:-6px;pointer-events:none;transition:opacity .4s}
+.plate small{display:block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--color-muted)}
+.plate strong{display:block;font-family:var(--font-display);font-weight:400;font-size:22px;line-height:1.15;margin:6px 0 4px}
+.plate span{font-size:13px;color:var(--color-muted);line-height:1.45;display:block}
+.tray.used .plate{opacity:0}
+.tools{position:absolute;left:0;right:0;bottom:0;background:var(--color-surface);border-top:1px solid var(--color-border);display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:10px 16px}
+.swatches,.modes{display:flex;gap:6px;align-items:center}
+.sw{width:34px;height:34px;border-radius:50%;border:1px solid var(--color-border);padding:0;background:var(--c)}
+.sw[aria-checked=true]{outline:2px solid var(--color-ink);outline-offset:3px}
+.mode{min-height:36px;padding:0 12px;border:1px solid var(--color-border);background:transparent;font-size:13px}
+.mode[aria-checked=true]{background:var(--color-ink);color:var(--color-surface)}
+.tools .sep{width:1px;height:26px;background:#CFC6B3}
+.act{min-height:36px;padding:0 12px;border:1px solid var(--color-border);background:transparent;font-size:13px}
+.act.lift{background:var(--color-accent);border-color:var(--color-accent);color:#fff}
+.act:hover{background:var(--color-ink);color:var(--color-surface)}
+.cursor{position:absolute;width:26px;height:26px;margin:-13px 0 0 -13px;border:1.5px solid var(--color-ink);border-radius:50%;pointer-events:none;opacity:0;transition:opacity .2s}
+.tray:focus-within .cursor.kb{opacity:1}
+.ring{position:absolute;border:1.5px solid rgba(30,35,64,.55);border-radius:50%;pointer-events:none;animation:ring .9s var(--ease-water) forwards}
+@keyframes ring{from{transform:scale(.2);opacity:.9}to{transform:scale(1);opacity:0}}
+.sheet{position:absolute;inset:0;background:#F7F1E3;transform:translateY(-102%);transition:transform .7s var(--ease-water);pointer-events:none;box-shadow:0 2px 0 rgba(43,49,89,.25)}
+.sheet.down{transform:translateY(0)}
+.sheet img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s .2s}
+.sheet.down img{opacity:1}
+
+.intro{display:flex;flex-direction:column;padding:0 clamp(24px,5vw,72px) 36px clamp(24px,5vw,76px)}
+header.site{height:84px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--color-border);gap:20px}
+.mark{font-family:var(--font-display);font-size:24px;text-decoration:none}.mark i{color:var(--color-accent)}
+nav.primary ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px;letter-spacing:.06em}
+nav.primary a{text-decoration:none;padding:10px 0;display:inline-block}
+nav.primary a[aria-current]{box-shadow:inset 0 -2px var(--color-accent)}
+.intro .copy{margin:auto 0;padding:40px 0 10px}
+.intro h1{font-size:clamp(44px,5.2vw,70px);line-height:.98}
+.lede{font-size:clamp(16px,1.3vw,18px);color:var(--color-muted);max-width:520px;margin:20px 0 26px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.howto{margin-top:34px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--color-border)}
+.howto div{padding:14px 16px 0 0;font-size:13.5px;color:var(--color-muted);line-height:1.5}
+.howto b{display:block;font-family:var(--font-display);font-weight:400;font-size:19px;color:var(--color-ink);margin-bottom:2px}
+.sheets{margin-top:22px;display:none;gap:8px;align-items:center;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-muted)}
+.sheets.has{display:flex}
+.sheets a{display:block;width:54px;height:54px;border:1px solid var(--color-border)}
+.sheets img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ---------- sections ---------- */
+section.block{padding:clamp(56px,8vw,104px) clamp(24px,6vw,96px)}
+.rule{display:block;width:100%;height:22px;border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border)}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:40px}
+.head h2{font-size:clamp(34px,4vw,52px);line-height:1.02}
+.head p{color:var(--color-muted);max-width:520px;margin:0}
+
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;counter-reset:s}
+.step canvas{width:100%;aspect-ratio:1;display:block;border:1px solid var(--color-border);background:var(--size-paper)}
+.step h3{font-size:24px;margin:16px 0 4px}
+.step h3:before{counter-increment:s;content:counter(s,decimal-leading-zero) " ";font-family:var(--font-body);font-size:12px;letter-spacing:.2em;color:var(--color-accent);vertical-align:middle}
+.step p{margin:0;font-size:15px;color:var(--color-muted)}
+.step i{font-style:italic;font-family:var(--font-display)}
+
+.sessions{border-top:1px solid var(--color-border)}
+.row{display:grid;grid-template-columns:96px minmax(0,1fr) 200px;grid-template-areas:"d t b" "d s b";column-gap:20px;align-items:center;padding:18px 0;border-bottom:1px solid #CFC6B3}
+.row time{grid-area:d;font-family:var(--font-display);font-size:34px;line-height:1}
+.row time small{display:block;font-family:var(--font-body);font-size:11px;letter-spacing:.16em;color:var(--color-muted);text-transform:uppercase;margin-top:6px}
+.row .t{grid-area:t}.row .t b{font-family:var(--font-display);font-weight:400;font-size:24px}.row .t span{display:block;font-size:14px;color:var(--color-muted)}
+.row .seats{grid-area:s;font-size:13.5px;color:var(--color-muted)}.row .seats.low{color:var(--color-accent);font-weight:600}
+.row .btn{grid-area:b;justify-self:end}
+.book{grid-column:1/-1;display:none;margin-top:16px;background:var(--color-surface);border:1px solid var(--color-border);padding:20px;gap:16px;grid-template-columns:repeat(3,minmax(0,1fr)) auto;align-items:end}
+.book.open{display:grid}
+.book label{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-muted);margin-bottom:6px}
+.book input{width:100%;height:46px;border:1px solid var(--color-border);background:var(--color-bg);padding:0 12px;font:inherit;color:inherit;border-radius:0}
+.book input[aria-invalid=true]{border-color:var(--color-accent);border-width:2px}
+.stepper{display:flex;height:46px;border:1px solid var(--color-border)}
+.stepper button{width:46px;border:0;background:transparent;font-size:18px}.stepper output{flex:1;display:flex;align-items:center;justify-content:center;font-size:17px}
+.err{grid-column:1/-1;margin:0;color:var(--color-accent);font-size:14px;min-height:0}
+.done{grid-column:1/-1;display:none;margin-top:14px;padding:14px 18px;border-left:3px solid var(--pigment-verdigris);background:var(--color-surface);font-size:15px}
+.done.show{display:block}
+
+.papers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.paper{background:var(--color-surface);border:1px solid var(--color-border);display:flex;flex-direction:column}
+.paper canvas{width:100%;aspect-ratio:4/3;display:block;border-bottom:1px solid var(--color-border)}
+.paper .meta{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.paper h3{font-size:25px}.paper h3 span{font-family:var(--font-body);font-size:13px;color:var(--color-muted);letter-spacing:.02em}
+.paper p{margin:0;font-size:14.5px;color:var(--color-muted);flex:1}
+.paper .foot{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.paper .price{font-family:var(--font-display);font-size:20px}
+.replay{border:0;background:transparent;font-size:13px;letter-spacing:.06em;padding:8px 0}
+
+.quote{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:56px;align-items:center}
+.quote canvas{width:100%;aspect-ratio:1;display:block;border-radius:50%;border:1px solid var(--color-border)}
+.quote blockquote{margin:0;font-family:var(--font-display);font-size:clamp(28px,3.2vw,44px);line-height:1.2}
+.quote figcaption{margin-top:18px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-muted)}
+
+footer.site{background:var(--color-ink);color:var(--color-surface);padding:56px clamp(24px,6vw,96px);display:grid;grid-template-columns:1.2fr 1fr 1fr 1.4fr;gap:40px;font-size:15px}
+footer.site h4{margin:0 0 10px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#C9C3D8;font-weight:600}
+footer.site p{margin:0;line-height:1.7;color:#E8E3F0}
+footer.site .mark{color:var(--color-surface);font-size:28px}
+.news{display:flex;border:1px solid #8E89A8;height:48px}.news input{flex:1;background:transparent;border:0;color:var(--color-surface);padding:0 14px;font:inherit}.news input::placeholder{color:#B8B3CC}.news button{border:0;background:var(--color-surface);color:var(--color-ink);padding:0 16px}
+
+@media (max-width:1100px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.papers{grid-template-columns:repeat(2,minmax(0,1fr))}footer.site{grid-template-columns:1fr 1fr}}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:0}
+  .tray{height:72vh;min-height:460px;border-right:0;border-bottom:1px solid var(--color-border);order:2}
+  .intro{order:1;padding-bottom:28px}
+  .intro .copy{padding:32px 0 0}
+  nav.primary ul{gap:16px}
+  .head{grid-template-columns:1fr;gap:12px}
+  .quote{grid-template-columns:1fr}
+  .quote canvas{max-width:320px}
+  .row{grid-template-columns:72px minmax(0,1fr);grid-template-areas:"d t" "d s" "b b"}
+  .row .btn{justify-self:start;margin-top:12px}
+  .book{grid-template-columns:1fr}
+}
+@media (max-width:620px){.papers{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.step h3{font-size:20px}.step p{font-size:14px}.howto{grid-template-columns:1fr}.howto div{padding-top:10px}nav.primary ul li:nth-child(n+3){display:none}footer.site{grid-template-columns:1fr}.tools{gap:8px}.tools .sep{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ring{display:none}.sheet,.sheet img,.plate{transition:none}.wave:hover{animation:none}}
+</style>
+</head>
+<body>
+<a class="sr" href="#main">Skip to content</a>
+
+<div class="hero">
+  <div class="tray" id="tray">
+    <canvas id="tekne" tabindex="0" role="img" aria-label="Marbling tray. Click or press Space to drop pigment, hold to make the drop bigger. In stylus mode, drag or use the arrow keys to draw through the paint."></canvas>
+    <div class="cursor" id="kbcursor" aria-hidden="true"></div>
+    <div class="sheet" id="sheet" aria-hidden="true"><img alt=""></div>
+    <div class="plate" aria-hidden="true"><small>Tekne · the tray</small><strong>Try it. The paint floats.</strong><span>Click to drop pigment, hold to grow it, switch to the stylus and drag.</span></div>
+    <div class="tools" role="toolbar" aria-label="Marbling tools">
+      <div class="swatches" role="radiogroup" aria-label="Pigment">
+        <button class="sw" role="radio" aria-checked="true" style="--c:#1E2340" data-c="#1E2340" aria-label="Indigo"></button>
+        <button class="sw" role="radio" aria-checked="false" style="--c:#A8362B" data-c="#A8362B" aria-label="Madder red"></button>
+        <button class="sw" role="radio" aria-checked="false" style="--c:#C99A3B" data-c="#C99A3B" aria-label="Ochre"></button>
+        <button class="sw" role="radio" aria-checked="false" style="--c:#2F6B6A" data-c="#2F6B6A" aria-label="Verdigris"></button>
+        <button class="sw" role="radio" aria-checked="false" style="--c:#F3ECDC" data-c="#F3ECDC" aria-label="Stone white"></button>
+      </div>
+      <span class="sep" aria-hidden="true"></span>
+      <div class="modes" role="radiogroup" aria-label="Tool">
+        <button class="mode" role="radio" aria-checked="true" data-mode="drop">Drop</button>
+        <button class="mode" role="radio" aria-checked="false" data-mode="stylus">Stylus · <i>biz</i></button>
+      </div>
+      <span class="sep" aria-hidden="true"></span>
+      <button class="act" id="comb">Comb · <i>tarak</i></button>
+      <button class="act lift" id="lift">Lift onto paper</button>
+      <button class="act" id="reset" title="Start again with a stone-spotted ground">New ground</button>
+    </div>
+  </div>
+
+  <div class="intro">
+    <header class="site">
+      <a class="mark" href="#">Su <i>&amp;</i> Kâğıt</a>
+      <nav class="primary" aria-label="Primary"><ul><li><a href="#workshops" aria-current="page">Workshops</a></li><li><a href="#papers">Papers</a></li><li><a href="#method">Method</a></li><li><a href="#visit">Visit</a></li></ul></nav>
+    </header>
+    <div class="copy" id="main">
+      <p class="kicker">Ebru atelier · small tables of six</p>
+      <h1>Paint on water.<br><em>Lift</em> it onto paper.</h1>
+      <p class="lede">An Ottoman craft learned slowly: thicken the size, float the colour, draw the comb — and keep exactly one sheet. Try the tray on the left, then come and do it with real pigment.</p>
+      <div class="cta"><a class="btn primary" href="#workshops">Book a workshop →</a><a class="btn" href="#papers">Buy marbled papers</a></div>
+      <div class="howto" aria-label="How to use the tray">
+        <div><b>Damla</b>Click to drop. Hold longer for a bigger drop.</div>
+        <div><b>Biz</b>Switch to the stylus and drag through the paint.</div>
+        <div><b>Tarak</b>Pull the comb for <i>gelgit</i> waves, then lift the sheet.</div>
+      </div>
+      <div class="sheets" id="sheets" aria-live="polite"><span>Your sheets</span></div>
+    </div>
+  </div>
 </div>
-<div class="foot"><span>Pigments this season</span><span class="pig"><i style="background:#1E2340"></i>Indigo</span><span class="pig"><i style="background:#A8362B"></i>Madder</span><span class="pig"><i style="background:#C99A3B"></i>Ochre</span><span class="pig"><i style="background:#2F6B6A"></i>Verdigris</span></div>
+
+<canvas class="rule" data-rule="1" aria-hidden="true"></canvas>
+
+<section class="block" id="method" aria-labelledby="mh">
+  <div class="head"><div><p class="kicker">The method</p><h2 id="mh">Four steps, one sheet, no second chances.</h2></div><p>Every pattern in our shop starts the same way. The water is thickened with gum tragacanth (<i>kitre</i>), the pigments are ground with a drop of ox-gall, and the paper only touches the surface once.</p></div>
+  <div class="steps">
+    <article class="step"><canvas data-step="0" aria-hidden="true"></canvas><h3>Kitre</h3><p>Thicken the water until a drop of paint floats instead of sinking.</p></article>
+    <article class="step"><canvas data-step="1" aria-hidden="true"></canvas><h3>Damla</h3><p>Flick pigment from a rose-stem brush. Each drop pushes the others aside.</p></article>
+    <article class="step"><canvas data-step="2" aria-hidden="true"></canvas><h3>Tarak</h3><p>Pull a comb through the surface to turn spots into <i>gelgit</i> waves.</p></article>
+    <article class="step"><canvas data-step="3" aria-hidden="true"></canvas><h3>Kâğıt</h3><p>Lay the paper down, lift it once, and dry it flat. The tray is empty again.</p></article>
+  </div>
 </section>
-</div></body></html>
+
+<canvas class="rule" data-rule="2" aria-hidden="true"></canvas>
+
+<section class="block" id="workshops" aria-labelledby="wh">
+  <div class="head"><div><p class="kicker">Spring workshops</p><h2 id="wh">Saturday mornings at the long table.</h2></div><p>Three hours, all materials included, six people per table. You leave with your sheets dried and pressed.</p></div>
+  <div class="sessions">
+    <div class="row" data-seats="4"><time>12<small>April · Sat</small></time><div class="t"><b>Battal — first sheets</b><span>Stone-spotted ground, four pigments · 3 hours · €65</span></div><span class="seats">4 of 6 seats open</span><button class="btn primary" aria-expanded="false">Reserve a seat →</button>
+      <form class="book" novalidate><div><label for="n1">Name</label><input id="n1" name="name" autocomplete="name"></div><div><label for="e1">Email</label><input id="e1" name="email" type="email" autocomplete="email"></div><div><label>Seats</label><div class="stepper"><button type="button" data-d="-1" aria-label="Fewer seats">−</button><output>1</output><button type="button" data-d="1" aria-label="More seats">+</button></div></div><button class="btn primary" type="submit">Hold my seat</button><p class="err" role="alert"></p></form>
+      <p class="done" role="status"></p></div>
+    <div class="row" data-seats="1"><time>19<small>April · Sat</small></time><div class="t"><b>Gelgit — combed waves</b><span>Stylus and comb patterns · bring a first sheet · €70</span></div><span class="seats low">1 seat left</span><button class="btn" aria-expanded="false">Reserve →</button>
+      <form class="book" novalidate><div><label for="n2">Name</label><input id="n2" name="name" autocomplete="name"></div><div><label for="e2">Email</label><input id="e2" name="email" type="email" autocomplete="email"></div><div><label>Seats</label><div class="stepper"><button type="button" data-d="-1" aria-label="Fewer seats">−</button><output>1</output><button type="button" data-d="1" aria-label="More seats">+</button></div></div><button class="btn primary" type="submit">Hold my seat</button><p class="err" role="alert"></p></form>
+      <p class="done" role="status"></p></div>
+    <div class="row" data-seats="0"><time>26<small>April · Sat</small></time><div class="t"><b>Lale — the marbled tulip</b><span>Floral drops for book covers · 4 hours · €80</span></div><span class="seats">Full · waitlist open</span><button class="btn" aria-expanded="false" data-wait>Join waitlist</button>
+      <form class="book" novalidate><div><label for="n3">Name</label><input id="n3" name="name" autocomplete="name"></div><div><label for="e3">Email</label><input id="e3" name="email" type="email" autocomplete="email"></div><div></div><button class="btn primary" type="submit">Add me to the list</button><p class="err" role="alert"></p></form>
+      <p class="done" role="status"></p></div>
+  </div>
+</section>
+
+<canvas class="rule" data-rule="3" aria-hidden="true"></canvas>
+
+<section class="block" id="papers" aria-labelledby="ph">
+  <div class="head"><div><p class="kicker">Marbled papers</p><h2 id="ph">Each sheet is a one-off. These are the families.</h2></div><p>Laid paper, 50 × 70 cm, for bookbinding, endpapers and framing. Press <i>Replay</i> on any card to watch how that pattern is built.</p></div>
+  <div class="papers" id="paperGrid"></div>
+</section>
+
+<section class="block" aria-label="From the atelier">
+  <figure class="quote" style="margin:0"><canvas id="lale" aria-hidden="true"></canvas><div><blockquote>“The water decides the first half of every sheet. Our job is the second half — and to know when to stop.”</blockquote><figcaption>A note pinned above the long table</figcaption></div></figure>
+</section>
+
+<footer class="site" id="visit">
+  <div><a class="mark" href="#">Su <i>&amp;</i> Kâğıt</a><p style="margin-top:12px">An ebru and bookbinding atelier. Workshops, papers and repairs.</p></div>
+  <div><h4>Visit</h4><p>Tue–Sat · 10:00–18:00<br>Ground floor, the old paper store<br>Step-free entrance</p></div>
+  <div><h4>Contact</h4><p>hello@example.com<br>Group bookings by email</p></div>
+  <div><h4>One letter a season</h4><form class="news" onsubmit="event.preventDefault();this.querySelector('button').textContent='Thank you'"><label class="sr" for="nl">Email address</label><input id="nl" type="email" placeholder="Your email address" required><button>Sign up</button></form></div>
+</footer>
+<p class="sr" id="announce" aria-live="polite"></p>
+
+<script>
+/* ===== Marbler: mathematical marbling (ink drops + tines), after Jaffer & Lu's marbling model ===== */
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+function rng(seed){let s=seed>>>0||1;return()=>{s^=s<<13;s^=s>>>17;s^=s<<5;return(s>>>0)/4294967296}}
+class Marbler{
+  constructor(canvas,{w=1000,h=1000,bg='#EDE3CC',seg=7,maxShapes=520}={}){
+    this.c=canvas;this.g=canvas.getContext('2d');this.W=w;this.H=h;this.bg=bg;this.seg=seg;this.maxShapes=maxShapes;this.shapes=[];this.queued=false;this.fit();
+  }
+  fit(){const r=this.c.getBoundingClientRect(),d=Math.min(window.devicePixelRatio||1,2);this.d=d;this.c.width=Math.max(2,Math.round(r.width*d));this.c.height=Math.max(2,Math.round(r.height*d));this.s=Math.max(this.c.width/this.W,this.c.height/this.H);this.ox=(this.c.width-this.W*this.s)/2;this.oy=(this.c.height-this.H*this.s)/2}
+  toLogical(x,y){const r=this.c.getBoundingClientRect();return[((x-r.left)*this.d-this.ox)/this.s,((y-r.top)*this.d-this.oy)/this.s]}
+  toClient(x,y){return[(x*this.s+this.ox)/this.d,(y*this.s+this.oy)/this.d]}
+  clear(){this.shapes=[]}
+  /* push every existing point away from (cx,cy) as if a drop of radius r landed there */
+  push(cx,cy,r){const r2=r*r;for(const s of this.shapes){const p=s.p;for(let i=0;i<p.length;i+=2){const dx=p[i]-cx,dy=p[i+1]-cy,m2=dx*dx+dy*dy;if(m2<1e-9)continue;const f=Math.sqrt(1+r2/m2);p[i]=cx+dx*f;p[i+1]=cy+dy*f}}}
+  addCircle(cx,cy,r,color){const n=Math.max(28,Math.min(180,Math.round(r*1.1))),p=new Array(n*2);for(let i=0;i<n;i++){const a=i/n*6.283185;p[2*i]=cx+Math.cos(a)*r;p[2*i+1]=cy+Math.sin(a)*r}this.shapes.push({color,p});while(this.shapes.length>this.maxShapes)this.shapes.shift();return this.shapes[this.shapes.length-1]}
+  drop(cx,cy,r,color){this.push(cx,cy,r);this.addCircle(cx,cy,r,color);this.refine()}
+  /* a laid band of colour (used before combing) */
+  band(y0,y1,color){const x0=-80,x1=this.W+80,st=this.seg,p=[];for(let x=x0;x<x1;x+=st)p.push(x,y0);p.push(x1,y0,x1,y1);for(let x=x1;x>x0;x-=st)p.push(x,y1);p.push(x0,y1);this.shapes.push({color,p})}
+  /* infinite tine line through (px,py) with unit direction (mx,my): comb tooth */
+  /* smooth=true uses a Gaussian falloff: rounder waves, like a comb pulled slowly */
+  tine(px,py,mx,my,z,c,smooth){const u=Math.pow(.5,1/c),nx=-my,ny=mx,lim=smooth?c*3.5:c*14,c2=c*c;for(const s of this.shapes){const p=s.p;for(let i=0;i<p.length;i+=2){const d=Math.abs((p[i]-px)*nx+(p[i+1]-py)*ny);if(d>lim)continue;const k=smooth?z*Math.exp(-d*d/c2):z*Math.pow(u,d);p[i]+=mx*k;p[i+1]+=my*k}}this.refine()}
+  /* stylus: a short segment a->b, displacement decays with distance to the segment */
+  stroke(ax,ay,bx,by,z,c){const vx=bx-ax,vy=by-ay,L=Math.hypot(vx,vy);if(L<.3)return;const mx=vx/L,my=vy/L,u=Math.pow(.5,1/c),lim=c*12;for(const s of this.shapes){const p=s.p;for(let i=0;i<p.length;i+=2){let t=((p[i]-ax)*vx+(p[i+1]-ay)*vy)/(L*L);t=t<0?0:t>1?1:t;const qx=ax+vx*t-p[i],qy=ay+vy*t-p[i+1],d=Math.hypot(qx,qy);if(d>lim)continue;const k=z*Math.pow(u,d);p[i]+=mx*k;p[i+1]+=my*k}}this.refine()}
+  /* swirl around a centre (bülbül yuvası) */
+  swirl(cx,cy,a,c){for(const s of this.shapes){const p=s.p;for(let i=0;i<p.length;i+=2){const dx=p[i]-cx,dy=p[i+1]-cy,m=Math.hypot(dx,dy),t=a*Math.exp(-m/c);if(Math.abs(t)<.002)continue;const co=Math.cos(t),si=Math.sin(t);p[i]=cx+dx*co-dy*si;p[i+1]=cy+dx*si+dy*co}}this.refine()}
+  /* keep outlines smooth: subdivide long edges that are still near the visible area */
+  refine(){const L=this.seg,L2=L*L,W=this.W,H=this.H,pad=60;for(const s of this.shapes){const p=s.p,n=p.length/2;if(n>5000)continue;let grew=false;const o=[];for(let i=0;i<n;i++){const x=p[2*i],y=p[2*i+1],j=(i+1)%n,x2=p[2*j],y2=p[2*j+1];o.push(x,y);const dx=x2-x,dy=y2-y,d2=dx*dx+dy*dy;if(d2>L2){const vis=(x>-pad&&x<W+pad&&y>-pad&&y<H+pad)||(x2>-pad&&x2<W+pad&&y2>-pad&&y2<H+pad);if(!vis)continue;const k=Math.min(10,Math.ceil(Math.sqrt(d2)/L));for(let t=1;t<k;t++)o.push(x+dx*t/k,y+dy*t/k);grew=true}}if(grew)s.p=o}}
+  draw(){const g=this.g;g.setTransform(1,0,0,1,0,0);g.fillStyle=this.bg;g.fillRect(0,0,this.c.width,this.c.height);g.setTransform(this.s,0,0,this.s,this.ox,this.oy);for(const s of this.shapes){const p=s.p;g.beginPath();g.moveTo(p[0],p[1]);for(let i=2;i<p.length;i+=2)g.lineTo(p[i],p[i+1]);g.closePath();g.fillStyle=s.color;g.fill()}}
+  request(){if(this.queued)return;this.queued=true;requestAnimationFrame(()=>{this.queued=false;this.draw()})}
+}
+
+const P={indigo:'#1E2340',madder:'#A8362B',ochre:'#C99A3B',verd:'#2F6B6A',stone:'#F3ECDC',size:'#EDE3CC',leaf:'#3E6B4A'};
+const ORDER=[P.indigo,P.ochre,P.stone,P.madder,P.stone,P.verd,P.ochre,P.indigo,P.stone,P.madder,P.verd,P.stone,P.indigo,P.ochre];
+
+/* ===== pattern recipes: each returns a list of steps so they can be replayed ===== */
+const R={
+  battal(m,seed=3){const r=rng(seed),st=[];for(let i=0;i<70;i++){const c=[P.indigo,P.ochre,P.madder,P.verd,P.indigo,P.stone][i%6];st.push(()=>m.drop(r()*m.W,r()*m.H,40+r()*90*(1-i/110),c))}for(let i=0;i<14;i++){st.push(()=>m.drop(r()*m.W,r()*m.H,12+r()*22,P.stone))}return st},
+  rows(m,seed=7,step=34){const r=rng(seed),st=[];let k=0,y=-60;while(y<m.H+60){const h=step*(.45+r()*1.1),c=ORDER[(k++ + seed)%ORDER.length],a=y,b=y+h;st.push(()=>m.band(a,b,c));y=b}
+    for(let i=0;i<7;i++){const xx=r()*m.W,d=r()<.5?1:-1,z=14+r()*26;st.push(()=>m.tine(xx,0,0,d,z*1.6,120+r()*90,true))}
+    for(let i=0;i<8;i++){const xx=r()*m.W,yy=r()*m.H,a=(r()-.5)*1.4;st.push(()=>m.swirl(xx,yy,a,150))}return st},
+  gelgit(m,seed=7){const st=R.rows(m,seed),r=rng(seed*3+1);const sp=50;for(let i=0,x=sp/2;x<m.W+sp;x+=sp,i++){const xx=x+(r()-.5)*8,dir=i%2?1:-1,z=30+r()*14;st.push(()=>m.tine(xx,0,0,dir,z,sp*.42,true))}return st},
+  sal(m,seed=11){const st=R.gelgit(m,seed);for(let i=0,y=20;y<m.H+40;y+=40,i++){const yy=y,dir=i%2?1:-1;st.push(()=>m.tine(0,yy,dir,0,16,15,true))}return st},
+  bulbul(m,seed=5){const st=R.gelgit(m,seed);for(let y=140;y<m.H;y+=250)for(let x=125+((y/250)|0)%2*125;x<m.W+60;x+=250){const xx=x,yy=y;st.push(()=>m.swirl(xx,yy,7,48))}return st},
+  lale(m){const st=[],cx=m.W/2,cy=m.H*.36;st.push(()=>m.drop(cx,cy,120,P.madder),()=>m.drop(cx,cy,78,P.stone),()=>m.drop(cx,cy,46,P.madder),()=>m.drop(cx,cy,18,P.ochre));
+    st.push(()=>m.drop(cx-150,cy+250,60,P.verd),()=>m.drop(cx+150,cy+250,60,P.verd));
+    for(let i=0;i<18;i++){const y0=cy-200+i*22;st.push(()=>m.stroke(cx,y0,cx,y0+22,20,22))}
+    st.push(()=>m.stroke(cx-150,cy+190,cx-60,cy+330,60,26),()=>m.stroke(cx+150,cy+190,cx+60,cy+330,60,26));
+    st.push(()=>m.drop(cx,cy+420,10,P.leaf));for(let i=0;i<10;i++){const y=cy+420-i*20;st.push(()=>m.stroke(cx,y,cx,y-20,18,8))}return st},
+  ground(m,seed=21){const st=R.gelgit(m,seed);const r=rng(seed+1);for(let i=0;i<10;i++){const x=r()*m.W,y=r()*m.H,rr=18+r()*26;st.push(()=>m.drop(x,y,rr,P.stone));if(i%3===0)st.push(()=>m.drop(x,y,rr*.38,P.madder))}return st}
+};
+function runNow(m,steps){for(const s of steps)s();m.draw()}
+function play(m,steps,ms=45){if(REDUCED){runNow(m,steps);return}let i=0,last=0;const tick=t=>{if(t-last>=ms){const n=Math.max(1,Math.ceil(steps.length/60));for(let k=0;k<n&&i<steps.length;k++)steps[i++]();m.draw();last=t}if(i<steps.length)requestAnimationFrame(tick)};requestAnimationFrame(tick)}
+
+/* ===== the tray ===== */
+const tray=document.getElementById('tray'),cv=document.getElementById('tekne'),T=new Marbler(cv,{h:1100});
+runNow(T,R.ground(T));
+let color=P.indigo,mode='drop',holding=null,last=null;
+const announce=t=>{document.getElementById('announce').textContent=t};
+function ring(x,y,r){if(REDUCED)return;const [cx,cy]=T.toClient(x,y),e=document.createElement('span'),d=Math.max(30,r*T.s/T.d*2.6);e.className='ring';Object.assign(e.style,{left:cx-d/2+'px',top:cy-d/2+'px',width:d+'px',height:d+'px'});tray.appendChild(e);setTimeout(()=>e.remove(),950)}
+function startDrop(x,y){tray.classList.add('used');const r0=16;T.push(x,y,r0);const s=T.addCircle(x,y,r0,color);T.refine();T.request();holding={x,y,r:r0,t:performance.now()};ring(x,y,40);const grow=t=>{if(!holding)return;const R2=Math.min(150,r0+(t-holding.t)*.09);if(R2>holding.r+.5){const inc=Math.sqrt(R2*R2-holding.r*holding.r);T.push(holding.x,holding.y,inc);holding.r=R2;T.refine();T.draw()}requestAnimationFrame(grow)};requestAnimationFrame(grow)}
+cv.addEventListener('pointerdown',e=>{cv.focus({preventScroll:true});cv.setPointerCapture(e.pointerId);const [x,y]=T.toLogical(e.clientX,e.clientY);if(mode==='drop')startDrop(x,y);else{last=[x,y];tray.classList.add('used')}});
+cv.addEventListener('pointermove',e=>{if(mode!=='stylus'||!last)return;const [x,y]=T.toLogical(e.clientX,e.clientY);const L=Math.hypot(x-last[0],y-last[1]);if(L<1.5)return;T.stroke(last[0],last[1],x,y,Math.min(L*.95,40),12);last=[x,y];T.request()});
+const end=()=>{holding=null;last=null};cv.addEventListener('pointerup',end);cv.addEventListener('pointercancel',end);
+/* keyboard: arrows move a cursor, Space/Enter drops (or draws in stylus mode) */
+const kb=document.getElementById('kbcursor');let kx=500,ky=550;
+function placeKb(){const [cx,cy]=T.toClient(kx,ky);kb.style.left=cx+'px';kb.style.top=cy+'px';kb.classList.add('kb')}
+cv.addEventListener('keydown',e=>{const st=e.shiftKey?60:24,mv={ArrowLeft:[-st,0],ArrowRight:[st,0],ArrowUp:[0,-st],ArrowDown:[0,st]}[e.key];
+  if(mv){e.preventDefault();const nx=Math.max(0,Math.min(T.W,kx+mv[0])),ny=Math.max(0,Math.min(T.H,ky+mv[1]));if(mode==='stylus'){T.stroke(kx,ky,nx,ny,Math.hypot(mv[0],mv[1])*.9,12);T.request();tray.classList.add('used')}kx=nx;ky=ny;placeKb()}
+  else if(e.key===' '||e.key==='Enter'){e.preventDefault();if(mode==='drop'){tray.classList.add('used');T.drop(kx,ky,48,color);ring(kx,ky,48);T.request()}}});
+cv.addEventListener('focus',placeKb);
+/* tools */
+document.querySelectorAll('.sw').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.sw').forEach(o=>o.setAttribute('aria-checked',o===b));color=b.dataset.c}));
+document.querySelectorAll('.mode').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.mode').forEach(o=>o.setAttribute('aria-checked',o===b));mode=b.dataset.mode;cv.style.cursor=mode==='stylus'?'cell':'crosshair'}));
+document.getElementById('comb').addEventListener('click',()=>{tray.classList.add('used');const sp=46,lines=[];for(let i=0,x=sp/2;x<T.W;x+=sp,i++)lines.push([x,i%2?1:-1]);const total=70,frames=REDUCED?1:28;let f=0;const tick=()=>{for(const[x,d]of lines)T.tine(x,0,0,d,total/frames,19,true);T.draw();if(++f<frames)requestAnimationFrame(tick)};tick();announce('Comb pulled through the tray.')});
+document.getElementById('reset').addEventListener('click',()=>{T.clear();play(T,R.ground(T,(Math.random()*1e6)|0),16);announce('New ground laid.')});
+document.getElementById('lift').addEventListener('click',()=>{const sheet=document.getElementById('sheet'),img=sheet.querySelector('img'),url=cv.toDataURL('image/png');img.src=url;sheet.classList.add('down');
+  const sheets=document.getElementById('sheets'),a=document.createElement('a');a.href=url;a.download='ebru-sheet.png';a.title='Download this sheet';a.innerHTML='<img alt="Your marbled sheet">';a.firstChild.src=url;sheets.appendChild(a);sheets.classList.add('has');
+  setTimeout(()=>{T.clear();T.draw();sheet.classList.remove('down')},REDUCED?50:1500);announce('Sheet lifted. It is saved under “Your sheets” — the tray is empty again.')});
+let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{T.fit();T.draw();placeKb();kb.classList.remove('kb');for(const m of others){m.fit();m.draw()}},120)});
+
+/* ===== static marblings: rules, steps, paper cards, tulip ===== */
+const others=[];
+document.querySelectorAll('canvas.rule').forEach(c=>{const m=new Marbler(c,{w:1600,h:40,seg:10});runNow(m,R.gelgit(m,+c.dataset.rule*13));others.push(m)});
+document.querySelectorAll('.step canvas').forEach(c=>{const k=+c.dataset.step,m=new Marbler(c,{w:600,h:600,bg:k===3?'#F7F1E3':'#EDE3CC'});if(k===1)runNow(m,R.battal(m,9).slice(0,30));if(k===2)runNow(m,R.gelgit(m,9));if(k===3)runNow(m,R.sal(m,4));if(k===0){m.draw();const g=m.g;g.strokeStyle='rgba(43,49,89,.2)';g.lineWidth=1.2;for(const [x,y,n] of [[200,230,4],[420,400,3],[330,120,2]])for(let i=1;i<=n;i++){g.beginPath();g.ellipse(x,y,i*26,i*18,0,0,6.2832);g.stroke()}}if(k===3){m.g.setTransform(1,0,0,1,0,0);m.g.strokeStyle='#2B3159';m.g.lineWidth=2*m.d;m.g.strokeRect(14*m.d,14*m.d,m.c.width-28*m.d,m.c.height-28*m.d)}others.push(m)});
+const CARDS=[['battal','Battal','stone-spotted',"The first pattern everyone learns: drops on drops, pushed into stones.",'€14'],['gelgit','Gelgit','come-and-go','Rows of colour combed up and down into soft waves.','€16'],['sal','Şal','shawl','Combed twice, across and back, into a fine woven texture.','€18'],['bulbul','Bülbül yuvası',"nightingale's nest",'Spirals drawn into a combed ground with a single stylus.','€20'],['lale','Lale','tulip','Concentric drops pulled down into a flower, then a stem.','€24'],['ground','Taraklı battal','combed stones','Our house ground: combed waves with stones dropped on top.','€16']];
+const grid=document.getElementById('paperGrid');
+for(const [key,name,gloss,desc,price] of CARDS){const art=document.createElement('article');art.className='paper';art.innerHTML=`<canvas aria-hidden="true"></canvas><div class="meta"><h3>${name} <span>· ${gloss}</span></h3><p>${desc}</p><div class="foot"><span class="price">${price} / sheet</span><button class="replay wave" type="button">Replay ↻</button></div></div>`;grid.appendChild(art);
+  const c=art.querySelector('canvas'),m=new Marbler(c,{w:1000,h:750,bg:key==='lale'?'#F3ECDC':'#EDE3CC'});runNow(m,R[key](m));others.push(m);
+  art.querySelector('.replay').addEventListener('click',()=>{m.clear();m.draw();play(m,R[key](m),key==='lale'?90:30)})}
+{const c=document.getElementById('lale'),m=new Marbler(c,{w:1000,h:1000,bg:'#F3ECDC'});runNow(m,R.lale(m));others.push(m)}
+
+/* ===== workshop booking ===== */
+document.querySelectorAll('.row').forEach(row=>{const btn=row.querySelector(':scope > .btn'),form=row.querySelector('form'),done=row.querySelector('.done'),err=form.querySelector('.err'),out=form.querySelector('output');let seats=+row.dataset.seats;
+  btn.addEventListener('click',()=>{const open=!form.classList.contains('open');form.classList.toggle('open',open);btn.setAttribute('aria-expanded',open);if(open)form.querySelector('input').focus()});
+  form.querySelectorAll('[data-d]').forEach(b=>b.addEventListener('click',()=>{out.textContent=Math.max(1,Math.min(seats,+out.textContent+ +b.dataset.d))}));
+  form.addEventListener('submit',e=>{e.preventDefault();const n=form.name,m=form.email;let bad=[];[n,m].forEach(i=>i.removeAttribute('aria-invalid'));if(!n.value.trim()){bad.push('your name');n.setAttribute('aria-invalid','true')}if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m.value)){bad.push('an email address we can reply to');m.setAttribute('aria-invalid','true')}
+    if(bad.length){err.textContent='Please add '+bad.join(' and ')+'.';(form.querySelector('[aria-invalid]')||n).focus();return}
+    err.textContent='';form.classList.remove('open');btn.setAttribute('aria-expanded','false');
+    if(btn.hasAttribute('data-wait')){done.textContent=`You're on the waitlist, ${n.value.trim()}. We'll write if a seat opens.`;btn.textContent='On the waitlist';btn.disabled=true}
+    else{const k=+out.textContent;seats-=k;done.textContent=`Held ${k} seat${k>1?'s':''} for ${n.value.trim()}. A confirmation is on its way to ${m.value}.`;const s=row.querySelector('.seats');s.textContent=seats>0?`${seats} of 6 seats open`:'Full · waitlist open';s.classList.toggle('low',seats===1);if(seats<=0){btn.textContent='Full';btn.disabled=true}else out.textContent='1'}
+    done.classList.add('show')})});
+</script>
+</body>
+</html>
