@@ -1,5 +1,10 @@
 # Changelog
 
+## v4.0.0 — Living styles (pilot)
+- `ebru-marbling` and `iznik-ceramic` are now **living styles**: complete interactive single-file pages plus SKILL.md files with a signature interaction, motion language, section library, code recipes, imagery rules and a quality gate.
+- Ebru: marbling tray on the drop/tine/swirl fluid model (drop, hold, stylus, comb, lift onto paper), replayable pattern families, booking with validation.
+- İznik: tile studio composed from symmetric parts, wall re-laid in a diagonal wave, live bands and process drawings, ready panels, commission form.
+
 ## v3.1.0 — Ten new compositions
 - Expanded from 82 to 92 Agent Skills (42 → 52 visual styles).
 - Added `ebru-marbling`, `iznik-ceramic`, `op-art-optical`, `new-wave-1980s`, `wood-type-broadside`, `thermal-receipt`, `paperback-tri-band`, `solarpunk-commons`, `vienna-secession-1905` and `illuminated-manuscript`.

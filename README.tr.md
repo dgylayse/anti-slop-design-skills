@@ -22,6 +22,15 @@ Her skill klasöründe: `SKILL.md`, `preview.png`, `demo.html` var. Görseller g
 | Sosyal medya | 5 | Kampanya / duyuru düzeni |
 | Tasarım Direktörü | 1 | Doğru seçim, uyumluluk ve eleştiri kontrolü |
 
+## Canlı stiller · tarayıcıda dene
+
+Çoğu skill bir görünümü tarif eder. **Canlı stiller** ise yapay zekâya ayrıca bir imza etkileşimi, zanaatın kendisinden gelen bir hareket dili, sayfa bölümleri kütüphanesi ve çalışan kod verir.
+
+| Stil | Dene | Ne yapabilirsin |
+|---|---|---|
+| [`ebru-marbling`](styles/ebru-marbling/SKILL.md) | [▶ canlı demo](https://dgylayse.github.io/anti-slop-design-skills/styles/ebru-marbling/demo.html) | Suya boya damlat, bizle çek, tarakla, kâğıda al |
+| [`iznik-ceramic`](styles/iznik-ceramic/SKILL.md) | [▶ canlı demo](https://dgylayse.github.io/anti-slop-design-skills/styles/iznik-ceramic/demo.html) | Tek bir çini tasarla, bütün duvar yeniden döşensin |
+
 ## v3.1'de yeni: 10 farklı tasarım dili
 
 Her yeni stil, ortak bir kahraman şablonuna yeni renk giydirmek yerine **kendi sayfa kompozisyonuyla** gelir.

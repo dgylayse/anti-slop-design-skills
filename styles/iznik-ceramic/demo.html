@@ -1,63 +1,281 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>iznik-ceramic — original style study</title><style>
-:root{--color-bg:#F7F3EA;--color-surface:#FFFFFF;--color-ink:#14295A;--color-muted:#4B5873;--color-accent:#B8322A;--color-border:#1F3F8A;--color-turquoise:#2A8C8C;--color-sage:#3E7A4F;--font-display:'Palatino Linotype','Book Antiqua',Georgia,serif;--font-body:'Segoe UI',Corbel,Arial,sans-serif}
-*{box-sizing:border-box}html,body{margin:0}body{background:var(--color-bg);color:var(--color-ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased}
-.page{width:1280px;height:800px;overflow:hidden;position:relative;background:var(--color-bg);display:grid;grid-template-columns:300px 1fr 300px;grid-template-rows:800px}
-.panel{position:relative;overflow:hidden;border-color:var(--color-border);border-style:solid;border-width:0}
-.panel.l{border-right-width:6px}.panel.r{border-left-width:6px}
-.panel svg{position:absolute;inset:0;width:100%;height:100%}
-.center{position:relative;display:flex;flex-direction:column;align-items:center;padding:0 54px}
-header{width:100%;height:84px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--color-border)}
-.mark{font-family:var(--font-display);font-size:23px;letter-spacing:.06em}
-nav{display:flex;gap:22px;font-size:13px;letter-spacing:.05em}nav span{padding:10px 0}nav span[aria-current]{color:var(--color-accent);border-bottom:2px solid var(--color-accent)}
-.arch{margin-top:104px;width:100%;position:relative;background:var(--color-surface);border:2px solid var(--color-border);border-top:0;padding:30px 44px 28px;text-align:center}
-.arch:before{content:"";position:absolute;left:-2px;right:-2px;top:-70px;height:72px;background:var(--color-surface);border:2px solid var(--color-border);border-bottom:0;clip-path:none;border-radius:50% 50% 0 0/100% 100% 0 0}
-.arch .finial{position:absolute;left:50%;top:-88px;transform:translateX(-50%);width:34px;height:34px}
-.kicker{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--color-accent);font-weight:700;margin:0 0 14px;position:relative}
-h1{font-family:var(--font-display);font-weight:400;font-size:50px;line-height:1.02;margin:0 0 14px;position:relative}
-.lede{font-size:15px;line-height:1.6;color:var(--color-muted);max-width:430px;margin:0 auto 22px}
-.form{display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left}
-.field label{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-muted);margin-bottom:6px;font-weight:600}
-.input{height:46px;border:1px solid var(--color-border);display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:15px;background:var(--color-bg)}
-.times{grid-column:1/3;display:flex;gap:8px}.chip{flex:1;height:44px;border:1px solid var(--color-border);display:flex;align-items:center;justify-content:center;font-size:14px}
-.chip[aria-pressed=true]{background:var(--color-ink);color:var(--color-surface)}.chip[aria-disabled=true]{color:#8C93A4;border-style:dashed;text-decoration:line-through}
-.submit{grid-column:1/3;height:50px;background:var(--color-accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
-.note{grid-column:1/3;font-size:12px;color:var(--color-muted);text-align:center;margin-top:2px}
-.border-strip{position:absolute;left:0;right:0;bottom:0;height:54px;border-top:2px solid var(--color-border)}
-.label{position:absolute;left:24px;bottom:80px;background:var(--color-surface);border:2px solid var(--color-border);padding:12px 16px;font-family:var(--font-display);font-size:15px;max-width:250px;line-height:1.35}
-.label small{display:block;font-family:var(--font-body);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--color-muted);margin-bottom:4px}
-@media(max-width:860px){.page{transform-origin:top left;transform:scale(.6)}}
-</style></head><body>
-<div class="page">
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-<pattern id="tile" width="150" height="150" patternUnits="userSpaceOnUse">
-<rect width="150" height="150" fill="#F7F3EA"/>
-<path d="M75 8C112 30 112 52 75 75C38 52 38 30 75 8ZM75 142C38 120 38 98 75 75C112 98 112 120 75 142Z" fill="#1F3F8A"/>
-<path d="M8 75C30 38 52 38 75 75C52 112 30 112 8 75ZM142 75C120 112 98 112 75 75C98 38 120 38 142 75Z" fill="#2A8C8C"/>
-<path d="M75 30C86 44 86 58 75 66C64 58 64 44 75 30ZM75 120C64 106 64 92 75 84C86 92 86 106 75 120Z" fill="#F7F3EA"/>
-<circle cx="75" cy="75" r="15" fill="#B8322A"/><circle cx="75" cy="75" r="6" fill="#F7F3EA"/>
-<g fill="#B8322A"><path d="M0 0h14L0 14Z"/><path d="M150 0v14L136 0Z"/><path d="M0 150v-14L14 150Z"/><path d="M150 150h-14L150 136Z"/></g>
-<g fill="none" stroke="#14295A" stroke-width="1.6"><path d="M75 8C112 30 112 52 75 75C38 52 38 30 75 8Z"/><path d="M75 142C38 120 38 98 75 75C112 98 112 120 75 142Z"/></g>
-<g fill="#3E7A4F"><path d="M22 22C36 20 44 28 44 40C30 40 22 34 22 22Z"/><path d="M128 128C114 130 106 122 106 110C120 110 128 116 128 128Z"/><path d="M128 22C130 36 122 44 110 44C110 30 116 22 128 22Z"/><path d="M22 128C20 114 28 106 40 106C40 120 34 128 22 128Z"/></g>
-</pattern>
-<pattern id="band" width="60" height="54" patternUnits="userSpaceOnUse"><rect width="60" height="54" fill="#1F3F8A"/><path d="M0 27C15 6 45 6 60 27C45 48 15 48 0 27Z" fill="#F7F3EA"/><path d="M30 12C38 20 38 34 30 42C22 34 22 20 30 12Z" fill="#B8322A"/><circle cx="0" cy="27" r="5" fill="#2A8C8C"/><circle cx="60" cy="27" r="5" fill="#2A8C8C"/></pattern>
-</defs></svg>
-<aside class="panel l" aria-hidden="true"><svg><rect width="100%" height="100%" fill="url(#tile)"/></svg></aside>
-<main class="center">
-<header><div class="mark">ÇİNİ HOUSE</div><nav aria-label="Primary"><span>Menu</span><span aria-current="page">Book a table</span><span>Tea room</span></nav></header>
-<section class="arch" aria-labelledby="t">
-<svg class="finial" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 2C25 10 25 22 17 32C9 22 9 10 17 2Z" fill="#B8322A" stroke="#1F3F8A" stroke-width="2"/></svg>
-<p class="kicker">Anatolian kitchen · tea room</p>
-<h1 id="t">A table under the cobalt tiles</h1>
-<p class="lede">Slow-cooked dishes, copper-pot coffee and a long tea service. Tell us when you are coming — we keep two tables for walk-ins.</p>
-<div class="form" role="group" aria-label="Reservation">
-<div class="field"><label>Date</label><div class="input">Friday, 14 March <span aria-hidden="true">▾</span></div></div>
-<div class="field"><label>Guests</label><div class="input">− &nbsp; 4 &nbsp; +</div></div>
-<div class="times" role="group" aria-label="Available times"><span class="chip">18:30</span><span class="chip" aria-pressed="true">19:15</span><span class="chip" aria-disabled="true">20:00</span><span class="chip">21:30</span></div>
-<div class="submit">Request this table</div>
-<p class="note">We confirm by message within an hour · free cancellation until noon</p>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>iznik-ceramic — living style study</title>
+<style>
+:root{
+  --color-bg:#F7F3EA;--color-surface:#FFFFFF;--color-ink:#14295A;--color-muted:#4B5873;--color-accent:#B8322A;--color-border:#1F3F8A;
+  --cobalt:#1F3F8A;--turquoise:#2A8C8C;--bole:#B8322A;--sage:#3E7A4F;--slip:#F7F3EA;
+  --font-display:'Palatino Linotype','Book Antiqua',Georgia,serif;--font-body:'Segoe UI',Corbel,Arial,sans-serif;
+  --focus-ring:3px solid var(--color-accent);--ease-lay:cubic-bezier(.3,.8,.25,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--color-bg);color:var(--color-ink);font-family:var(--font-body);line-height:1.55;-webkit-font-smoothing:antialiased}
+:focus-visible{outline:var(--focus-ring);outline-offset:3px}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;margin:0;letter-spacing:-.005em}
+.kicker{font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--color-accent);font-weight:700;margin:0 0 12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border:1.5px solid var(--color-border);background:transparent;font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none}
+.btn.primary{background:var(--color-accent);border-color:var(--color-accent);color:#fff}
+.btn:hover{background:var(--color-ink);border-color:var(--color-ink);color:#fff}
+
+/* ---------- hero ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,44fr) minmax(0,56fr);grid-template-areas:"wall side";min-height:clamp(680px,100vh,900px)}
+.wall{grid-area:wall;position:relative;overflow:hidden;background:var(--slip);border-right:6px solid var(--color-border)}
+.grid{position:absolute;inset:0;display:grid;align-content:start}
+.tile{position:relative;transform:var(--rot,none);transform-style:preserve-3d}
+.tile svg{display:block;width:100%;height:100%}
+.grid.lay .tile{animation:lay .55s var(--ease-lay) both;animation-delay:calc(var(--i) * 26ms)}
+@keyframes lay{from{transform:var(--rot,none) perspective(500px) rotateY(88deg);opacity:.15}to{transform:var(--rot,none) perspective(500px) rotateY(0)}}
+.plate{position:absolute;left:22px;bottom:22px;display:flex;gap:14px;align-items:center;background:var(--color-surface);border:2px solid var(--color-border);padding:10px 16px 10px 10px;max-width:calc(100% - 44px)}
+.plate svg{width:64px;height:64px;flex:none;border:1px solid var(--color-border)}
+.plate small{display:block;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--color-muted)}
+.plate b{display:block;font-family:var(--font-display);font-weight:400;font-size:18px;line-height:1.2}
+
+.side{grid-area:side;padding:0 clamp(22px,4.5vw,64px) 28px}
+header.site{height:80px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--color-border);gap:16px}
+.mark{font-family:var(--font-display);font-size:22px;letter-spacing:.08em;text-decoration:none;color:inherit;white-space:nowrap}nav a{white-space:nowrap}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:14px;letter-spacing:.04em}
+nav a{color:inherit;text-decoration:none;padding:10px 0;display:inline-block}
+nav a[aria-current]{color:var(--color-accent);box-shadow:inset 0 -2px var(--color-accent)}
+.intro{padding:26px 0 14px}
+.intro h1{font-size:clamp(38px,4.1vw,54px);line-height:1.02}
+.intro p{margin:12px 0 0;color:var(--color-muted);max-width:560px;font-size:15.5px}
+
+.studio{border-top:1px solid #C9CFE0}
+.opt{display:grid;grid-template-columns:96px minmax(0,1fr);align-items:center;gap:14px;padding:9px 0;border-bottom:1px solid #DCE0EA;margin:0;border-left:0;border-right:0;border-top:0}
+.opt legend{float:left;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-muted);font-weight:700;padding:0}
+.opt>div{display:flex;gap:8px;flex-wrap:wrap}
+.chip{min-height:44px;padding:4px 12px 4px 4px;display:inline-flex;align-items:center;gap:8px;border:1.5px solid #C9CFE0;background:var(--color-surface);font-size:13.5px}
+.chip svg{width:36px;height:36px;display:block;border:1px solid #DCE0EA}
+.chip.t{padding:4px 12px}
+.chip[aria-checked=true]{border-color:var(--color-ink);box-shadow:inset 0 0 0 1.5px var(--color-ink)}
+.chip:hover{border-color:var(--color-ink)}
+.dots{display:inline-flex}.dots i{width:12px;height:12px;border-radius:50%;margin-right:-3px;border:1.5px solid #fff;display:block}
+.buy{display:grid;grid-template-columns:auto auto 1fr;gap:16px;align-items:center;padding-top:16px}
+.qty{display:flex;align-items:center;height:48px;border:1.5px solid var(--color-border);background:var(--color-surface)}
+.qty button{width:44px;height:100%;border:0;background:transparent;font-size:18px}
+.qty output{min-width:54px;text-align:center;font-weight:600}
+.total{font-size:13px;color:var(--color-muted);line-height:1.35}.total b{display:block;font-family:var(--font-display);font-weight:400;font-size:26px;color:var(--color-ink)}
+.buy .btn{justify-self:end}
+.note{margin:10px 0 0;font-size:13.5px;color:var(--color-muted);min-height:20px}
+.note.ok{color:var(--sage);font-weight:600}
+
+/* ---------- sections ---------- */
+.mini{display:none}
+.band{height:44px;border-top:2px solid var(--color-border);border-bottom:2px solid var(--color-border);display:block;width:100%}
+section.block{padding:clamp(56px,8vw,100px) clamp(22px,6vw,96px)}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:40px}
+.head h2{font-size:clamp(32px,3.8vw,48px);line-height:1.05}
+.head p{margin:0;color:var(--color-muted);max-width:520px}
+.process{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.arch{background:var(--color-surface);border:2px solid var(--color-border);border-radius:48% 48% 0 0/24% 24% 0 0;padding:40px 18px 20px;text-align:center}
+.arch svg{width:100%;aspect-ratio:1;display:block;border:1px solid #DCE0EA}
+.arch h3{font-size:24px;margin:16px 0 2px}
+.arch small{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--color-accent);font-weight:700}
+.arch p{margin:6px 0 0;font-size:14.5px;color:var(--color-muted)}
+.process .m-outline :not(rect){fill:none!important;stroke:#3A3A3A!important;stroke-width:.9!important}
+.process .m-pounce :not(rect){fill:none!important;stroke:#3A3A3A!important;stroke-width:1.1!important;stroke-dasharray:.6 2.2}
+.process .m-paint *{stroke-width:.6}
+.panels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.panel{background:var(--color-surface);border:2px solid var(--color-border);display:flex;flex-direction:column}
+.panel svg{display:block;width:100%;aspect-ratio:1;border-bottom:2px solid var(--color-border)}
+.panel div{padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px;flex:1}
+.panel h3{font-size:22px}.panel p{margin:0;font-size:14px;color:var(--color-muted);flex:1}
+.panel button{margin-top:10px;align-self:flex-start;border:0;border-bottom:1.5px solid var(--color-ink);background:transparent;padding:6px 0;font-size:13.5px;font-weight:600;letter-spacing:.04em}
+.commission{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:56px;align-items:start}
+.commission form{background:var(--color-surface);border:2px solid var(--color-border);border-radius:44% 44% 0 0/18% 18% 0 0;padding:70px 32px 30px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.commission label{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-muted);font-weight:700;margin-bottom:6px}
+.commission input,.commission textarea{width:100%;border:1.5px solid #C9CFE0;background:var(--color-bg);padding:12px;border-radius:0}
+.commission input{height:48px}
+.commission [aria-invalid=true]{border-color:var(--color-accent);border-width:2px}
+.commission .full{grid-column:1/-1}
+.commission .err{grid-column:1/-1;margin:0;color:var(--color-accent);font-size:14px}
+.commission .ok{grid-column:1/-1;margin:0;padding:12px 14px;border-left:3px solid var(--sage);background:var(--color-bg);display:none}
+.commission ul{padding-left:18px;color:var(--color-muted)}
+footer.site{background:var(--color-border);color:#F1F3F8;padding:52px clamp(22px,6vw,96px);display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:36px;font-size:15px}
+footer.site h4{margin:0 0 10px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#C3CCE6}
+footer.site p{margin:0;line-height:1.7}
+
+@media (max-width:1100px){.process,.panels{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;grid-template-areas:"side" "wall";min-height:0}
+  .wall{height:52vh;min-height:340px;border-right:0;border-top:6px solid var(--color-border)}
+  .head,.commission{grid-template-columns:1fr;gap:16px}
+  nav ul{gap:14px}nav li:nth-child(n+3){display:none}
+  .buy{grid-template-columns:auto 1fr}.buy .btn{grid-column:1/-1;justify-self:stretch}
+  footer.site{grid-template-columns:1fr}
+}
+@media (max-width:900px){.mini{display:block;position:sticky;top:0;z-index:3;height:92px;margin:0 -22px;border-bottom:3px solid var(--color-border);background:var(--slip)}.mini svg{display:block;width:100%;height:100%}.mark{font-size:19px}}
+@media (max-width:560px){.opt{grid-template-columns:1fr;gap:6px}.opt legend{float:none}.process{grid-template-columns:1fr 1fr;gap:12px}.arch{padding:26px 10px 14px}.arch h3{font-size:19px}.arch p{font-size:13px}.panels{grid-template-columns:1fr}.commission form{grid-template-columns:1fr;padding:50px 20px 22px}.chip{font-size:12.5px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.grid.lay .tile{animation:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs id="defs"></defs></svg>
+
+<div class="hero">
+  <div class="wall" id="wall" role="img" aria-label="Preview wall laid with the tile you are designing">
+    <div class="grid" id="grid"></div>
+    <div class="plate" aria-hidden="true"><svg viewBox="0 0 100 100"><use href="#tile"/></svg><div><small>Your tile · 20 × 20 cm</small><b id="plateName">Tulip with rumi band</b></div></div>
+  </div>
+
+  <div class="side">
+    <header class="site">
+      <a class="mark" href="#">KOBALT &amp; MERCAN</a>
+      <nav aria-label="Primary"><ul><li><a href="#studio" aria-current="page">Studio</a></li><li><a href="#panels">Panels</a></li><li><a href="#process">Process</a></li><li><a href="#order" id="orderLink">Order (0)</a></li></ul></nav>
+    </header>
+    <div class="intro" id="studio">
+      <p class="kicker">İznik-style tiles · painted and fired by hand</p>
+      <h1>Draw one tile.<br>We will fire the wall.</h1>
+      <p>Choose a centre flower, the corners and the band that joins one tile to the next. The wall re-lays itself as you choose, so you see the repeat, not just the tile.</p>
+    </div>
+    <form class="studio" id="studioForm" aria-label="Tile designer">
+      <div class="mini" aria-hidden="true"><svg><rect width="100%" height="100%" fill="url(#miniPat)"/></svg></div>
+      <fieldset class="opt"><legend>Centre</legend><div role="radiogroup" aria-label="Centre motif" data-k="motif"></div></fieldset>
+      <fieldset class="opt"><legend>Corners</legend><div role="radiogroup" aria-label="Corner motif" data-k="corner"></div></fieldset>
+      <fieldset class="opt"><legend>Band</legend><div role="radiogroup" aria-label="Edge band" data-k="edge"></div></fieldset>
+      <fieldset class="opt"><legend>Glazes</legend><div role="radiogroup" aria-label="Colour set" data-k="pal"></div></fieldset>
+      <fieldset class="opt"><legend>Laying</legend><div role="radiogroup" aria-label="How tiles are laid" data-k="lay"></div></fieldset>
+      <div class="buy" id="order">
+        <div class="qty"><button type="button" id="minus" aria-label="Fewer tiles">−</button><output id="qty" aria-live="polite">25</output><button type="button" id="plus" aria-label="More tiles">+</button></div>
+        <div class="total"><b id="total">€450</b><span id="area">25 tiles · 1.0 m² · €18 each</span></div>
+        <button class="btn primary" type="submit">Add to order</button>
+      </div>
+      <p class="note" id="note" role="status">Fired in about four weeks. We send a painted proof before the kiln.</p>
+    </form>
+  </div>
 </div>
+
+<svg class="band" aria-hidden="true"><rect width="100%" height="100%" fill="url(#bandPat)"/></svg>
+
+<section class="block" id="process" aria-labelledby="ph">
+  <div class="head"><div><p class="kicker">How we make them</p><h2 id="ph">Your design, through four hands and one kiln.</h2></div><p>These four stages always show the tile you designed above. Change the design and the drawings change with it.</p></div>
+  <div class="process">
+    <article class="arch"><svg viewBox="0 0 100 100" class="m-outline" data-proc aria-hidden="true"></svg><small>Step 1</small><h3>Desen</h3><p>The pattern is drawn once on paper and pricked along every line.</p></article>
+    <article class="arch"><svg viewBox="0 0 100 100" class="m-pounce" data-proc aria-hidden="true"></svg><small>Step 2</small><h3>Silkme</h3><p>Charcoal dust is tapped through the holes onto the white slip.</p></article>
+    <article class="arch"><svg viewBox="0 0 100 100" class="m-paint" data-proc aria-hidden="true"></svg><small>Step 3</small><h3>Tahrir &amp; boya</h3><p>Outlines in dark pigment, then cobalt, turquoise and the raised red.</p></article>
+    <article class="arch"><svg viewBox="0 0 100 100" data-proc="glaze" aria-hidden="true"></svg><small>Step 4</small><h3>Fırın</h3><p>A clear glaze and one firing at 900 °C. The red stands slightly proud.</p></article>
+  </div>
 </section>
-</main>
-<aside class="panel r" aria-hidden="true"><svg><rect x="-75" width="400" height="800" fill="url(#tile)"/></svg><div class="label"><small>Tonight's tea</small>Bergamot black tea with a sour-cherry spoon sweet</div></aside>
-<div class="border-strip" aria-hidden="true"><svg width="1280" height="54"><rect width="1280" height="54" fill="url(#band)"/></svg></div>
-</div></body></html>
+
+<svg class="band" aria-hidden="true"><rect width="100%" height="100%" fill="url(#bandPat)"/></svg>
+
+<section class="block" id="panels" aria-labelledby="pah">
+  <div class="head"><div><p class="kicker">Ready panels</p><h2 id="pah">Start from a panel we already fire.</h2></div><p>Each one loads into the studio above, where you can change any part of it.</p></div>
+  <div class="panels" id="panelGrid"></div>
+</section>
+
+<section class="block" aria-labelledby="ch" style="padding-top:0">
+  <div class="commission">
+    <div><p class="kicker">Commissions</p><h2 id="ch" style="font-size:clamp(32px,3.8vw,48px);line-height:1.05">A whole wall, a fireplace, a door number.</h2><p style="color:var(--color-muted)">Larger panels are drawn for the wall they will live on. Tell us the size and the room; we reply with a painted sketch and a price.</p><ul><li>Kitchen splashbacks and fireplaces</li><li>House numbers and name tiles</li><li>Restoration matches from a photo</li></ul></div>
+    <form id="cform" novalidate>
+      <div><label for="cn">Name</label><input id="cn" name="name" autocomplete="name"></div>
+      <div><label for="ce">Email</label><input id="ce" name="email" type="email" autocomplete="email"></div>
+      <div><label for="cw">Wall width (cm)</label><input id="cw" name="w" inputmode="numeric"></div>
+      <div><label for="ch2">Wall height (cm)</label><input id="ch2" name="h" inputmode="numeric"></div>
+      <div class="full"><label for="cm">About the room</label><textarea id="cm" name="m" rows="3"></textarea></div>
+      <p class="err" role="alert"></p>
+      <button class="btn primary full" type="submit">Ask for a sketch</button>
+      <p class="ok" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<footer class="site"><div><span class="mark" style="font-size:24px">KOBALT &amp; MERCAN</span><p style="margin-top:10px">A small tile workshop. Every tile is painted by hand; no two reds are quite the same.</p></div><div><h4>Workshop</h4><p>Open Thu–Sat, 11:00–17:00<br>Visits by appointment on weekdays</p></div><div><h4>Contact</h4><p>studio@example.com<br>We reply within two working days</p></div></footer>
+
+<script>
+const REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const PAL={
+  classic:{name:'Classic',cobalt:'#1F3F8A',turq:'#2A8C8C',red:'#B8322A',sage:'#3E7A4F',slip:'#F7F3EA',ink:'#14295A'},
+  blue:{name:'Blue & white',cobalt:'#1F3F8A',turq:'#6A8CCB',red:'#1F3F8A',sage:'#3D5EA8',slip:'#FAF8F2',ink:'#14295A'},
+  damask:{name:'Damascus',cobalt:'#2D5D86',turq:'#3E9A8C',red:'#6E4A7E',sage:'#5E8A50',slip:'#F3F0E4',ink:'#22324F'}
+};
+/* ---- motif drawings on a 100×100 tile; neighbours complete the corners and bands ---- */
+const M={
+  lale:c=>`<path d="M50 82C49.5 70 50.5 62 50 54" stroke="${c.sage}" stroke-width="2.6" fill="none"/><path d="M50 80C39 77 30 67 26 54C38 58 46 67 50 80Z" fill="${c.sage}" stroke="${c.ink}" stroke-width=".9"/><path d="M50 80C61 77 70 67 74 54C62 58 54 67 50 80Z" fill="${c.sage}" stroke="${c.ink}" stroke-width=".9"/><path d="M50 56C38 56 33 44 35 27C40 34 46 35 50 25C54 35 60 34 65 27C67 44 62 56 50 56Z" fill="${c.red}" stroke="${c.ink}" stroke-width="1.2"/><path d="M50 51C45.5 48 44.5 40 46 34C48 38 50 38 50 38S52 38 54 34C55.5 40 54.5 48 50 51Z" fill="${c.turq}" stroke="${c.ink}" stroke-width=".7"/>`,
+  karanfil:c=>{let s=`<path d="M50 84C50 74 50 66 50 58" stroke="${c.sage}" stroke-width="2.6"/><path d="M50 78C42 76 36 70 34 62C42 64 47 69 50 78ZM50 74C58 72 64 66 66 58C58 60 53 65 50 74Z" fill="${c.sage}" stroke="${c.ink}" stroke-width=".8"/><path d="M50 56L33 39A24 24 0 0 1 67 39Z" fill="${c.red}" stroke="${c.ink}" stroke-width="1"/>`;for(let i=0;i<7;i++){const a=(200+i*23.3)*Math.PI/180,x=50+Math.cos(a)*21,y=49+Math.sin(a)*21;s+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5.4" fill="${c.red}" stroke="${c.ink}" stroke-width=".9"/><path d="M50 55L${x.toFixed(1)} ${y.toFixed(1)}" stroke="${c.slip}" stroke-width="1"/>`}return s+`<path d="M43 56H57L54 64H46Z" fill="${c.turq}" stroke="${c.ink}" stroke-width=".9"/>`},
+  rumi:c=>{let s='';for(let a=0;a<360;a+=45)s+=`<g transform="rotate(${a} 50 50)"><path d="M50 50C44 44 43 30 50 20C57 30 56 44 50 50Z" fill="${c.cobalt}" stroke="${c.ink}" stroke-width=".8"/><path d="M50 44C47.5 40 47.5 32 50 27C52.5 32 52.5 40 50 44Z" fill="${c.turq}"/></g>`;return s+`<circle cx="50" cy="50" r="8" fill="${c.red}" stroke="${c.ink}" stroke-width="1"/><circle cx="50" cy="50" r="3" fill="${c.slip}"/>`},
+  cintemani:c=>`${[[50,35],[41,49],[59,49]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="7" fill="${c.red}" stroke="${c.ink}" stroke-width="1.1"/><circle cx="${x}" cy="${y}" r="2.6" fill="${c.slip}"/>`).join('')}<path d="M28 64Q35 57 42 64T56 64T70 64" stroke="${c.cobalt}" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M28 73Q35 66 42 73T56 73T70 73" stroke="${c.turq}" stroke-width="3" fill="none" stroke-linecap="round"/>`
+};
+const C={
+  rosette:c=>`<path d="M0 0H20A20 20 0 0 1 0 20Z" fill="${c.turq}" stroke="${c.ink}" stroke-width=".9"/><path d="M0 0H10A10 10 0 0 1 0 10Z" fill="${c.red}" stroke="${c.ink}" stroke-width=".7"/>`,
+  saz:c=>`<path d="M3 3C16 5 27 13 31 28C17 26 6 17 3 3Z" fill="${c.sage}" stroke="${c.ink}" stroke-width=".9"/><path d="M4 4C14 11 22 18 29 26" stroke="${c.slip}" stroke-width="1" fill="none"/>`,
+  none:()=>''
+};
+const E={
+  rumi:c=>`<path d="M37 0C37 11 44 16 50 19C56 16 63 11 63 0Z" fill="${c.cobalt}" stroke="${c.ink}" stroke-width=".9"/><path d="M44 0C44 6 47 9 50 11C53 9 56 6 56 0Z" fill="${c.turq}"/>`,
+  cloud:c=>`<path d="M0 7Q12.5 1 25 7T50 7T75 7T100 7" stroke="${c.cobalt}" stroke-width="1.8" fill="none"/>`,
+  none:()=>''
+};
+const rot4=f=>[0,90,180,270].map(a=>`<g transform="rotate(${a} 50 50)">${f}</g>`).join('');
+function tileMarkup(d){const c=PAL[d.pal];return `<rect width="100" height="100" fill="${c.slip}"/>${rot4(E[d.edge](c))}${rot4(C[d.corner](c))}${M[d.motif](c)}`}
+const OPTIONS={
+  motif:[['lale','Tulip'],['karanfil','Carnation'],['rumi','Rosette'],['cintemani','Çintemani']],
+  corner:[['rosette','Quarter rosette'],['saz','Saz leaf'],['none','Plain']],
+  edge:[['rumi','Rumi band'],['cloud','Cloud band'],['none','No band']],
+  pal:[['classic','Classic'],['blue','Blue & white'],['damask','Damascus']],
+  lay:[['straight','Straight'],['turn','Turning'],['mirror','Mirrored']]
+};
+const PRICE={base:16,edge:{rumi:2,cloud:1,none:0},corner:{rosette:2,saz:2,none:0}};
+let D={motif:'lale',corner:'rosette',edge:'rumi',pal:'classic',lay:'straight'};
+
+const defs=document.getElementById('defs');
+function defineSymbol(id,d){let s=document.getElementById(id);if(!s){s=document.createElementNS('http://www.w3.org/2000/svg','symbol');s.id=id;s.setAttribute('viewBox','0 0 100 100');defs.appendChild(s)}s.innerHTML=tileMarkup(d)}
+defs.insertAdjacentHTML('beforeend','<pattern id="bandPat" width="44" height="44" patternUnits="userSpaceOnUse"><use href="#tile" width="44" height="44"/></pattern><pattern id="miniPat" width="92" height="92" patternUnits="userSpaceOnUse"><use href="#tile" width="92" height="92"/></pattern>');
+
+/* ---- the wall ---- */
+const wall=document.getElementById('wall'),grid=document.getElementById('grid');
+function buildWall(){const r=wall.getBoundingClientRect(),target=r.width<500?96:136,cols=Math.max(3,Math.round(r.width/target)),size=r.width/cols,rows=Math.ceil(r.height/size)+1;grid.style.gridTemplateColumns=`repeat(${cols},${size}px)`;grid.style.gridAutoRows=size+'px';
+  let h='';for(let y=0;y<rows;y++)for(let x=0;x<cols;x++)h+=`<div class="tile" data-x="${x}" data-y="${y}" style="--i:${x+y}"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#tile"/></svg></div>`;grid.innerHTML=h;applyLay()}
+function applyLay(){grid.querySelectorAll('.tile').forEach(t=>{const x=+t.dataset.x,y=+t.dataset.y,odd=(x+y)%2;t.style.setProperty('--rot',D.lay==='turn'?`rotate(${((x+y*3)%4)*90}deg)`:D.lay==='mirror'&&odd?'scaleX(-1)':'none')})}
+function relay(){if(REDUCED)return;grid.classList.remove('lay');void grid.offsetWidth;grid.classList.add('lay')}
+
+/* ---- studio controls ---- */
+function thumb(k,v){const d={...D,[k]:v};if(k==='motif')Object.assign(d,{corner:'none',edge:'none'});if(k==='corner')Object.assign(d,{motif:'none',edge:'none'});if(k==='edge')Object.assign(d,{motif:'none',corner:'none'});const c=PAL[d.pal];
+  const inner=`<rect width="100" height="100" fill="${c.slip}"/>${k==='pal'?'':rot4(E[d.edge](c))+rot4(C[d.corner](c))+(M[d.motif]?M[d.motif](c):'')}`;
+  if(k==='pal')return `<span class="dots">${['cobalt','turq','red','sage'].map(n=>`<i style="background:${PAL[v][n]}"></i>`).join('')}</span>`;
+  if(k==='lay')return '';return `<svg viewBox="0 0 100 100" aria-hidden="true">${inner}</svg>`}
+M.none=()=>'';
+function renderControls(){document.querySelectorAll('[data-k]').forEach(g=>{const k=g.dataset.k;g.innerHTML=OPTIONS[k].map(([v,l])=>{const t=thumb(k,v);return `<button type="button" class="chip${t&&k!=='pal'?'':' t'}" role="radio" aria-checked="${D[k]===v}" data-v="${v}">${t}${l}</button>`}).join('')})}
+function describe(){const m=OPTIONS.motif.find(o=>o[0]===D.motif)[1],e=OPTIONS.edge.find(o=>o[0]===D.edge)[1].toLowerCase();return D.edge==='none'?`${m}, ${PAL[D.pal].name.toLowerCase()}`:`${m} with ${e}`}
+function unit(){return PRICE.base+PRICE.edge[D.edge]+PRICE.corner[D.corner]}
+let qty=25;
+function updatePrice(){document.getElementById('qty').textContent=qty;const u=unit();document.getElementById('total').textContent='€'+(u*qty).toLocaleString('en');document.getElementById('area').textContent=`${qty} tiles · ${(qty*.04).toFixed(1)} m² · €${u} each`}
+function update(laid=true){defineSymbol('tile',D);document.querySelectorAll('[data-proc]').forEach(sv=>{sv.innerHTML=tileMarkup(D).replace(/<rect[^>]*>/,sv.classList.contains('m-outline')||sv.classList.contains('m-pounce')?'<rect width="100" height="100" fill="#FBFAF6" style="stroke:none!important"/>':'$&')+(sv.dataset.proc==='glaze'?'<path d="M-10 70L70 -10L84 -10L-10 84Z" fill="#fff" opacity=".3"/><path d="M-10 92L92 -10L96 -10L-10 96Z" fill="#fff" opacity=".22"/>':'')});document.getElementById('plateName').textContent=describe();renderControls();applyLay();updatePrice();if(laid)relay()}
+document.getElementById('studioForm').addEventListener('click',e=>{const b=e.target.closest('[role=radio]');if(!b)return;const k=b.parentElement.dataset.k;D[k]=b.dataset.v;update(true);const nb=document.querySelector(`[data-k="${k}"] [data-v="${b.dataset.v}"]`);nb&&nb.focus()});
+document.getElementById('studioForm').addEventListener('keydown',e=>{const b=e.target.closest('[role=radio]');if(!b||!['ArrowRight','ArrowLeft','ArrowDown','ArrowUp'].includes(e.key))return;e.preventDefault();const sib=[...b.parentElement.children],i=sib.indexOf(b),n=sib[(i+(e.key==='ArrowRight'||e.key==='ArrowDown'?1:sib.length-1))%sib.length];n.click()});
+document.getElementById('minus').onclick=()=>{qty=Math.max(1,qty-(qty>25?5:1));updatePrice()};
+document.getElementById('plus').onclick=()=>{qty=Math.min(500,qty+(qty>=25?5:1));updatePrice()};
+let orders=0;
+document.getElementById('studioForm').addEventListener('submit',e=>{e.preventDefault();orders++;document.getElementById('orderLink').textContent=`Order (${orders})`;const n=document.getElementById('note');n.textContent=`Added ${qty} tiles — ${describe().toLowerCase()}. We will email a painted proof before firing.`;n.classList.add('ok')});
+
+/* ---- ready panels ---- */
+const PRESETS=[['Kitchen tulips',{motif:'lale',corner:'saz',edge:'cloud',pal:'classic',lay:'straight'},'Tulips with saz-leaf corners. Our most ordered splashback.','€17 / tile'],['Blue rosettes',{motif:'rumi',corner:'rosette',edge:'rumi',pal:'blue',lay:'straight'},'Cobalt only, on a bright white slip. Calm in large areas.','€20 / tile'],['Damascus carnations',{motif:'karanfil',corner:'rosette',edge:'none',pal:'damask',lay:'mirror'},'Manganese purple instead of red, laid mirrored.','€18 / tile'],['Çintemani field',{motif:'cintemani',corner:'none',edge:'cloud',pal:'classic',lay:'turn'},'Three spots and two waves, turned tile by tile.','€17 / tile']];
+const pg=document.getElementById('panelGrid');
+PRESETS.forEach(([name,d,desc,price],i)=>{defineSymbol('pre'+i,d);const a=document.createElement('article');a.className='panel';const t=(x,y)=>{const odd=(x+y)%2,tr=d.lay==='turn'?`rotate(${((x+y*3)%4)*90} ${x*50+25} ${y*50+25})`:d.lay==='mirror'&&odd?`translate(${x*100+50} 0) scale(-1 1)`:'';return `<use href="#pre${i}" x="${x*50}" y="${y*50}" width="50" height="50" transform="${tr}"/>`};
+  let cells='';for(let y=0;y<2;y++)for(let x=0;x<2;x++)cells+=t(x,y);
+  a.innerHTML=`<svg viewBox="0 0 100 100" aria-hidden="true">${cells}</svg><div><h3>${name}</h3><p>${desc}</p><span style="font-family:var(--font-display);font-size:18px">${price}</span><button type="button">Load in the studio ↑</button></div>`;
+  a.querySelector('button').onclick=()=>{D={...d};update(true);document.getElementById('studio').scrollIntoView({behavior:REDUCED?'auto':'smooth'});document.getElementById('note').textContent=`Loaded “${name}”. Change any part, then add it to your order.`;document.getElementById('note').classList.remove('ok')};pg.appendChild(a)});
+
+/* ---- commission form ---- */
+const cf=document.getElementById('cform');
+cf.addEventListener('submit',e=>{e.preventDefault();const f=cf.elements,bad=[];[f.name,f.email,f.w,f.h].forEach(i=>i.removeAttribute('aria-invalid'));
+  if(!f.name.value.trim()){bad.push('your name');f.name.setAttribute('aria-invalid','true')}
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value)){bad.push('an email address');f.email.setAttribute('aria-invalid','true')}
+  for(const i of [f.w,f.h]){const v=+i.value;if(!(v>=20&&v<=2000)){i.setAttribute('aria-invalid','true');if(!bad.includes('a wall size between 20 and 2000 cm'))bad.push('a wall size between 20 and 2000 cm')}}
+  const err=cf.querySelector('.err'),ok=cf.querySelector('.ok');
+  if(bad.length){err.textContent='Please add '+bad.join(', ')+'.';cf.querySelector('[aria-invalid]').focus();ok.style.display='none';return}
+  err.textContent='';const tiles=Math.ceil(+f.w.value/20)*Math.ceil(+f.h.value/20);ok.style.display='block';ok.textContent=`Thank you, ${f.name.value.trim()}. That wall takes about ${tiles} tiles; we will send a painted sketch to ${f.email.value}.`});
+
+/* ---- start ---- */
+defineSymbol('tile',D);buildWall();update(false);
+let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(buildWall,150)});
+</script>
+</body>
+</html>

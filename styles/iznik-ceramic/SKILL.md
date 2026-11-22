@@ -1,75 +1,128 @@
 ---
 name: iznik-ceramic
-description: "Use for hospitality, restaurant and cultural sites in a 16th-century İznik tile direction: cobalt and bole-red repeating tile panels framing a white-slip ogee-arch content area with a clear reservation or booking form."
+description: "Use for ceramics, craft commerce, hospitality and cultural sites in a 16th-century İznik tile direction: a living tile studio where one tile is designed from symmetric parts and a whole wall re-lays itself in a diagonal wave, cobalt and bole-red glazes on white slip, ogee-arch frames and a clear order or reservation flow."
 license: MIT
 metadata:
   category: styles
   preview: preview.png
   era: "16th-century İznik tilework"
-  version: 3.1.0
+  version: 4.0.0
+  tier: living
 ---
 
-# İznik Ceramic (Cobalt & Bole Tilework)
+# İznik Ceramic — Living Style
 
-## 1. Design Philosophy
-İznik ware pairs a dense, rhythmic tile field with clear white slip. The page works the same way: patterned panels at the edges, a calm white arch at the centre where the task happens. Cobalt is the ink colour; the raised bole red is precious and reserved for the single most important action.
+> **Living style.** Beyond colours and fonts, this skill defines a signature interaction (design one tile, see the wall), a motion language taken from tile-laying, a section library and working code.
 
-## 2. Color Tokens & Surface Rules
+## 1. Design philosophy
+İznik ware is a system: a single square tile carries half-motifs on its edges and quarter-motifs in its corners, so that four tiles complete a rosette and a row of tiles completes a band. The beauty is in the **repeat**, not the single tile.
+
+The interface makes that system tangible. Visitors design **one** tile from a small set of parts, and the page shows the **wall**. Around it everything is calm white slip, cobalt type and one precious red.
+
+Test every decision against the workshop: *could a tile painter make this with a pricked paper pattern, a brush and one firing?*
+
+## 2. Colour tokens
 ```css
 :root {
-  --color-bg: #F7F3EA;
+  --color-bg: #F7F3EA;        /* white slip */
   --color-surface: #FFFFFF;
-  --color-ink: #14295A;
+  --color-ink: #14295A;       /* all text is cobalt-dark */
   --color-muted: #4B5873;
-  --color-accent: #B8322A;
-  --color-border: #1F3F8A;
-  --tile-turquoise: #2A8C8C;
-  --tile-sage: #3E7A4F;
-  --tile-slip: #F7F3EA;
+  --color-accent: #B8322A;    /* raised bole red: one primary action per view */
+  --color-border: #1F3F8A;    /* cobalt rules and frames */
+  --cobalt: #1F3F8A; --turquoise: #2A8C8C; --bole: #B8322A; --sage: #3E7A4F; --slip: #F7F3EA;
 }
 ```
-- **Rule:** `--color-accent` (#B8322A) is reserved for the primary action, the current state and one focal detail per view. Additional pigment tokens are for illustration and ornament; verify contrast before using any of them for text.
+Glaze sets (swap all motif colours together, never individually):
+| Set | cobalt | turquoise | red | green | slip |
+|---|---|---|---|---|---|
+| Classic | #1F3F8A | #2A8C8C | #B8322A | #3E7A4F | #F7F3EA |
+| Blue & white | #1F3F8A | #6A8CCB | #1F3F8A | #3D5EA8 | #FAF8F2 |
+| Damascus | #2D5D86 | #3E9A8C | #6E4A7E (manganese) | #5E8A50 | #F3F0E4 |
 
-## 3. Typography & Hierarchy
-- **Display font stack:** `'Palatino Linotype', 'Book Antiqua', Georgia, serif`
-- **Body font stack:** `'Segoe UI', Corbel, Arial, sans-serif`
-- Display: a classical book serif (Palatino) at 44–56px, centred inside the arch only.
-- Body and form labels: a humanist sans; labels are 11px uppercase with 0.16em tracking.
-- Cobalt (#14295A) for all text; never set body text in turquoise or red.
+## 3. Typography
+- **Display:** classical book serif (`'Palatino Linotype', 'Book Antiqua', Georgia, serif`), 38–56px, regular. Short, declarative lines.
+- **Body/UI:** humanist sans (`'Segoe UI', Corbel, Arial, sans-serif`) 14–16px.
+- **Labels:** 11px uppercase, 0.18–0.26em tracking, bold, muted or red.
+- Motif names keep their Turkish names with English beside them: *lale* (tulip), *karanfil* (carnation), *çintemani*, *rumi*, *saz*.
 
-## 4. Layout, Grid & Geometry
-- Three columns on desktop: tile panel · white arch content · tile panel. The arch is the only centred element on the page.
-- Draw the arch with a half-ellipse cap (`border-radius: 50% 50% 0 0 / 100% 100% 0 0`) and a small finial on the axis.
-- Finish the page with a narrow repeating border band (cartouche motif) along one edge.
-- On mobile, collapse the side panels into a 56px tile band at top and bottom; keep the arch full width.
+## 4. Layout and geometry
+- **Hero:** a tiled wall (≈44% width, full height, 6px cobalt edge) beside the studio column. On mobile the studio comes first, and a **sticky 92px strip** of the current tile stays visible while options scroll.
+- **Arches:** ogee/round-topped frames (`border-radius: 48% 48% 0 0 / 24% 24% 0 0`) for process cards and the commission form. Only the arch is curved; everything else is square.
+- **Bands:** section dividers are a 44px strip filled with the *current* tile as an SVG pattern, so the site's borders follow the visitor's design.
+- Never set text on the tile field. Labels on the wall sit on a white plate with a 2px cobalt border.
 
-## 5. Component Specifications
-- **Tile pattern:** an original SVG `<pattern>` with mirrored saz-style leaves, a central rosette and corner fragments that complete when tiled; outline leaves in cobalt.
-- **Reservation form:** date and guest inputs on slip background, time chips (selected = filled cobalt, unavailable = dashed + strike-through), one full-width bole-red submit.
-- **Label card:** white card with a 2px cobalt border for small specials or notices placed over the tile panel.
+## 5. Signature interaction — the tile studio
+One tile (100×100 SVG units) is composed from five choices:
 
-## 6. Strict Forbidden Patterns (Anti-Slop Checklist)
-- NEVER set text directly on the tile pattern.
-- NEVER use more than one red element per view; bole red is the primary action only.
-- NEVER copy a specific museum tile or mosque panel; design original repeats.
-- NEVER round the form controls into pills or add soft shadows.
+| Control | Options | Rule |
+|---|---|---|
+| Centre | tulip, carnation, rosette, çintemani | sits within the middle 60% of the tile |
+| Corners | quarter rosette, saz leaf, plain | drawn at (0,0) and rotated 4× around the centre, so 4 tiles complete it |
+| Band | rumi half-lobe, cloud line, none | drawn at mid-top edge and rotated 4×, so neighbours complete it |
+| Glazes | classic, blue & white, Damascus | swaps all colours at once |
+| Laying | straight, turning (rotate by position), mirrored (flip alternate) | applied per tile on the wall |
 
----
+Each option is a radio button with a **live thumbnail** of that part. Arrow keys move within a group. Price updates with options and quantity (tiles → m² shown). The same tile definition feeds: the wall, the plate, the band strips, the process drawings and the mobile strip.
 
-## 7. Distinctive art direction and page anatomy
+## 6. Motion language
+| Moment | Motion | Timing |
+|---|---|---|
+| Design change | tiles flip into place in a diagonal wave from the top-left corner, like a tiler laying a wall | 0.55s each, delay `(x + y) × 26ms`, `cubic-bezier(.3,.8,.25,1)` |
+| Load a ready panel | same wave, then scroll back to the studio | — |
+| Everything else | none | — |
 
-**Reference era:** 16th-century İznik tilework. This is a contemporary interpretation, not a reproduction of a historical artefact or a trademarked brand. Make work that feels designed by a person with a point of view.
+No idle animation, no hover zoom on tiles, no shimmer on glaze. `prefers-reduced-motion`: the wall swaps instantly.
 
-- **Reference composition:** `centred arch with tiled flanks`. Lead with a purposeful hierarchy, a real content block, and the signature `repeating tile panels` treatment; do not assume every product needs a dashboard.
-- **Sample editorial voice:** “A table under the cobalt tiles.”. Replace sample copy with authentic project copy; do not ship the preview's fictional brand or made-up details.
-- **Use cases:** Restaurants, tea rooms, hotels, museum shops, ceramic studios. Develop other applications only when the visual language matches their audience and task.
-- **Key visual device:** `repeating tile panels`; create it with original vector or CSS geometry, real user-provided photography, or properly licensed assets.
-- **Minimum component vocabulary:** header/navigation, primary action, secondary action, content grouping, form/input, an item or list row, and visible feedback state.
-- **Repeatable signature:** keep the typographic proportion and materiality on subsequent pages; vary composition based on content so the site is not one repeated hero template.
+## 7. Section library
+1. **Studio hero** — wall + plate; kicker, two-line headline, short lede; five option rows; quantity stepper, total, area, primary "Add to order"; status line for lead time and confirmation.
+2. **Band strip** — 44px live tile band.
+3. **Process** — four arch cards showing *the visitor's own tile* at each stage: *Desen* (outline, CSS stroke-only), *Silkme* (dotted pounce outline), *Tahrir & boya* (painted), *Fırın* (painted + two translucent white glaze bands).
+4. **Ready panels** — 2×2 tile previews of presets with price and "Load in the studio".
+5. **Commission** — arch-topped form (name, email, wall width/height in cm, room notes) with inline validation and a reply that estimates tiles needed (`ceil(w/20) × ceil(h/20)`).
+6. **Footer** — cobalt ground, workshop hours, contact.
+
+## 8. Code recipes
+The full engine is in `demo.html`. Key parts:
+```js
+// one source of truth
+let D = { motif:'lale', corner:'rosette', edge:'rumi', pal:'classic', lay:'straight' };
+const rot4 = svg => [0,90,180,270].map(a => `<g transform="rotate(${a} 50 50)">${svg}</g>`).join('');
+const tileMarkup = d => `<rect width="100" height="100" fill="${slip}"/>`
+  + rot4(EDGE[d.edge](c)) + rot4(CORNER[d.corner](c)) + MOTIF[d.motif](c);
+// define once as <symbol id="tile" viewBox="0 0 100 100">, reuse everywhere with <use href="#tile"/>
+// band strip: <pattern id="bandPat" width="44" height="44"><use href="#tile" width="44" height="44"/></pattern>
+
+// laying wave: each wall tile has style="--i: x + y" and --rot for the laying mode
+.grid.lay .tile { animation: lay .55s cubic-bezier(.3,.8,.25,1) both; animation-delay: calc(var(--i) * 26ms); }
+@keyframes lay { from { transform: var(--rot) perspective(500px) rotateY(88deg); opacity: .15 } }
+// restart: grid.classList.remove('lay'); void grid.offsetWidth; grid.classList.add('lay');
+```
+- Corners are drawn as a quarter shape at the origin; edge bands as a half shape on the top edge. Rotating four times guarantees seamless joins.
+- Process stages need **inline** SVG (not `<use>`), because CSS cannot restyle elements inside a `<use>` shadow tree.
+- Wall size: choose columns so tiles are ≈136px on desktop and ≈96px on phones; rebuild on resize.
+
+## 9. Imagery
+- Motifs are original vector drawings in the İznik vocabulary; do not trace museum tiles or mosque panels.
+- Photography (if supplied): flat, even light, real tiles with visible brush marks and glaze pooling. No 3D renders, no AI "Turkish tile" textures.
+
+## 10. Forbidden patterns (anti-slop)
+- NEVER place text on the tile field; NEVER more than one red action per view.
+- NEVER animate tiles idly, add hover lift/scale, or add glossy gradients to simulate glaze.
+- NEVER use pills, glassmorphism, or soft card shadows.
+- NEVER use "oriental" clichés (domes, lanterns, crescents) as decoration.
+- NEVER copy a specific historical panel; design original repeats.
+
+## 11. Accessibility
+- The wall is `role="img"` with a label; thumbnails are decorative; each option is a labelled radio with `aria-checked` and arrow-key navigation.
+- The order status and form outcomes use `role="status"` / `role="alert"`; invalid fields get `aria-invalid` and focus.
+- Contrast: ink and muted pass AA on slip and white. Turquoise, sage and bole are motif colours, not text colours (bole is allowed on white for the CTA background with white text).
+- Touch targets ≥ 44px.
+
+## 12. Quality gate
+(1) Does changing any option re-lay the wall, the plate, the bands and the process drawings? (2) Do four tiles complete the corner and band motifs without gaps? (3) Does anything move without the visitor causing it? (4) Can a phone user see their tile while choosing options? (5) Reduced motion and keyboard pass?
 
 ## Required semantic-token interface
-The implementation MUST use these shared CSS custom properties (the palette layer may override them later):
-
 ```css
 :root {
   --color-bg: #F7F3EA;
@@ -84,36 +137,17 @@ The implementation MUST use these shared CSS custom properties (the palette laye
   --focus-ring: 3px solid var(--color-accent);
 }
 ```
+A palette may recolour the six `--color-*` values; motif colours come from the glaze sets above.
 
-Use `var(--color-bg)` rather than hardcoding background colors throughout components. When combining a palette, **load style tokens first, then palette tokens** (the later palette overrides the six `--color-*` values). A palette changes color only, not the style's spatial or typographic DNA.
-
-## 8. Responsive behavior (do not skip)
-
-- At `>= 1200px`, use the full composition described above. At `768–1199px`, reduce columns and proportionally scale headlines. Below `768px`, collapse to a single deliberate reading path; keep the primary action visible without floating overlays.
-- Typography: scale the display size with `clamp()` (for example `clamp(2.5rem, 6vw, 4rem)`), keep body text between 16px and 18px.
-- Use `minmax(0, 1fr)` for long content, `overflow-wrap: anywhere` for technical tokens, and a horizontal overflow wrapper for necessary data tables.
-- All interactive controls have touch targets around 44×44 CSS pixels. Do not hide access to important workflows on mobile.
-- Offer low-motion alternatives; respect `prefers-reduced-motion: reduce`.
-
-## 9. Accessible components and states
-
-- Text contrast: normal text at least WCAG AA 4.5:1 and large text at least 3:1, including muted labels. Decorative pigments and pattern colours are **not** automatically safe for foreground copy; test the actual pair.
-- Keyboard: visible `:focus-visible` ring, logical tab order, Escape on dismissible overlays, proper native controls; hover is never the only feedback.
-- Supply designed states: default, hover, focus, pressed, disabled, loading, empty, error, success, and selected where applicable. Announce async outcomes in a polite live region, not by color alone.
-- Use semantic landmarks (`header`, `nav`, `main`, `aside`, `footer`) and ordered heading levels. Ornamental SVG uses `aria-hidden="true"`; meaningful illustrations get a short `role="img"` label.
-
-## 10. Anti-clone quality gate
-
-Before delivery, check: (1) Could the result be mistaken for another skill in this library? If so, change the **composition**, not merely its colors. (2) Are the content and controls plausible for the product? (3) Are there illegible labels or invented statistics? (4) Do mobile, keyboard and reduced-motion states work? (5) Has AI-default hero/card/glow styling slipped back in?
-
-## 11. Invocation example
-
+## Invocation example
 ```text
-Use the iznik-ceramic design skill. Identify the product's core workflow, map its content hierarchy, apply its tokens and signature composition, and build a usable responsive page with real content states. Do not mimic the sample preview's fictional brand; do not introduce generic AI gradient/card patterns. Explain design choices in 5 concise sentences after implementation.
+Use the iznik-ceramic living style. Build the hero as a tile studio: one SVG tile
+composed from centre, corner and band parts (corners and bands drawn once and
+rotated 4×), shown repeated on a wall that re-lays in a diagonal wave on every
+change. Reuse the same tile in the section bands and the process stages. No text
+on the tile field, one red action per view, respect reduced motion.
 ```
 
-## 12. Visual reference
+![iznik-ceramic living preview](./preview.png)
 
-![iznik-ceramic original design preview](./preview.png)
-
-`demo.html` is the local, self-contained composition used to generate this preview. It illustrates a style direction, not a production-ready application.
+`demo.html` is a complete, interactive single-file page; the preview shows its first screen.

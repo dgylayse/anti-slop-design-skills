@@ -20,6 +20,15 @@ Every skill has `SKILL.md` (agent instructions), `preview.png` (1280×800 browse
 | Social-media art directions | 5 | Poster and campaign communication systems |
 | Design Director | 1 | Matches category + style + palette and critiques output |
 
+## Living styles · try them in the browser
+
+Most skills describe a look. **Living styles** also give the AI a signature interaction, a motion language taken from the craft, a section library and working code, so the result feels alive without looking like every other AI page.
+
+| Style | Try it | What you can do |
+|---|---|---|
+| [`ebru-marbling`](styles/ebru-marbling/SKILL.md) | [▶ live demo](https://dgylayse.github.io/anti-slop-design-skills/styles/ebru-marbling/demo.html) | Drop paint on water, pull it with a stylus, comb it, lift the sheet onto paper |
+| [`iznik-ceramic`](styles/iznik-ceramic/SKILL.md) | [▶ live demo](https://dgylayse.github.io/anti-slop-design-skills/styles/iznik-ceramic/demo.html) | Design one tile from symmetric parts and watch the whole wall re-lay itself |
+
 ## New in v3.1 · ten more directions
 
 Each new style ships with its **own composition**, not new colours on a shared hero template: a marbled endpaper split, a tiled ogee arch, a full-bleed optical field, a layered new-wave collage, a three-column broadside, a central receipt slip, a cover-and-shelf catalogue, an arched illustration window, a double-framed square grid and a ruled manuscript page.
