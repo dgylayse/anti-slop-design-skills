@@ -1,68 +1,234 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>thermal-receipt — original style study</title><style>
-:root{--color-bg:#E2DFD8;--color-surface:#FBFAF6;--color-ink:#1B1B1B;--color-muted:#4F4D49;--color-accent:#B5172B;--color-border:#1B1B1B;--font-display:'Consolas','Lucida Console','Courier New',monospace;--font-body:'Consolas','Lucida Console','Courier New',monospace}
-*{box-sizing:border-box}html,body{margin:0}body{background:var(--color-bg);color:var(--color-ink);font-family:var(--font-body)}
-.page{width:1280px;height:800px;overflow:hidden;position:relative;background:var(--color-bg);display:grid;grid-template-columns:1fr 440px 1fr;grid-template-rows:800px;column-gap:56px;padding:0 56px}
-.col{padding-top:46px;display:flex;flex-direction:column;gap:26px;min-width:0}
-.mark{font-size:15px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:10px}.mark i{width:14px;height:14px;background:var(--color-ink);display:inline-block}
-h1{font-family:var(--font-display);font-size:64px;line-height:.98;letter-spacing:-.04em;margin:12px 0 0;font-weight:700}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>thermal-receipt — living style study</title>
+<style>
+:root{
+  --color-bg:#E2DFD8;--color-surface:#FBFAF6;--color-ink:#1B1B1B;--color-muted:#4F4D49;--color-accent:#B5172B;--color-border:#1B1B1B;
+  --paper:#FBFAF6;--counter:#E2DFD8;--slot:#2A2A28;
+  --font-display:Consolas,'Lucida Console','Courier New',monospace;--font-body:Consolas,'Lucida Console','Courier New',monospace;
+  --focus-ring:3px solid var(--color-accent);--feed:cubic-bezier(.4,0,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--color-bg);color:var(--color-ink);font-family:var(--font-body);font-size:15px;line-height:1.5}
+:focus-visible{outline:var(--focus-ring);outline-offset:3px}
+button{font:inherit;color:inherit;cursor:pointer}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+h1,h2,h3{font-family:var(--font-display);margin:0;letter-spacing:-.03em}
+.btn{display:inline-flex;align-items:center;justify-content:space-between;gap:14px;min-height:48px;padding:0 18px;border:2px solid var(--color-ink);background:transparent;font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
+.btn.solid{background:var(--color-ink);color:var(--paper)}
+.btn.red{background:var(--color-accent);border-color:var(--color-accent);color:#fff}
+.btn:disabled{border-style:dashed;color:#7C7A75;border-color:#7C7A75;background:transparent;cursor:not-allowed}
+.btn:not(:disabled):hover{background:var(--color-accent);border-color:var(--color-accent);color:#fff}
+
+/* ---------- top bar ---------- */
+header.site{display:flex;align-items:center;justify-content:space-between;gap:20px;height:64px;padding:0 clamp(18px,4vw,56px);border-bottom:2px solid var(--color-ink)}
+.mark{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:14px;text-decoration:none;color:inherit}.mark i{width:14px;height:14px;background:var(--color-ink);display:inline-block}
+nav ul{display:flex;gap:24px;list-style:none;margin:0;padding:0;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+nav a{color:inherit;text-decoration:none;padding:8px 0;display:inline-block}nav a[aria-current]{box-shadow:inset 0 -3px var(--color-accent)}
+.open{font-size:13px}.open b{color:#2E7D4F}
+
+/* ---------- ordering ---------- */
+.order{display:grid;grid-template-columns:minmax(0,1fr) 440px minmax(0,1fr);gap:clamp(20px,3.5vw,52px);padding:0 clamp(18px,4vw,56px);min-height:calc(100vh - 64px);align-items:start}
+.col{padding-top:34px;min-width:0}
+.kick{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--color-muted);margin:0 0 10px}
+h1{font-size:clamp(40px,4.4vw,58px);line-height:.98;font-weight:700}
 h1 span{color:var(--color-accent)}
-.lede{font-size:15px;line-height:1.6;color:var(--color-muted);max-width:330px;margin:0}
-.steps{list-style:none;margin:0;padding:0;border-top:2px solid var(--color-ink)}
-.steps li{display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;min-height:52px;border-bottom:1px dashed var(--color-ink);font-size:15px}
+.lede{color:var(--color-muted);margin:14px 0 22px;max-width:380px}
+.menu{list-style:none;margin:0;padding:0;border-top:2px solid var(--color-ink)}
+.menu>li{border-bottom:1px dashed var(--color-ink);padding:10px 0}
+.item{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:12px;align-items:center}
+.item b{font-size:15px;letter-spacing:.02em}.item small{display:block;color:var(--color-muted);font-size:12.5px}
+.item .p{font-weight:700}
+.add{width:44px;height:44px;border:2px solid var(--color-ink);background:var(--paper);font-size:20px;line-height:1;font-weight:700}
+.add:hover{background:var(--color-ink);color:var(--paper)}
+.mods{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.mod{min-height:34px;padding:0 10px;border:1.5px solid var(--color-ink);background:transparent;font-size:12.5px}
+.mod[aria-pressed=true]{background:var(--color-ink);color:var(--paper)}
+
+/* ---------- printer + receipt ---------- */
+.printer{position:sticky;top:0;padding-top:20px}
+.head{height:56px;background:var(--slot);border-radius:6px 6px 0 0;position:relative;display:flex;align-items:center;justify-content:space-between;padding:0 18px;color:#CFCBC2;font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+.head .led{width:9px;height:9px;border-radius:50%;background:#555;display:inline-block;margin-right:8px;vertical-align:middle}
+.head .led.on{background:#7CD992;box-shadow:0 0 0 3px rgba(124,217,146,.18)}
+.slot{height:12px;background:#111;margin:0 14px;border-radius:0 0 4px 4px}
+.paperwrap{margin:-6px 26px 0;max-height:calc(100vh - 170px);overflow:hidden;display:flex;flex-direction:column;position:relative}
+.paperwrap.scroll{overflow-y:auto;scrollbar-width:thin}
+.paper{background:var(--paper);padding:22px 24px 34px;position:relative;box-shadow:0 1px 0 #CFCBC2;transform-origin:top center}
+.paper:after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:10px;background:linear-gradient(-45deg,transparent 7px,var(--paper) 0) 0 0/14px 10px,linear-gradient(45deg,transparent 7px,var(--paper) 0) 0 0/14px 10px}
+.ln{display:flex;justify-content:space-between;gap:12px;white-space:pre;overflow:hidden}
+.ln.c{justify-content:center}.ln.sub{color:var(--color-muted);padding-left:24px;font-size:14px}
+.ln.big{font-size:22px;font-weight:700}.ln.huge{font-size:76px;font-weight:700;letter-spacing:-.04em;line-height:1}
+.ln.void{color:var(--color-muted)}.ln.void span:first-child{text-decoration:line-through}
+.ln.dash{height:0;border-top:2px dashed var(--color-ink);margin:10px 0}
+.ln.bar{height:54px;margin:12px 4px 4px;background:repeating-linear-gradient(90deg,var(--color-ink) 0 2px,transparent 2px 4px,var(--color-ink) 4px 7px,transparent 7px 9px,var(--color-ink) 9px 10px,transparent 10px 13px)}
+.ln.new{animation:feed .32s var(--feed) both}
+@keyframes feed{from{clip-path:inset(0 0 100% 0);max-height:0}to{clip-path:inset(0);max-height:120px}}
+.ln.hint{color:#8A877F;justify-content:center;font-size:13.5px}
+.stamp{position:absolute;right:-26px;top:40%;transform:rotate(-14deg);border:4px solid var(--color-accent);color:var(--color-accent);font-size:30px;font-weight:700;letter-spacing:.18em;padding:4px 16px;background:rgba(251,250,246,.7);pointer-events:none;opacity:0}
+.stamp.on{opacity:1;animation:stamp .35s cubic-bezier(.2,1.4,.4,1) both}
+@keyframes stamp{from{transform:rotate(-14deg) scale(1.8);opacity:0}to{transform:rotate(-14deg) scale(1);opacity:1}}
+.paper.torn{animation:tear .8s cubic-bezier(.5,0,.75,0) forwards}
+@keyframes tear{30%{transform:translateY(6px) rotate(-1deg)}to{transform:translateY(120%) rotate(-6deg);opacity:0}}
+.controls{display:flex;gap:10px;margin:22px 26px 0}
+.controls .btn{flex:1}
+
+/* ---------- right column ---------- */
+.panel{background:var(--paper);padding:18px 20px;margin-bottom:16px}
+.panel h2{font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:10px}
+.sum{display:flex;justify-content:space-between;align-items:baseline;font-size:15px}
+.sum b{font-size:34px;letter-spacing:-.04em}
+.steps{list-style:none;margin:6px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr auto;gap:10px;align-items:center;min-height:46px;border-bottom:1px dashed var(--color-ink);font-size:14.5px}
 .steps .s{width:18px;height:18px;border:2px solid var(--color-ink);border-radius:50%}
-.steps .done .s{background:var(--color-ink)}.steps .now .s{background:var(--color-accent);border-color:var(--color-accent);box-shadow:0 0 0 4px var(--color-bg),0 0 0 6px var(--color-accent)}
-.steps .now{font-weight:700}.steps small{color:var(--color-muted);font-size:13px}
-.receipt{position:relative;margin-top:-6px;background:var(--color-surface);height:860px;padding:52px 34px 0;font-size:15px;line-height:1.5;box-shadow:0 1px 0 #CFCBC2}
-.receipt:before{content:"";position:absolute;left:0;right:0;top:-1px;height:14px;background:linear-gradient(-45deg,var(--color-bg) 7px,transparent 0) 0 0/14px 14px,linear-gradient(45deg,var(--color-bg) 7px,transparent 0) 0 0/14px 14px;transform:rotate(180deg)}
-.c{text-align:center}.hd{font-size:22px;font-weight:700;letter-spacing:.2em}
-.dash{border:0;border-top:2px dashed var(--color-ink);margin:14px 0}
-.ln{display:flex;justify-content:space-between;gap:12px}.ln.sub{color:var(--color-muted);padding-left:24px;font-size:14px}
-.tot{font-size:26px;font-weight:700}
-.big{font-size:84px;font-weight:700;letter-spacing:-.04em;line-height:1;margin:6px 0}
-.bar{height:58px;margin:14px 6px 4px;background:repeating-linear-gradient(90deg,var(--color-ink) 0 2px,transparent 2px 4px,var(--color-ink) 4px 7px,transparent 7px 9px,var(--color-ink) 9px 10px,transparent 10px 13px)}
-.stamp{position:absolute;right:-58px;top:478px;transform:rotate(-14deg);border:4px solid var(--color-accent);color:var(--color-accent);font-size:30px;font-weight:700;letter-spacing:.18em;padding:6px 16px;background:rgba(251,250,246,.6)}
-.shelf{background:var(--color-ink);color:var(--color-surface);padding:22px 24px}
-.shelf small{display:block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#C9C6BF}
-.shelf strong{display:block;font-size:96px;line-height:1;letter-spacing:-.05em;margin:6px 0}
-.shelf p{margin:0;font-size:14px;line-height:1.5;color:#E6E3DC}
-.btn{display:flex;justify-content:space-between;align-items:center;min-height:50px;padding:0 18px;border:2px solid var(--color-ink);font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-.btn.alt{border-style:dashed}
-.live{font-size:13px;color:var(--color-muted);border-left:4px solid var(--color-accent);padding:6px 0 6px 12px}
-@media(max-width:860px){.page{transform-origin:top left;transform:scale(.6)}}
-</style></head><body>
-<div class="page">
-<section class="col" aria-label="Order status">
-<div class="mark"><i aria-hidden="true"></i>Corner Counter Coffee</div>
-<h1>Order 0417 is <span>brewing.</span></h1>
-<p class="lede">No app, no account. This page updates itself; keep it open or come back with the number on your slip.</p>
-<ol class="steps"><li class="done"><span class="s" aria-hidden="true"></span>Received<small>08:41</small></li><li class="done"><span class="s" aria-hidden="true"></span>Paid<small>08:41</small></li><li class="now" aria-current="step"><span class="s" aria-hidden="true"></span>Brewing<small>~4 min</small></li><li><span class="s" aria-hidden="true"></span>Ready on shelf<small>—</small></li></ol>
-<p class="live" role="status">Your oat flat white is on the second grinder.</p>
+.steps .done .s{background:var(--color-ink)}
+.steps .now{font-weight:700}.steps .now .s{background:var(--color-accent);border-color:var(--color-accent);box-shadow:0 0 0 3px var(--paper),0 0 0 5px var(--color-accent)}
+.steps small{color:var(--color-muted);font-size:12.5px}
+.shelf{background:var(--color-ink);color:var(--paper);padding:18px 20px;display:none}
+.shelf.on{display:block}
+.shelf small{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#C9C6BF}
+.shelf strong{display:block;font-size:88px;line-height:1;letter-spacing:-.05em}
+.shelf p{margin:0;font-size:13.5px;color:#E6E3DC}
+.live{font-size:13.5px;border-left:4px solid var(--color-accent);padding:6px 0 6px 12px;color:var(--color-muted);margin:0}
+.slips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.slips span{background:var(--paper);border:1px solid #BDB9B0;padding:4px 8px;font-size:12px}
+
+/* ---------- below the fold ---------- */
+section.block{padding:clamp(56px,7vw,96px) clamp(18px,4vw,56px);border-top:2px solid var(--color-ink)}
+.block h2{font-size:clamp(30px,3.4vw,44px);line-height:1.02;font-weight:700;margin-bottom:28px;max-width:720px}
+.stubs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.stub{background:var(--paper);padding:20px 22px 26px;position:relative}
+.stub:after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:10px;background:linear-gradient(-45deg,transparent 7px,var(--paper) 0) 0 0/14px 10px,linear-gradient(45deg,transparent 7px,var(--paper) 0) 0 0/14px 10px}
+.stub b{font-size:44px;letter-spacing:-.04em;display:block;line-height:1}
+.stub h3{font-size:18px;margin:10px 0 6px}
+.stub p{margin:0;color:var(--color-muted);font-size:14.5px}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start}
+.card{background:var(--paper);padding:22px;border:2px solid var(--color-ink)}
+.holes{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:16px 0}
+.holes i{aspect-ratio:1;border:2px dashed var(--color-ink);border-radius:50%;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:12px;color:var(--color-muted)}
+.holes i.p{border-style:solid;background:var(--counter);color:transparent;box-shadow:inset 0 2px 0 rgba(0,0,0,.18)}
+.holes i.free{border-color:var(--color-accent);color:var(--color-accent);font-weight:700}
+.hours{width:100%;border-collapse:collapse}.hours td{padding:9px 0;border-bottom:1px dashed var(--color-ink)}.hours td:last-child{text-align:right;font-weight:700}
+.hours tr.today td{color:var(--color-accent)}
+footer.site{border-top:2px solid var(--color-ink);padding:28px clamp(18px,4vw,56px);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--color-muted)}
+
+@media (max-width:1100px){.order{grid-template-columns:minmax(0,1fr) 400px}.order .right{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:16px}.panel{margin:0}}
+@media (max-width:820px){
+  .order{grid-template-columns:1fr;gap:0}.printer{position:relative;order:2;padding-top:28px}.order .right{order:3;grid-template-columns:1fr;padding-top:24px}.controls .btn{padding:0 12px;font-size:13px}
+  .paperwrap{max-height:none}.stubs,.two{grid-template-columns:1fr}
+  nav{display:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ln.new,.stamp.on{animation:none}.paper.torn{animation:none;opacity:0}}
+</style>
+</head>
+<body>
+<header class="site"><a class="mark" href="#"><i aria-hidden="true"></i>Corner Counter</a><nav aria-label="Primary"><ul><li><a href="#order" aria-current="page">Order</a></li><li><a href="#pickup">Pickup</a></li><li><a href="#hours">Hours</a></li></ul></nav><span class="open"><b>● Open</b> until 15:00</span></header>
+
+<main class="order" id="order">
+  <section class="col" aria-labelledby="mh">
+    <p class="kick">14 Mill Lane · order ahead</p>
+    <h1 id="mh">Order at the counter, <span>skip the queue.</span></h1>
+    <p class="lede">Add what you want. The slip prints as you go — the printer never forgets, so removing something prints a void line, like a real till.</p>
+    <ul class="menu" id="menu"></ul>
+  </section>
+
+  <section class="printer" aria-label="Receipt printer">
+    <div class="head"><span><span class="led" id="led" aria-hidden="true"></span>Printer</span><span id="ordno">Order 0418</span></div>
+    <div class="slot" aria-hidden="true"></div>
+    <div class="paperwrap" id="wrap">
+      <article class="paper" id="paper" aria-label="Receipt" aria-live="polite" aria-relevant="additions"></article>
+    </div>
+    <div class="controls"><button class="btn red" id="pay" disabled>Pay &amp; print <span>→</span></button><button class="btn" id="tear" disabled>Tear off</button></div>
+  </section>
+
+  <aside class="col right" aria-label="Your order">
+    <div class="panel"><h2>Running total</h2><div class="sum"><span id="count">0 items</span><b id="sub">0.00</b></div></div>
+    <div class="panel" id="pickup"><h2>Pickup</h2>
+      <ol class="steps" id="steps"><li data-k="0"><span class="s" aria-hidden="true"></span>Ordering<small>now</small></li><li data-k="1"><span class="s" aria-hidden="true"></span>Paid<small>—</small></li><li data-k="2"><span class="s" aria-hidden="true"></span>Brewing<small>—</small></li><li data-k="3"><span class="s" aria-hidden="true"></span>Ready on shelf<small>—</small></li></ol>
+    </div>
+    <div class="shelf" id="shelf"><small>Pick up from shelf</small><strong>B</strong><p>Left of the till, under the green lamp. Only your number is printed, never your name.</p></div>
+    <p class="live" id="live" role="status">Nothing ordered yet.</p>
+    <div class="slips" id="slips" aria-label="Torn-off slips"></div>
+  </aside>
+</main>
+
+<section class="block" aria-labelledby="hh">
+  <h2 id="hh">Three slips, no app, no account.</h2>
+  <div class="stubs">
+    <div class="stub"><b>01</b><h3>Order here or at the till</h3><p>Every order prints a slip with a four-digit number. That number is all we need.</p></div>
+    <div class="stub"><b>02</b><h3>Watch it move</h3><p>This page updates itself: paid, brewing, ready. No notifications, no sign-up.</p></div>
+    <div class="stub"><b>03</b><h3>Take it from the shelf</h3><p>Shelves A–C by the window. Recycle the slip — it's printed without BPA.</p></div>
+  </div>
 </section>
-<article class="receipt" aria-label="Receipt">
-<div class="c hd">CORNER COUNTER</div>
-<div class="c">14 Mill Lane · open 7–15</div>
-<hr class="dash">
-<div class="ln"><span>TUE 11 MAR</span><span>08:41</span></div>
-<div class="ln"><span>ORDER</span><span>#0417</span></div>
-<hr class="dash">
-<div class="ln"><span>1 × FLAT WHITE</span><span>3.40</span></div>
-<div class="ln sub"><span>+ oat milk</span><span>0.40</span></div>
-<div class="ln"><span>1 × CARDAMOM BUN</span><span>2.90</span></div>
-<div class="ln"><span>1 × FILTER, LARGE</span><span>3.10</span></div>
-<div class="ln sub"><span>+ own cup</span><span>−0.30</span></div>
-<hr class="dash">
-<div class="ln tot"><span>TOTAL</span><span>9.50</span></div>
-<div class="ln"><span>CARD ····</span><span>APPROVED</span></div>
-<hr class="dash">
-<div class="c">YOUR NUMBER</div>
-<div class="c big">0417</div>
-<div class="bar" aria-hidden="true"></div>
-<div class="c" style="font-size:13px">THANK YOU · RECYCLE ME (BPA-FREE)</div>
-<div class="stamp" aria-hidden="true">PAID</div>
-</article>
-<section class="col" aria-label="Pickup">
-<div class="shelf"><small>Pick up from shelf</small><strong>B</strong><p>Left of the till, under the green lamp. Your name is not printed — just the number.</p></div>
-<span class="btn">Add another drink <b>+</b></span>
-<span class="btn alt">Email me the receipt <b>→</b></span>
+
+<section class="block" id="hours" aria-labelledby="th">
+  <h2 id="th">Hours, and the tenth one is on us.</h2>
+  <div class="two">
+    <div class="card"><table class="hours" aria-label="Opening hours"><tr><td>Mon–Fri</td><td>07:00–15:00</td></tr><tr class="today"><td>Today · Tue</td><td>07:00–15:00</td></tr><tr><td>Saturday</td><td>08:00–14:00</td></tr><tr><td>Sunday</td><td>closed</td></tr></table></div>
+    <div class="card"><b>Stamp card</b><p style="margin:6px 0 0;color:var(--color-muted)">Nine punches, tenth drink free. Paper only — ask at the till.</p><div class="holes" aria-label="6 of 9 punched"><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i>7</i><i>8</i><i>9</i><i class="free">FREE</i></div></div>
+  </div>
 </section>
-</div></body></html>
+<footer class="site"><span>CORNER COUNTER · 14 MILL LANE</span><span>Prices include VAT · card and cash</span></footer>
+
+<script>
+const REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const MENU=[
+  {id:'fw',name:'FLAT WHITE',desc:'double shot, small cup',price:3.40,mods:[['OAT MILK',.40],['EXTRA SHOT',.60],['DECAF',0]]},
+  {id:'fl',name:'FILTER, LARGE',desc:'this week: Huila, Colombia',price:3.10,mods:[['OWN CUP',-.30],['MILK ON SIDE',0]]},
+  {id:'ch',name:'CHAI',desc:'brewed with whole spices',price:3.30,mods:[['OAT MILK',.40]]},
+  {id:'cb',name:'CARDAMOM BUN',desc:'baked at 6',price:2.90,mods:[]},
+  {id:'st',name:'SOURDOUGH TOAST',desc:'butter and plum jam',price:4.20,mods:[['NO BUTTER',0]]},
+];
+const money=v=>(v<0?'−':'')+Math.abs(v).toFixed(2);
+let order=[],no=418,state='open';
+const paper=document.getElementById('paper'),wrap=document.getElementById('wrap'),led=document.getElementById('led');
+/* the print queue: lines feed one by one, like a thermal head */
+const queue=[];let printing=false,instant=true;
+function print(cls,left='',right=''){const j={cls,left,right};if(instant){put(j,false);return}queue.push(j);if(!printing)feed()}
+function feed(){const j=queue.shift();if(!j){printing=false;led.classList.remove('on');return}printing=true;led.classList.add('on');put(j,!REDUCED);setTimeout(feed,REDUCED?0:95)}
+function put(j,anim){
+  const el=document.createElement('div');el.className='ln '+j.cls+(anim?' new':'');
+  el.innerHTML=j.right!==''?`<span>${j.left}</span><span>${j.right}</span>`:`<span>${j.left}</span>`;
+  if(j.cls.includes('dash')||j.cls.includes('bar'))el.innerHTML='';
+  const hint=paper.querySelector('.hint');if(hint&&!j.cls.includes('hint'))hint.remove();
+  paper.insertBefore(el,paper.querySelector('.stamp'));wrap.classList.toggle('scroll',wrap.scrollHeight>wrap.clientHeight+4);wrap.scrollTop=wrap.scrollHeight}
+function now(){return new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'})}
+function header(){paper.innerHTML='<div class="stamp" aria-hidden="true">PAID</div>';document.getElementById('ordno').textContent='Order '+String(no).padStart(4,'0');
+  print('c big','CORNER COUNTER');print('c','14 Mill Lane · open 7–15');print('dash');print('',new Date().toLocaleDateString('en-GB',{weekday:'short',day:'2-digit',month:'short'}).toUpperCase(),now());print('','ORDER','#'+String(no).padStart(4,'0'));print('dash');print('hint','— tap + to add —')}
+function total(){return order.reduce((s,o)=>s+o.price+o.mods.reduce((a,m)=>a+m[1],0),0)}
+function refresh(){const n=order.length;document.getElementById('count').textContent=n+(n===1?' item':' items');document.getElementById('sub').textContent=money(total());document.getElementById('pay').disabled=!n||state!=='open';renderMenu()}
+function say(t){document.getElementById('live').textContent=t}
+
+/* menu with modifiers and add buttons; items already ordered get a remove button that prints VOID */
+const sel={};
+function renderMenu(){const ul=document.getElementById('menu');ul.innerHTML=MENU.map(m=>{const inOrder=order.filter(o=>o.id===m.id).length;return `<li><div class="item"><div><b>${m.name}</b><small>${m.desc}${inOrder?` · ${inOrder} on slip`:''}</small></div><span class="p">${money(m.price)}</span><span style="display:flex;gap:6px">${inOrder&&state==='open'?`<button class="add" data-rm="${m.id}" aria-label="Remove one ${m.name.toLowerCase()}">−</button>`:''}<button class="add" data-add="${m.id}" aria-label="Add ${m.name.toLowerCase()}" ${state!=='open'?'disabled':''}>+</button></span></div>${m.mods.length?`<div class="mods">${m.mods.map(([n,p],i)=>`<button class="mod" aria-pressed="${!!(sel[m.id]&&sel[m.id][i])}" data-mod="${m.id}:${i}">${n.toLowerCase()}${p?` ${p>0?'+':''}${p.toFixed(2)}`:''}</button>`).join('')}</div>`:''}</li>`}).join('')}
+document.getElementById('menu').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.mod){const[id,i]=b.dataset.mod.split(':');sel[id]=sel[id]||{};sel[id][i]=!sel[id][i];renderMenu();document.querySelector(`[data-mod="${b.dataset.mod}"]`).focus();return}
+  if(b.dataset.add){const m=MENU.find(x=>x.id===b.dataset.add),mods=m.mods.filter((_,i)=>sel[m.id]&&sel[m.id][i]);order.push({id:m.id,name:m.name,price:m.price,mods});
+    print('',`1 × ${m.name}`,money(m.price));mods.forEach(([n,p])=>print('sub','+ '+n.toLowerCase(),money(p)));sel[m.id]={};refresh();say(`${m.name.toLowerCase()} added. Total ${money(total())}.`);document.querySelector(`[data-add="${m.id}"]`).focus()}
+  if(b.dataset.rm){const i=order.map(o=>o.id).lastIndexOf(b.dataset.rm);const o=order.splice(i,1)[0];const v=o.price+o.mods.reduce((a,m)=>a+m[1],0);print('void',`VOID ${o.name}`,money(-v));refresh();say(`${o.name.toLowerCase()} removed. A void line was printed.`);const nb=document.querySelector(`[data-rm="${o.id}"]`)||document.querySelector(`[data-add="${o.id}"]`);nb&&nb.focus()}});
+
+/* status steps */
+function step(k,t){document.querySelectorAll('#steps li').forEach(li=>{const i=+li.dataset.k;li.className=i<k?'done':i===k?'now':'';if(i===k){li.setAttribute('aria-current','step');li.querySelector('small').textContent=t}else li.removeAttribute('aria-current')})}
+step(0,'now');
+document.getElementById('pay').addEventListener('click',()=>{state='paid';refresh();const t=total();
+  print('dash');print('big','TOTAL',money(t));print('','  incl. VAT 20%',money(t-t/1.2));print('','CARD ····','APPROVED');print('dash');print('c','YOUR NUMBER');print('c huge',String(no).padStart(4,'0'));print('bar');print('c','THANK YOU · RECYCLE ME');
+  setTimeout(()=>{paper.querySelector('.stamp').classList.add('on');document.getElementById('tear').disabled=false;document.getElementById('tear').focus()},REDUCED?0:queue.length*95+150);
+  step(1,now());say(`Paid ${money(t)}. Your number is ${String(no).padStart(4,'0')}. Tear off your slip.`)});
+document.getElementById('tear').addEventListener('click',()=>{const b=document.getElementById('tear');b.disabled=true;paper.classList.add('torn');const num=String(no).padStart(4,'0');
+  setTimeout(()=>{paper.classList.remove('torn');const s=document.createElement('span');s.textContent='#'+num;document.getElementById('slips').appendChild(s);
+    no++;order=[];state='open';instant=true;header();instant=false;refresh()},REDUCED?0:800);
+  step(2,'~4 min');say(`Order ${num} is brewing. This page will tell you when it is on the shelf.`);
+  setTimeout(()=>{step(3,now());document.getElementById('shelf').classList.add('on');say(`Order ${num} is ready on shelf B.`)},6000)});
+
+/* start with a sample order so the slip shows real lines */
+header();
+order.push({id:'fw',name:'FLAT WHITE',price:3.40,mods:[['OAT MILK',.40]]},{id:'cb',name:'CARDAMOM BUN',price:2.90,mods:[]});
+print('','1 × FLAT WHITE','3.40');print('sub','+ oat milk','0.40');print('','1 × CARDAMOM BUN','2.90');
+refresh();instant=false;say('Two items on the slip. Add more, or pay when you are ready.');
+</script>
+</body>
+</html>

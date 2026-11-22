@@ -28,6 +28,8 @@ Most skills describe a look. **Living styles** also give the AI a signature inte
 |---|---|---|
 | [`ebru-marbling`](styles/ebru-marbling/SKILL.md) | [▶ live demo](https://dgylayse.github.io/anti-slop-design-skills/styles/ebru-marbling/demo.html) | Drop paint on water, pull it with a stylus, comb it, lift the sheet onto paper |
 | [`iznik-ceramic`](styles/iznik-ceramic/SKILL.md) | [▶ live demo](https://dgylayse.github.io/anti-slop-design-skills/styles/iznik-ceramic/demo.html) | Design one tile from symmetric parts and watch the whole wall re-lay itself |
+| [`thermal-receipt`](styles/thermal-receipt/SKILL.md) | [▶ live demo](https://dgylayse.github.io/anti-slop-design-skills/styles/thermal-receipt/demo.html) | Order from the menu and watch the slip print line by line; removals print VOID, paying stamps PAID |
+| [`wood-type-broadside`](styles/wood-type-broadside/SKILL.md) | [▶ live demo](https://dgylayse.github.io/anti-slop-design-skills/styles/wood-type-broadside/demo.html) | Set your own poster in wood type, ink the forme, pull a unique print |
 
 ## New in v3.1 · ten more directions
 

@@ -413,7 +413,7 @@
       "name": "thermal-receipt",
       "category": "styles",
       "era": "1990s point-of-sale receipts",
-      "description": "Use for cafés, ordering, checkout and order-tracking flows in a thermal-receipt direction: a monospace paper slip as the central object, dashed separators, barcode and stamp details, and an honest step-by-step order status.",
+      "description": "Use for cafés, food ordering, checkout and order-tracking flows in a thermal-receipt direction: a living receipt printer that prints each line as items are added (and void lines when removed), a paid stamp, a tear-off, and honest step-by-step pickup status, all in one monospace face on counter-grey and paper-white.",
       "skill": "styles/thermal-receipt/SKILL.md",
       "preview": "styles/thermal-receipt/preview.png",
       "demo": "styles/thermal-receipt/demo.html"
@@ -467,7 +467,7 @@
       "name": "wood-type-broadside",
       "category": "styles",
       "era": "1870s wood type broadsides",
-      "description": "Use for markets, fairs, breweries and community events in an 1870s wood-type broadside direction: stacked mixed-width poster lines, slab and condensed faces, a second red ink, printer's ornaments, paper grain and handbill side columns.",
+      "description": "Use for markets, fairs, breweries, community events and local shops in an 1870s wood-type broadside direction: a living print shop where visitors set their own poster lines (each auto-sized to fill the measure), ink the forme with a roller and pull unique prints with real ink texture, framed by handbill columns, slab labels and a two-colour discipline.",
       "skill": "styles/wood-type-broadside/SKILL.md",
       "preview": "styles/wood-type-broadside/preview.png",
       "demo": "styles/wood-type-broadside/demo.html"

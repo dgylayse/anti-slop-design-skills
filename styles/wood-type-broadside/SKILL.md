@@ -1,74 +1,120 @@
 ---
 name: wood-type-broadside
-description: "Use for markets, fairs, breweries and community events in an 1870s wood-type broadside direction: stacked mixed-width poster lines, slab and condensed faces, a second red ink, printer's ornaments, paper grain and handbill side columns."
+description: "Use for markets, fairs, breweries, community events and local shops in an 1870s wood-type broadside direction: a living print shop where visitors set their own poster lines (each auto-sized to fill the measure), ink the forme with a roller and pull unique prints with real ink texture, framed by handbill columns, slab labels and a two-colour discipline."
 license: MIT
 metadata:
   category: styles
   preview: preview.png
   era: "1870s wood type broadsides"
-  version: 3.1.0
+  version: 4.0.0
+  tier: living
 ---
 
-# Wood Type Broadside (19th-century Letterpress Poster)
+# Wood Type Broadside — Living Style
 
-## 1. Design Philosophy
-A broadside was set line by line from whatever wood type the printer had: a huge condensed word, a spaced slab line, an italic connective, a second colour for the key word. Each line is sized to fill the measure. Recreate that rhythm with centred stacked lines and a strict two-colour discipline, and keep the practical information in plain handbill columns.
+> **Living style.** The poster is set, inked and printed in the browser. Every behaviour comes from the job printer's workflow: set · ink · pull.
 
-## 2. Color Tokens & Surface Rules
+## 1. Design philosophy
+A broadside was set line by line from whatever wood type the shop had: a huge condensed word, a spaced slab line, an italic connective, a second colour for the key word. Each line is sized to **fill the measure**. Ink is never perfect; every pull differs slightly.
+
+The page lets visitors do exactly that with their own words, and keeps practical information (schedule, booking) in plain handbill columns beside the poster.
+
+Test: *could a jobbing printer with one case of wood type and two inks have made this?*
+
+## 2. Colour tokens
 ```css
 :root {
-  --color-bg: #EDE0C4;
+  --color-bg: #EDE0C4;       /* shop paper */
   --color-surface: #F6EDD6;
-  --color-ink: #221A14;
+  --color-ink: #221A14;      /* black ink */
   --color-muted: #5A4838;
-  --color-accent: #A82820;
+  --color-accent: #A82820;   /* the second ink: red */
   --color-border: #221A14;
-  --font-slab: 'Rockwell', 'Rockwell Extra Bold', 'Courier New', serif;
+  --metal: #7A746B;          /* un-inked type in the forme */
+  --paper: #F4EAD2;          /* the printing sheet */
 }
 ```
-- **Rule:** `--color-accent` (#A82820) is reserved for the primary action, the current state and one focal detail per view. Additional pigment tokens are for illustration and ornament; verify contrast before using any of them for text.
+Two inks plus paper. Never a third ink.
 
-## 3. Typography & Hierarchy
-- **Display font stack:** `Impact, 'Haettenschweiler', 'Arial Narrow Bold', sans-serif`
-- **Body font stack:** `Georgia, 'Times New Roman', serif`
-- Stack 5–7 centred lines that each fill the poster measure: spaced slab caps (0.4–0.5em tracking), a giant condensed headline (160–220px), an italic serif connective (& / at / and), a second-colour line (horizontally stretched with `scaleX`), and a reversed slab band.
-- Slab serif (Rockwell) for navigation and labels, Georgia for reading text.
-- Numerals in the condensed display face for times and prices.
+## 3. Typography
+| Face | Stack | Use |
+|---|---|---|
+| Gothic (condensed) | `Impact, Haettenschweiler, 'Arial Narrow Bold'` | the big word |
+| Wide | same, `letter-spacing: .16em` | secondary big word |
+| Slab | `Rockwell, 'Rockwell Extra Bold', 'Courier New'`, uppercase, `.42em` tracking | small spaced lines, labels, buttons |
+| Italic | `Georgia` italic | connectives (&, at, and) |
+| Band | slab on a solid ink band, reversed | the date / call to action line |
+| Reading | `Georgia` 15–16px | handbills, forms |
 
-## 4. Layout, Grid & Geometry
-- Three columns: handbill (nav, notices) · poster · handbill (schedule, actions), separated by 3px ink rules.
-- Printer's ornamental rule (line · dot · diamond · dot · line) between poster sections.
-- Fill the full height; leftover space goes to a colophon or a woodcut-style illustration, never to blank paper.
-- Mobile: poster first at reduced sizes, then handbill columns stacked.
+Letter-spaced faces get matching `padding-left` so the trailing spacing does not push the line off centre.
 
-## 5. Component Specifications
-- **Paper grain:** fixed SVG `feTurbulence` overlay with multiply blend at ~50% opacity, `pointer-events:none`.
-- **Facts band:** three cells between heavy rules with condensed figures and spaced slab captions.
-- **Buttons:** red fill with a hard 4px offset ink shadow (a misregistered print), or outlined ghost.
-- **Woodcut illustration:** chunky two-colour SVG inside a double circle.
+## 4. Layout
+- **Desktop:** handbill column (≈260px) · poster · composing stick (≈360px), divided by 3px ink rules.
+- **Tablet:** the handbill becomes a three-column strip above; poster and stick side by side.
+- **Phone:** handbill → poster (≥72vh) → stick.
+- Printer's ornament rule (line · dot · diamond · dot · line) after the fourth line.
+- Paper grain overlay (`feTurbulence`, multiply, ~45%) is fixed and `pointer-events:none`.
 
-## 6. Strict Forbidden Patterns (Anti-Slop Checklist)
-- NEVER use more than two ink colours plus paper.
-- NEVER apply grain over form fields so strongly that contrast drops below AA.
-- NEVER use distressed 'western' novelty fonts as body text.
+## 5. Signature interaction — set · ink · pull
+| Step | Visitor does | What happens |
+|---|---|---|
+| Set | edits five lines; picks Gothic / Wide / Slab / Italic / Band and black or red per line | each line re-fits to the measure; the forme shows **bare grey metal** |
+| Ink | presses "Ink the forme" | a roller passes top to bottom; each line darkens as the roller reaches it |
+| Pull | presses "Pull a print" | the platen comes down and lifts; the sheet shows a print with ink speckle, a slight wobble, and red slightly out of register; the print number joins "Pulled prints" |
+| Order | "Order 10" | the current text is ordered for collection |
+
+**Fit algorithm:** set each line to 100px, measure its width, scale to `min(maxFor(face), 100 × measure / width)`; if the stack is taller than the sheet, scale all lines down by the same factor. Lines use `display: table` so they shrink-wrap and centre.
+
+## 6. Motion language
+| Moment | Motion | Timing |
+|---|---|---|
+| Ink | roller (dark cylinder) travels down the sheet; lines turn from metal to ink as it passes | 0.9s, delay per line by its vertical position |
+| Pull | platen down, hold, up | 1.0s total, print swaps at the midpoint |
+| Button press | the red button's hard 4px shadow collapses (it is "pressed") | 0.08s |
+| Everything else | none | — |
+
+`prefers-reduced-motion`: no roller or platen; states switch instantly.
+
+## 7. Section library
+1. **Print shop hero** — handbill (mark, nav, "This Saturday" schedule, access note) · poster sheet with status line · composing stick (five lines, face chips, ink toggle, Ink / Pull, pulled-print pile, order box).
+2. **Set · Ink · Pull** — three woodcut-style SVG illustrations between heavy rules.
+3. **Book a stall** — pitch choice as large radio cards with prices, date select, produce, name, email; inline validation; confirmation in a dashed box.
+4. **Footer** — double rule and a colophon.
+
+## 8. Code recipes
+```html
+<filter id="ink">
+  <feTurbulence id="speck" type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="3" result="n"/>
+  <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -6 4.15" result="m"/>
+  <feComposite in="SourceGraphic" in2="m" operator="in" result="s"/>
+  <feTurbulence id="wobble" type="fractalNoise" baseFrequency=".05" seed="9" result="w"/>
+  <feDisplacementMap in="s" in2="w" scale="2.4"/>
+</filter>
+```
+- The alpha matrix (`−6·A + 4.15`) keeps most of the ink and removes small specks where the noise is high — a worn wood-type look rather than a dirty overlay.
+- New seed per pull (`speck.setAttribute('seed', …)`) makes every print unique; red lines get a random 0–1.5px offset (`--mx`, `--my`) for misregistration.
+- States are classes on the sheet: `.forme` (metal grey) → `.inked` → `.printed` (filter on). Editing any line returns to `.forme`.
+
+## 9. Content rules
+- Real schedule times, prices and dates; the printed bill shows only what the visitor typed.
+- Always offer large-print / plain-text versions of event information; the poster is an image for assistive tech (`role="img"` with a label).
+
+## 10. Forbidden patterns (anti-slop)
+- NEVER more than two inks; NEVER gradients on type.
+- NEVER use distressed "western" novelty fonts for reading text.
 - NEVER centre the handbill columns; only the poster is centred.
+- NEVER add idle animation, hover zooms or glow; the press moves only when used.
+- NEVER let grain or texture reduce form or body-text contrast below AA.
 
----
+## 11. Accessibility
+- Composing controls: labelled inputs, face chips as a `radiogroup`, ink toggle with `aria-pressed`; focus stays on the control after re-render.
+- Ink/Pull buttons are disabled when not applicable; a `role=status` line explains the next step after every action.
+- Stall form: real radio inputs inside large labels (`:has(:focus-visible)` shows focus), `aria-invalid`, one combined `role=alert` message.
 
-## 7. Distinctive art direction and page anatomy
-
-**Reference era:** 1870s wood type broadsides. This is a contemporary interpretation, not a reproduction of a historical artefact or a trademarked brand. Make work that feels designed by a person with a point of view.
-
-- **Reference composition:** `three-column broadside`. Lead with a purposeful hierarchy, a real content block, and the signature `stacked wood type lines` treatment; do not assume every product needs a dashboard.
-- **Sample editorial voice:** “HARVEST & MARKET — EVERY SATURDAY.”. Replace sample copy with authentic project copy; do not ship the preview's fictional brand or made-up details.
-- **Use cases:** Markets, fairs, breweries, barbers, community events, local shops. Develop other applications only when the visual language matches their audience and task.
-- **Key visual device:** `stacked wood type lines`; create it with original vector or CSS geometry, real user-provided photography, or properly licensed assets.
-- **Minimum component vocabulary:** header/navigation, primary action, secondary action, content grouping, form/input, an item or list row, and visible feedback state.
-- **Repeatable signature:** keep the typographic proportion and materiality on subsequent pages; vary composition based on content so the site is not one repeated hero template.
+## 12. Quality gate
+(1) Does every line still fill the measure after any edit and at every viewport? (2) Do Ink and Pull follow the workflow (no pulling un-inked type)? (3) Are two consecutive prints visibly different? (4) Reduced motion and keyboard pass? (5) Only two inks?
 
 ## Required semantic-token interface
-The implementation MUST use these shared CSS custom properties (the palette layer may override them later):
-
 ```css
 :root {
   --color-bg: #EDE0C4;
@@ -77,42 +123,22 @@ The implementation MUST use these shared CSS custom properties (the palette laye
   --color-muted: #5A4838;
   --color-accent: #A82820;
   --color-border: #221A14;
-  --font-display: Impact, 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+  --font-display: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   --font-body: Georgia, 'Times New Roman', serif;
   --radius-control: 0px;
   --focus-ring: 3px solid var(--color-accent);
 }
 ```
 
-Use `var(--color-bg)` rather than hardcoding background colors throughout components. When combining a palette, **load style tokens first, then palette tokens** (the later palette overrides the six `--color-*` values). A palette changes color only, not the style's spatial or typographic DNA.
-
-## 8. Responsive behavior (do not skip)
-
-- At `>= 1200px`, use the full composition described above. At `768–1199px`, reduce columns and proportionally scale headlines. Below `768px`, collapse to a single deliberate reading path; keep the primary action visible without floating overlays.
-- Typography: scale the display size with `clamp()` (for example `clamp(2.5rem, 6vw, 4rem)`), keep body text between 16px and 18px.
-- Use `minmax(0, 1fr)` for long content, `overflow-wrap: anywhere` for technical tokens, and a horizontal overflow wrapper for necessary data tables.
-- All interactive controls have touch targets around 44×44 CSS pixels. Do not hide access to important workflows on mobile.
-- Offer low-motion alternatives; respect `prefers-reduced-motion: reduce`.
-
-## 9. Accessible components and states
-
-- Text contrast: normal text at least WCAG AA 4.5:1 and large text at least 3:1, including muted labels. Decorative pigments and pattern colours are **not** automatically safe for foreground copy; test the actual pair.
-- Keyboard: visible `:focus-visible` ring, logical tab order, Escape on dismissible overlays, proper native controls; hover is never the only feedback.
-- Supply designed states: default, hover, focus, pressed, disabled, loading, empty, error, success, and selected where applicable. Announce async outcomes in a polite live region, not by color alone.
-- Use semantic landmarks (`header`, `nav`, `main`, `aside`, `footer`) and ordered heading levels. Ornamental SVG uses `aria-hidden="true"`; meaningful illustrations get a short `role="img"` label.
-
-## 10. Anti-clone quality gate
-
-Before delivery, check: (1) Could the result be mistaken for another skill in this library? If so, change the **composition**, not merely its colors. (2) Are the content and controls plausible for the product? (3) Are there illegible labels or invented statistics? (4) Do mobile, keyboard and reduced-motion states work? (5) Has AI-default hero/card/glow styling slipped back in?
-
-## 11. Invocation example
-
+## Invocation example
 ```text
-Use the wood-type-broadside design skill. Identify the product's core workflow, map its content hierarchy, apply its tokens and signature composition, and build a usable responsive page with real content states. Do not mimic the sample preview's fictional brand; do not introduce generic AI gradient/card patterns. Explain design choices in 5 concise sentences after implementation.
+Use the wood-type-broadside living style. Build a print-shop hero: five editable
+poster lines, each auto-fitted to the measure in a chosen wood-type face and one of
+two inks; "Ink the forme" runs a roller that darkens lines as it passes; "Pull a
+print" lowers the platen and shows a unique print (new turbulence seed, slight red
+misregistration). Keep schedule and booking in plain handbill columns.
 ```
 
-## 12. Visual reference
+![wood-type-broadside living preview](./preview.png)
 
-![wood-type-broadside original design preview](./preview.png)
-
-`demo.html` is the local, self-contained composition used to generate this preview. It illustrates a style direction, not a production-ready application.
+`demo.html` is a complete, interactive single-file page; the preview shows its first screen.

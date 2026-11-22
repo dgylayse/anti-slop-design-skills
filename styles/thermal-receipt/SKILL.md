@@ -1,74 +1,116 @@
 ---
 name: thermal-receipt
-description: "Use for cafés, ordering, checkout and order-tracking flows in a thermal-receipt direction: a monospace paper slip as the central object, dashed separators, barcode and stamp details, and an honest step-by-step order status."
+description: "Use for cafés, food ordering, checkout and order-tracking flows in a thermal-receipt direction: a living receipt printer that prints each line as items are added (and void lines when removed), a paid stamp, a tear-off, and honest step-by-step pickup status, all in one monospace face on counter-grey and paper-white."
 license: MIT
 metadata:
   category: styles
   preview: preview.png
   era: "1990s point-of-sale receipts"
-  version: 3.1.0
+  version: 4.0.0
+  tier: living
 ---
 
-# Thermal Receipt (Point-of-Sale Paper)
+# Thermal Receipt — Living Style
 
-## 1. Design Philosophy
-A receipt is the most honest document in commerce: every line, every modifier, the total, the time. Use it as the hero object for transactional flows. The page stays functional and calm; the receipt carries character through its torn edge, dashed rules, uppercase line items and a single red stamp.
+> **Living style.** The receipt is not a picture of a receipt. It is the order itself, printed line by line as the visitor acts, with the same rules a real till follows.
 
-## 2. Color Tokens & Surface Rules
+## 1. Design philosophy
+A receipt is the most honest document in commerce: every item, every modifier, every correction, the time, the total. A till never erases; it prints a **void** line. The interface adopts that honesty. The slip is an **append-only log** of what happened, and the page around it stays plain and functional, like a counter.
+
+Test: *would this line, this state or this motion exist on a real till?*
+
+## 2. Colour tokens
 ```css
 :root {
-  --color-bg: #E2DFD8;
-  --color-surface: #FBFAF6;
+  --color-bg: #E2DFD8;       /* the counter */
+  --color-surface: #FBFAF6;  /* thermal paper */
   --color-ink: #1B1B1B;
   --color-muted: #4F4D49;
-  --color-accent: #B5172B;
+  --color-accent: #B5172B;   /* second print colour: current step, PAID stamp, pay button */
   --color-border: #1B1B1B;
+  --slot: #2A2A28;           /* printer body */
 }
 ```
-- **Rule:** `--color-accent` (#B5172B) is reserved for the primary action, the current state and one focal detail per view. Additional pigment tokens are for illustration and ornament; verify contrast before using any of them for text.
+One extra signal colour is allowed for state: open/ready green (#2E7D4F) as text only.
 
-## 3. Typography & Hierarchy
-- **Display font stack:** `'Consolas', 'Lucida Console', 'Courier New', monospace`
-- **Body font stack:** `'Consolas', 'Lucida Console', 'Courier New', monospace`
-- Monospace throughout (Consolas/Lucida Console); one face, weights 400 and 700.
-- Headline 56–64px bold monospace with negative tracking; status word in the red accent.
-- Line items uppercase 15px, modifiers lowercase indented and muted; totals 24–28px bold.
-- Order number displayed huge (80px+) on the slip so it is readable from a counter.
+## 3. Typography
+- **One monospace family** for everything (`Consolas, 'Lucida Console', 'Courier New', monospace`), weights 400 and 700.
+- Headline 40–58px bold, negative tracking; the status word in red.
+- Receipt lines 15px; modifiers lowercase, indented, muted; totals 22px bold; the order number 76px+.
+- Labels 11–13px uppercase with 0.1–0.2em tracking.
 
-## 4. Layout, Grid & Geometry
-- Three columns: status column · receipt (≈ 420–440px, full height, bleeding off the bottom) · pickup/actions column.
-- Receipt top edge is a zigzag tear (two linear-gradient triangles).
-- Dashed 2px rules separate receipt sections; no boxes inside the slip.
-- Mobile: receipt becomes full width and appears after the status block.
+## 4. Layout
+- **Desktop:** three columns — menu · printer (≈440px, sticky) · total, pickup steps, shelf.
+- **Tablet:** menu + printer; the right column moves below as two panels.
+- **Phone:** menu → printer → status. The receipt is never hidden behind a drawer.
+- The printer is a dark head with an LED and a slot; paper feeds from the slot with a zigzag tear edge at the bottom.
+- No rounded cards, no shadows except the paper's 1px edge.
 
-## 5. Component Specifications
-- **Status steps:** ordered list with filled (done), red ring (current, `aria-current=step`) and empty (pending) markers plus timestamps; announce changes in a `role=status` line.
-- **Stamp:** rotated red outlined 'PAID' block overlapping the slip edge, decorative (`aria-hidden`).
-- **Barcode:** repeating-linear-gradient bars; decorative unless it encodes a real code.
-- **Pickup card:** inverted ink block with a giant shelf letter; outlined and dashed secondary buttons.
+## 5. Signature interaction — the printer
+| Visitor action | Printed on the slip |
+|---|---|
+| Page opens | header: shop, address, date/time, order number (printed instantly so first paint is complete) |
+| Add an item (with chosen modifiers) | `1 × ITEM    3.40` and indented `+ oat milk    0.40` |
+| Remove an item | `VOID ITEM    −3.80`, struck through, muted. **Never delete printed lines.** |
+| Pay & print | dashed rule, TOTAL, VAT line, `CARD ···· APPROVED`, big order number, barcode, thank-you line; then the red **PAID** stamp lands |
+| Tear off | the slip tears and drops away; the number joins "torn-off slips"; the printer starts a fresh order |
 
-## 6. Strict Forbidden Patterns (Anti-Slop Checklist)
-- NEVER fake a QR or barcode that looks scannable but is not, without marking it decorative.
-- NEVER print full card numbers or personal data on the slip.
-- NEVER add rounded cards, gradients or floating shadows around the receipt.
-- NEVER rely on the red stamp alone to communicate payment state; say it in text.
+Status steps (Ordering → Paid → Brewing → Ready on shelf) advance with real events and timestamps; "Ready" reveals the shelf letter. The LED lights while the head is printing.
 
----
+## 6. Motion language
+| Moment | Motion | Timing |
+|---|---|---|
+| Each printed line | feeds out of the slot (clip from the top, height grows) | 0.32s, 95ms between lines, `cubic-bezier(.4,0,.2,1)` |
+| PAID | stamp drops from 1.8× scale and settles at −14° | 0.35s overshoot |
+| Tear off | small jerk, then the slip falls and rotates away | 0.8s ease-in |
+| Everything else | none | — |
 
-## 7. Distinctive art direction and page anatomy
+`prefers-reduced-motion`: lines appear instantly, no stamp bounce, the slip vanishes without falling.
 
-**Reference era:** 1990s point-of-sale receipts. This is a contemporary interpretation, not a reproduction of a historical artefact or a trademarked brand. Make work that feels designed by a person with a point of view.
+## 7. Section library
+1. **Order hero** — kicker, headline with red status word, honest lede, menu rows (name, description, price, + / − buttons, modifier toggles), printer with Pay and Tear buttons, running total, pickup steps, shelf card, live status line.
+2. **How pickup works** — three receipt stubs (zigzag bottom edges) with big numerals.
+3. **Hours + stamp card** — a ruled hours table with today highlighted; a punch card with punched holes and a red FREE hole.
+4. **Footer** — address and payment notes in one line.
 
-- **Reference composition:** `central receipt slip`. Lead with a purposeful hierarchy, a real content block, and the signature `torn-edge receipt slip` treatment; do not assume every product needs a dashboard.
-- **Sample editorial voice:** “Order 0417 is brewing.”. Replace sample copy with authentic project copy; do not ship the preview's fictional brand or made-up details.
-- **Use cases:** Cafés, food ordering, order tracking, pickup, checkout confirmations, small retail. Develop other applications only when the visual language matches their audience and task.
-- **Key visual device:** `torn-edge receipt slip`; create it with original vector or CSS geometry, real user-provided photography, or properly licensed assets.
-- **Minimum component vocabulary:** header/navigation, primary action, secondary action, content grouping, form/input, an item or list row, and visible feedback state.
-- **Repeatable signature:** keep the typographic proportion and materiality on subsequent pages; vary composition based on content so the site is not one repeated hero template.
+## 8. Code recipes
+```js
+// append-only print queue; instant while building the header so screenshots are complete
+function print(cls, left = '', right = '') { /* push {cls,left,right}; feed() unless instant */ }
+function feed() { /* take one job, append .ln.new, light the LED, setTimeout(feed, 95) */ }
+// adding prints item + modifiers; removing prints a VOID line with a negative amount
+print('', '1 × FLAT WHITE', '3.40'); print('sub', '+ oat milk', '0.40');
+print('void', 'VOID FLAT WHITE', '−3.80');
+// CSS
+.ln.new { animation: feed .32s cubic-bezier(.4,0,.2,1) both }
+@keyframes feed { from { clip-path: inset(0 0 100% 0); max-height: 0 } to { clip-path: inset(0); max-height: 120px } }
+.paper:after { /* zigzag tear: two 45° linear-gradients, 14px × 10px */ }
+.ln.bar { background: repeating-linear-gradient(90deg, ink 0 2px, transparent 2px 4px, ...) } /* decorative barcode */
+```
+Keep the receipt scrolled to the newest line (`wrap.scrollTop = wrap.scrollHeight`) and switch the wrapper to scrollable only when the slip is taller than the viewport.
+
+## 9. Content rules
+- Real prices, VAT line, payment method masked to `····`. Never print full card numbers, names or emails on the slip.
+- The order number is the only identifier shown at pickup.
+- A barcode or QR that is not scannable must be `aria-hidden` and described as decorative.
+
+## 10. Forbidden patterns (anti-slop)
+- NEVER delete or edit printed lines; corrections are void lines.
+- NEVER rely on the red stamp alone to signal payment; the status text says it too.
+- NEVER add rounded cards, gradients, glassmorphism or floating shadows around the receipt.
+- NEVER animate anything idle (no blinking cursor, no pulsing buttons).
+- NEVER use a second font family.
+
+## 11. Accessibility
+- The receipt is an `article` with `aria-live="polite"` for additions; a separate `role=status` line summarises each event in a sentence.
+- Steps use `aria-current="step"`; buttons have explicit labels ("Remove one chai"); focus returns to the related control after each action.
+- Contrast: ink and muted pass AA on paper and on the counter grey.
+- Touch targets 44px for + / −, 34px for modifier toggles.
+
+## 12. Quality gate
+(1) Does every add, remove and pay produce the correct printed lines? (2) Is anything ever erased from the slip? (3) Does the page work with motion reduced? (4) On a phone, is the receipt directly after the menu? (5) Is any personal data printed?
 
 ## Required semantic-token interface
-The implementation MUST use these shared CSS custom properties (the palette layer may override them later):
-
 ```css
 :root {
   --color-bg: #E2DFD8;
@@ -77,42 +119,22 @@ The implementation MUST use these shared CSS custom properties (the palette laye
   --color-muted: #4F4D49;
   --color-accent: #B5172B;
   --color-border: #1B1B1B;
-  --font-display: 'Consolas', 'Lucida Console', 'Courier New', monospace;
-  --font-body: 'Consolas', 'Lucida Console', 'Courier New', monospace;
+  --font-display: Consolas, 'Lucida Console', 'Courier New', monospace;
+  --font-body: Consolas, 'Lucida Console', 'Courier New', monospace;
   --radius-control: 0px;
   --focus-ring: 3px solid var(--color-accent);
 }
 ```
 
-Use `var(--color-bg)` rather than hardcoding background colors throughout components. When combining a palette, **load style tokens first, then palette tokens** (the later palette overrides the six `--color-*` values). A palette changes color only, not the style's spatial or typographic DNA.
-
-## 8. Responsive behavior (do not skip)
-
-- At `>= 1200px`, use the full composition described above. At `768–1199px`, reduce columns and proportionally scale headlines. Below `768px`, collapse to a single deliberate reading path; keep the primary action visible without floating overlays.
-- Typography: scale the display size with `clamp()` (for example `clamp(2.5rem, 6vw, 4rem)`), keep body text between 16px and 18px.
-- Use `minmax(0, 1fr)` for long content, `overflow-wrap: anywhere` for technical tokens, and a horizontal overflow wrapper for necessary data tables.
-- All interactive controls have touch targets around 44×44 CSS pixels. Do not hide access to important workflows on mobile.
-- Offer low-motion alternatives; respect `prefers-reduced-motion: reduce`.
-
-## 9. Accessible components and states
-
-- Text contrast: normal text at least WCAG AA 4.5:1 and large text at least 3:1, including muted labels. Decorative pigments and pattern colours are **not** automatically safe for foreground copy; test the actual pair.
-- Keyboard: visible `:focus-visible` ring, logical tab order, Escape on dismissible overlays, proper native controls; hover is never the only feedback.
-- Supply designed states: default, hover, focus, pressed, disabled, loading, empty, error, success, and selected where applicable. Announce async outcomes in a polite live region, not by color alone.
-- Use semantic landmarks (`header`, `nav`, `main`, `aside`, `footer`) and ordered heading levels. Ornamental SVG uses `aria-hidden="true"`; meaningful illustrations get a short `role="img"` label.
-
-## 10. Anti-clone quality gate
-
-Before delivery, check: (1) Could the result be mistaken for another skill in this library? If so, change the **composition**, not merely its colors. (2) Are the content and controls plausible for the product? (3) Are there illegible labels or invented statistics? (4) Do mobile, keyboard and reduced-motion states work? (5) Has AI-default hero/card/glow styling slipped back in?
-
-## 11. Invocation example
-
+## Invocation example
 ```text
-Use the thermal-receipt design skill. Identify the product's core workflow, map its content hierarchy, apply its tokens and signature composition, and build a usable responsive page with real content states. Do not mimic the sample preview's fictional brand; do not introduce generic AI gradient/card patterns. Explain design choices in 5 concise sentences after implementation.
+Use the thermal-receipt living style for this ordering flow. Build a printer whose
+slip is an append-only log: items and modifiers print as they are added, removals
+print VOID lines, paying prints the totals and a PAID stamp, tearing off starts a
+new order and advances honest pickup steps. One monospace font, motion only from
+printing, reduced-motion safe, no personal data on the slip.
 ```
 
-## 12. Visual reference
+![thermal-receipt living preview](./preview.png)
 
-![thermal-receipt original design preview](./preview.png)
-
-`demo.html` is the local, self-contained composition used to generate this preview. It illustrates a style direction, not a production-ready application.
+`demo.html` is a complete, interactive single-file page; the preview shows its first screen.
