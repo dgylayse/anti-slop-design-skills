@@ -32,6 +32,8 @@ Most skills describe a look. **Living styles** also give the AI a signature inte
 | [`wood-type-broadside`](styles/wood-type-broadside/SKILL.md) | [▶ live demo](https://dgylayse.github.io/anti-slop-design-skills/styles/wood-type-broadside/demo.html) | Set your own poster in wood type, ink the forme, pull a unique print |
 | [`op-art-optical`](styles/op-art-optical/SKILL.md) | [▶ live demo](https://dgylayse.github.io/anti-slop-design-skills/styles/op-art-optical/demo.html) | Move across the field: stripes bulge, the target turns to follow you; one click for Calm view |
 | [`illuminated-manuscript`](styles/illuminated-manuscript/SKILL.md) | [▶ live demo](https://dgylayse.github.io/anti-slop-design-skills/styles/illuminated-manuscript/demo.html) | Turn the leaves, watch each initial get painted, search with a rubricator's red pen |
+| [`solarpunk-commons`](styles/solarpunk-commons/SKILL.md) | [▶ live demo](https://dgylayse.github.io/anti-slop-design-skills/styles/solarpunk-commons/demo.html) | Drag the time-of-day dial: the sun crosses the arch, the shared battery fills, the page tells you when to run the laundry |
+| [`new-wave-1980s`](styles/new-wave-1980s/SKILL.md) | [▶ live demo](https://dgylayse.github.io/anti-slop-design-skills/styles/new-wave-1980s/demo.html) | Drag, rotate and shuffle the collage, then snap it onto a 12-column grid — and break it again |
 
 ## New in v3.1 · ten more directions
 

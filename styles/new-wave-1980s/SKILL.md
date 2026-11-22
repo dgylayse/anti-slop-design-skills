@@ -1,77 +1,106 @@
 ---
 name: new-wave-1980s
-description: "Use for design schools, studios and culture sites in a 1980s new-wave typography direction: layered and rotated type, pastel planes, halftone dot fields, stepped rules and crosshair marks, balanced by one strictly structured information panel."
+description: "Use for design schools, studios, music and culture sites in a 1980s new-wave typography direction: a living collage of pastel planes, halftone fields, outlined and rotated type that visitors can drag, rotate and shuffle, then snap onto a 12-column grid with one button (and break again), beside a strictly aligned information panel that never moves."
 license: MIT
 metadata:
   category: styles
   preview: preview.png
   era: "1980s new wave typography"
-  version: 3.1.0
+  version: 4.0.0
+  tier: living
 ---
 
-# New Wave Typography (1980s Basel / LA)
+# New Wave Typography — Living Style
 
-## 1. Design Philosophy
-New wave typography took the Swiss grid and deliberately broke it: type layered, rotated, outlined, overprinted with dots and pastel planes. The trick is controlled chaos. One half of the page is an expressive collage; the other half is a calm, perfectly aligned panel where people actually read and act.
+> **Living style.** New wave took the Swiss grid and broke it on purpose. This page lets visitors do the same — and rebuild it — while the information they need stays perfectly still.
 
-## 2. Color Tokens & Surface Rules
+## 1. Design philosophy
+Controlled chaos. Type is layered, rotated, outlined and overprinted with dots and pastel planes; but every piece of the collage knows where it would sit on a 12-column grid. One half of the page is expressive and **playable**; the other half is a calm, aligned panel where people read and act.
+
+Test: *can the collage be broken and rebuilt without the useful information ever moving?*
+
+## 2. Colour tokens
 ```css
 :root {
   --color-bg: #EEE8DC;
   --color-surface: #FAF7F0;
   --color-ink: #1A1A1A;
   --color-muted: #524E47;
-  --color-accent: #E2492F;
+  --color-accent: #E2492F;   /* one red word, the active nav, focus */
   --color-border: #1A1A1A;
-  --plane-pink: #F3B3C3;
-  --plane-teal: #4FA9A2;
-  --plane-yellow: #F2CF4A;
+  --plane-pink: #F3B3C3; --plane-teal: #4FA9A2; --plane-yellow: #F2CF4A;
 }
 ```
-- **Rule:** `--color-accent` (#E2492F) is reserved for the primary action, the current state and one focal detail per view. Additional pigment tokens are for illustration and ornament; verify contrast before using any of them for text.
+Print-derived pastels plus black. No neon, no synthwave gradients.
 
-## 3. Typography & Hierarchy
-- **Display font stack:** `'Bahnschrift', 'Arial Narrow', Arial, sans-serif`
-- **Body font stack:** `'Segoe UI', Arial, sans-serif`
-- Display: a geometric/DIN-like sans (Bahnschrift) at 150–250px, mixing solid, outlined (`-webkit-text-stroke`) and rotated (−6° to −10°) words.
-- Use letter-spaced small display (0.18em) for codes like season or issue numbers.
-- Vertical micro-text (writing-mode) along one edge for a manifesto line.
-- Body and panels: 13–16px Segoe UI/Arial, never rotated.
+## 3. Typography
+- **Display:** geometric/DIN-like sans (`Bahnschrift, 'Arial Narrow', Arial`) 150–250px for collage words; solid, outlined (`-webkit-text-stroke`) and rotated (−6° to −12°) variants; letter-spaced light codes (`SS/26`, 0.18em).
+- **Vertical micro-text** (`writing-mode`) along one edge for a manifesto line.
+- **Panel and body:** Segoe UI/Arial 13–16px, never rotated.
 
-## 4. Layout, Grid & Geometry
-- Left 60%: collage of pastel rectangles, a halftone dot field (radial-gradient pattern), a circle, a stair-step rule and registration crosshairs.
-- Right 30–35%: a bordered panel with numbered rows and a full-width black CTA; aligned to a strict baseline.
-- Overlaps are deliberate: type crosses planes, but never crosses the panel.
-- Below 768px, stack: compact collage strip (max 40vh) → panel → description.
+## 4. Layout
+- **Desktop:** collage stage (760 × 620 design space, scaled to fit) · 400px course panel.
+- **Below 1180px:** stage full width, panel underneath. The stage scales with `transform: scale(k)` and pointer movement is divided by `k`.
+- The panel uses 2px rules, numbered rows, outlined status tags (dashed when waitlisted) and a full-width black CTA.
+- Registration crosshairs sit at grid intersections; red 12-column guides appear only in grid mode.
 
-## 5. Component Specifications
-- **Crosshair marks:** 22px plus-signs drawn with pseudo-elements at plane corners.
-- **Halftone field:** `radial-gradient(var(--color-ink) 1.6px, transparent 1.8px)` at 9px spacing.
-- **Course rows:** big numeral, title + meta, outlined status tag (dashed when waitlisted).
-- **CTA bar:** black full-width bar with yellow arrow.
+## 5. Signature interaction — break and rebuild
+| Visitor | Result |
+|---|---|
+| Drags a piece (pointer/touch) | it moves freely; a monospace readout shows `name · x · y · angle` |
+| Focuses a piece + arrows (Shift = 32px) | moves by 8px |
+| `[` / `]` or ⟲ ⟳ | rotates the selected piece by 5° (±45° max) |
+| **Rebuild the grid** | every piece animates to its grid pose (staggered 40ms), guides fade in; the button becomes **Break it again** |
+| **Break it again** | the visitor's own collage comes back |
+| **Shuffle** | random collage within bounds |
+| Drags while in grid mode | the grid poses become the new collage, so nothing jumps |
 
-## 6. Strict Forbidden Patterns (Anti-Slop Checklist)
-- NEVER rotate or layer interactive text, form labels or prices.
-- NEVER use neon or synthwave gradients; this is print-derived pastel + black.
-- NEVER apply the collage to every page; use it on landing/section openers only.
+Each piece stores two poses: `broken: [x, y, r]` and `grid: [x, y, 0]`.
+
+## 6. Motion language
+- Only the snap between collage and grid animates: `transform .7s cubic-bezier(.7,0,.2,1)`, delay `index × 40ms`.
+- Transitions are enabled **after** first paint (two `requestAnimationFrame`s) so nothing flies in on load.
+- Dragging has no transition. No hover effects on pieces besides the cursor.
+- `prefers-reduced-motion`: snaps happen instantly.
+
+## 7. Section library
+1. **Lab hero** — header (mark + small caps line, nav), vertical manifesto, collage stage, toolbar (Rebuild/Break, Shuffle, rotate, readout); course panel, deadline/portfolio notes, one paragraph.
+2. **Four moves we teach** — Layer, Rotate, Break, Rebuild: four boxed mini-compositions in CSS with one-line rules.
+3. **Apply** — course choice as big radio cards, name, email, portfolio URL; inline validation; pink confirmation box.
+4. **Footer** — two uppercase facts.
+
+## 8. Code recipes
+```js
+const P = [{ id:'wave', cls:'word red', st:'--fs:150px', text:'wave', broken:[240,270,-8], grid:[20,470,0] }, /* … */];
+// pose → CSS variables
+el.style.setProperty('--x', x + 'px'); el.style.setProperty('--y', y + 'px'); el.style.setProperty('--r', r + 'deg');
+.pc { transform: translate(var(--x), var(--y)) rotate(var(--r)); touch-action: none }
+.stage.anim .pc { transition: transform .7s cubic-bezier(.7,0,.2,1); transition-delay: calc(var(--i) * 40ms) }
+// scaled stage: k = min(1, wrap.clientWidth / 760); dx = (clientX - startX) / k
+```
+Halftone field: `radial-gradient(var(--color-ink) 1.6px, transparent 1.8px)` at 9px. Grid guides: a `repeating-linear-gradient` of 1px red lines at the column pitch.
+
+## 9. Content rules
+- Real course names, dates, places and deadlines in the panel; the collage carries only display words (school name, season, one word of brand voice).
+- Never put prices, dates or form labels inside the collage.
+
+## 10. Forbidden patterns (anti-slop)
+- NEVER rotate or layer interactive text, prices or form labels.
+- NEVER use neon/synthwave gradients or glow.
+- NEVER let the panel move, scale or reflow when the collage changes.
+- NEVER apply the collage to every page; use it on landing/section openers.
 - NEVER centre the composition symmetrically.
 
----
+## 11. Accessibility
+- Pieces are focusable `role="button"` with `aria-roledescription="movable piece"` and a name; arrow keys and `[ ]` work; the readout is `aria-live="polite"`.
+- Toolbar buttons are labelled; Rebuild is `aria-pressed`.
+- The collage is decorative for the task: everything needed to apply is in the panel and the form.
+- Radio cards are real inputs inside labels; focus is visible via `:has(input:focus-visible)`.
 
-## 7. Distinctive art direction and page anatomy
-
-**Reference era:** 1980s new wave typography. This is a contemporary interpretation, not a reproduction of a historical artefact or a trademarked brand. Make work that feels designed by a person with a point of view.
-
-- **Reference composition:** `collage half + strict panel`. Lead with a purposeful hierarchy, a real content block, and the signature `layered rotated type and halftone planes` treatment; do not assume every product needs a dashboard.
-- **Sample editorial voice:** “new wave” / “Layer · rotate · break the grid · then rebuild it.”. Replace sample copy with authentic project copy; do not ship the preview's fictional brand or made-up details.
-- **Use cases:** Design schools, studios, music, culture programmes, portfolios. Develop other applications only when the visual language matches their audience and task.
-- **Key visual device:** `layered rotated type and halftone planes`; create it with original vector or CSS geometry, real user-provided photography, or properly licensed assets.
-- **Minimum component vocabulary:** header/navigation, primary action, secondary action, content grouping, form/input, an item or list row, and visible feedback state.
-- **Repeatable signature:** keep the typographic proportion and materiality on subsequent pages; vary composition based on content so the site is not one repeated hero template.
+## 12. Quality gate
+(1) Can every piece be moved and rotated by mouse, touch and keyboard? (2) Does Rebuild produce a clean grid and Break return the visitor's collage? (3) Does anything animate on load? (4) Does the panel stay perfectly still? (5) Mobile: stage scales, toolbar wraps, no horizontal scroll?
 
 ## Required semantic-token interface
-The implementation MUST use these shared CSS custom properties (the palette layer may override them later):
-
 ```css
 :root {
   --color-bg: #EEE8DC;
@@ -80,42 +109,22 @@ The implementation MUST use these shared CSS custom properties (the palette laye
   --color-muted: #524E47;
   --color-accent: #E2492F;
   --color-border: #1A1A1A;
-  --font-display: 'Bahnschrift', 'Arial Narrow', Arial, sans-serif;
+  --font-display: Bahnschrift, 'Arial Narrow', Arial, sans-serif;
   --font-body: 'Segoe UI', Arial, sans-serif;
   --radius-control: 0px;
   --focus-ring: 3px solid var(--color-accent);
 }
 ```
 
-Use `var(--color-bg)` rather than hardcoding background colors throughout components. When combining a palette, **load style tokens first, then palette tokens** (the later palette overrides the six `--color-*` values). A palette changes color only, not the style's spatial or typographic DNA.
-
-## 8. Responsive behavior (do not skip)
-
-- At `>= 1200px`, use the full composition described above. At `768–1199px`, reduce columns and proportionally scale headlines. Below `768px`, collapse to a single deliberate reading path; keep the primary action visible without floating overlays.
-- Typography: scale the display size with `clamp()` (for example `clamp(2.5rem, 6vw, 4rem)`), keep body text between 16px and 18px.
-- Use `minmax(0, 1fr)` for long content, `overflow-wrap: anywhere` for technical tokens, and a horizontal overflow wrapper for necessary data tables.
-- All interactive controls have touch targets around 44×44 CSS pixels. Do not hide access to important workflows on mobile.
-- Offer low-motion alternatives; respect `prefers-reduced-motion: reduce`.
-
-## 9. Accessible components and states
-
-- Text contrast: normal text at least WCAG AA 4.5:1 and large text at least 3:1, including muted labels. Decorative pigments and pattern colours are **not** automatically safe for foreground copy; test the actual pair.
-- Keyboard: visible `:focus-visible` ring, logical tab order, Escape on dismissible overlays, proper native controls; hover is never the only feedback.
-- Supply designed states: default, hover, focus, pressed, disabled, loading, empty, error, success, and selected where applicable. Announce async outcomes in a polite live region, not by color alone.
-- Use semantic landmarks (`header`, `nav`, `main`, `aside`, `footer`) and ordered heading levels. Ornamental SVG uses `aria-hidden="true"`; meaningful illustrations get a short `role="img"` label.
-
-## 10. Anti-clone quality gate
-
-Before delivery, check: (1) Could the result be mistaken for another skill in this library? If so, change the **composition**, not merely its colors. (2) Are the content and controls plausible for the product? (3) Are there illegible labels or invented statistics? (4) Do mobile, keyboard and reduced-motion states work? (5) Has AI-default hero/card/glow styling slipped back in?
-
-## 11. Invocation example
-
+## Invocation example
 ```text
-Use the new-wave-1980s design skill. Identify the product's core workflow, map its content hierarchy, apply its tokens and signature composition, and build a usable responsive page with real content states. Do not mimic the sample preview's fictional brand; do not introduce generic AI gradient/card patterns. Explain design choices in 5 concise sentences after implementation.
+Use the new-wave-1980s living style. Build a collage of planes, halftone, outlined
+and rotated words where each piece has a collage pose and a 12-column grid pose.
+Pieces drag, rotate ([ ]) and move by keyboard; "Rebuild the grid" snaps them with
+a staggered transition and "Break it again" restores the visitor's collage. Keep the
+course panel aligned and still; no load animation; reduced-motion safe.
 ```
 
-## 12. Visual reference
+![new-wave-1980s living preview](./preview.png)
 
-![new-wave-1980s original design preview](./preview.png)
-
-`demo.html` is the local, self-contained composition used to generate this preview. It illustrates a style direction, not a production-ready application.
+`demo.html` is a complete, interactive single-file page; the preview shows its first screen.

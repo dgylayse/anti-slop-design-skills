@@ -1,13 +1,15 @@
 # Changelog
 
 ## v4.0.0 — Living styles
-- `ebru-marbling`, `iznik-ceramic`, `thermal-receipt`, `wood-type-broadside`, `op-art-optical` and `illuminated-manuscript` are now **living styles**: complete interactive single-file pages plus SKILL.md files with a signature interaction, motion language, section library, code recipes, imagery rules and a quality gate.
+- `ebru-marbling`, `iznik-ceramic`, `thermal-receipt`, `wood-type-broadside`, `op-art-optical`, `illuminated-manuscript`, `solarpunk-commons` and `new-wave-1980s` are now **living styles**: complete interactive single-file pages plus SKILL.md files with a signature interaction, motion language, section library, code recipes, imagery rules and a quality gate.
 - Ebru: marbling tray on the drop/tine/swirl fluid model (drop, hold, stylus, comb, lift onto paper), replayable pattern families, booking with validation.
 - İznik: tile studio composed from symmetric parts, wall re-laid in a diagonal wave, live bands and process drawings, ready panels, commission form.
 - Thermal receipt: append-only printing slip (items, modifiers, VOID lines, totals, PAID stamp, tear-off) with honest pickup steps.
 - Wood type broadside: compose five auto-fitted poster lines, ink the forme with a roller, pull unique prints with ink texture and misregistration; stall booking.
 - Op-art optical: per-pixel stripe field that bulges around the pointer and rings that follow it, Calm view switch (default under reduced motion), five generated works, timed tickets with a calm hour, pattern-safety section.
 - Illuminated manuscript: folio reader with page turns, self-drawing painted initials, rubricated search with per-leaf counts, linked marginal notes, as-written/modern transcription, reading-room booking.
+- Solarpunk commons: time-of-day dial drives the arched scene and an honest generation/use/battery model with plain-language advice; synced 24h chart; volunteer sign-ups; membership form.
+- New wave 1980s: draggable, rotatable collage with collage and 12-column grid poses (Rebuild / Break / Shuffle), still course panel, application form.
 
 ## v3.1.0 — Ten new compositions
 - Expanded from 82 to 92 Agent Skills (42 → 52 visual styles).

@@ -34,6 +34,8 @@ Her skill klasöründe: `SKILL.md`, `preview.png`, `demo.html` var. Görseller g
 | [`wood-type-broadside`](styles/wood-type-broadside/SKILL.md) | [▶ canlı demo](https://dgylayse.github.io/anti-slop-design-skills/styles/wood-type-broadside/demo.html) | Kendi afişini ahşap harfle diz, mürekkeple, her biri farklı baskı al |
 | [`op-art-optical`](styles/op-art-optical/SKILL.md) | [▶ canlı demo](https://dgylayse.github.io/anti-slop-design-skills/styles/op-art-optical/demo.html) | İmleci gezdir: çizgiler bükülür, hedef seni izler; tek tıkla sakin görünüm |
 | [`illuminated-manuscript`](styles/illuminated-manuscript/SKILL.md) | [▶ canlı demo](https://dgylayse.github.io/anti-slop-design-skills/styles/illuminated-manuscript/demo.html) | Yaprakları çevir, her baş harf boyanarak açılsın, arama sonuçları kırmızı mürekkeple işaretlensin |
+| [`solarpunk-commons`](styles/solarpunk-commons/SKILL.md) | [▶ canlı demo](https://dgylayse.github.io/anti-slop-design-skills/styles/solarpunk-commons/demo.html) | Gün kaydırıcısını çek: güneş kemerde ilerlesin, ortak batarya dolsun, sayfa çamaşır için doğru saati söylesin |
+| [`new-wave-1980s`](styles/new-wave-1980s/SKILL.md) | [▶ canlı demo](https://dgylayse.github.io/anti-slop-design-skills/styles/new-wave-1980s/demo.html) | Kolajı sürükle, döndür, karıştır; tek tuşla 12 sütunlu ızgaraya oturt ve yeniden boz |
 
 ## v3.1'de yeni: 10 farklı tasarım dili
 
