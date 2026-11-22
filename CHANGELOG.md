@@ -1,5 +1,11 @@
 # Changelog
 
+## v3.1.0 — Ten new compositions
+- Expanded from 82 to 92 Agent Skills (42 → 52 visual styles).
+- Added `ebru-marbling`, `iznik-ceramic`, `op-art-optical`, `new-wave-1980s`, `wood-type-broadside`, `thermal-receipt`, `paperback-tri-band`, `solarpunk-commons`, `vienna-secession-1905` and `illuminated-manuscript`.
+- Each new demo uses its own page composition instead of the shared split-hero skeleton, with a realistic task (booking, ordering, browsing, searching) in the preview.
+- Design Director, industry recipes, READMEs, gallery and contact sheet updated for the new styles.
+
 ## v3.0.0 — Industry & visual diversity
 - Expanded from 42 to 82 Agent Skills.
 - Added 18 distinct historically inspired visual style directions.

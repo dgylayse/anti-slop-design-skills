@@ -18,6 +18,16 @@ Use one style + one page architecture + optionally one palette. These are starti
 | Fitness | `fitness-class-schedule` | `stadium-scoreboard` | `industrial-yellow` |
 | Photography | `photography-portfolio` | `editorial-fashion-runway` | `rosewood-ivory` |
 | Wedding | `wedding-invitation` | `apothecary-label` | `rosewood-ivory` |
+| Tea room / Anatolian kitchen | `restaurant-reservations` | `iznik-ceramic` | — |
+| Café ordering | `restaurant-reservations` | `thermal-receipt` | — |
+| Craft workshop | `event-festival-schedule` | `ebru-marbling` | — |
+| Gallery exhibition | `museum-exhibition` | `op-art-optical` | `editorial-vermilion` |
+| Farmers market | `event-festival-schedule` | `wood-type-broadside` | — |
+| Publisher / reading club | `online-course-catalog` | `paperback-tri-band` | — |
+| Energy cooperative | `nonprofit-campaign` | `solarpunk-commons` | `forest-copper` |
+| Jewellery atelier | `commerce-lookbook` | `vienna-secession-1905` | — |
+| Manuscript archive | `museum-exhibition` | `illuminated-manuscript` | — |
+| Design summer school | `online-course-catalog` | `new-wave-1980s` | — |
 
 ## Prompt
 

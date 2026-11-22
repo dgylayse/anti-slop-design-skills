@@ -46,7 +46,12 @@ Do a critique pass for brand distinctiveness, responsive information order, keyb
 | Craft, hospitality, natural goods | `terracotta-studio`, `warm-analog`, `art-nouveau-atelier` |
 | Vintage and nostalgia | `web-20-skeuomorphic`, `y2k-early-digital`, `space-age-1969`, `pixel-workbench` |
 | Museum, public education, research | `bauhaus-1925`, `isotype-information`, `japanese-zen-minimalism` |
-| Fashion and bespoke luxury | `art-deco-metropolis`, `mid-century-editorial`, `art-nouveau-atelier` |
+| Fashion and bespoke luxury | `art-deco-metropolis`, `mid-century-editorial`, `art-nouveau-atelier`, `vienna-secession-1905` |
+| Anatolian / Ottoman craft, tea, hospitality | `ebru-marbling`, `iznik-ceramic` |
+| Galleries, exhibitions, bold events | `op-art-optical`, `new-wave-1980s`, `wood-type-broadside` |
+| Ordering, checkout, order tracking | `thermal-receipt` |
+| Publishing, reading clubs, catalogues | `paperback-tri-band`, `illuminated-manuscript` |
+| Climate, energy, cooperatives, civic tech | `solarpunk-commons`, `scientific-field-notes` |
 
 Treat recommendations as a starting point; user intent overrides them.
 
@@ -84,5 +89,10 @@ Examples (not mandatory pairings):
 | Nonprofit | `nonprofit-campaign` | `scientific-field-notes` |
 | Medical practice | `medical-practice` | `warm-analog` (tone it down) |
 | Wedding / RSVP | `wedding-invitation` | `apothecary-label` (use restrained ornaments) |
+| Anatolian restaurant / tea room | `restaurant-reservations` | `iznik-ceramic` |
+| Craft workshop booking | `event-festival-schedule` (adapt to sessions) | `ebru-marbling` |
+| Exhibition tickets | `museum-exhibition` | `op-art-optical` |
+| Course catalogue | `online-course-catalog` | `paperback-tri-band` |
+| Archive / digital collection | `museum-exhibition` | `illuminated-manuscript` |
 
 When two outputs differ only by color but share the same information structure, rewrite one layout. For each new category, explicitly identify the **primary transaction** (reservation, inquiry, booking, donation, learning, RSVP or ticket purchase) and carry it through mobile, accessibility and error states.

@@ -1,13 +1,13 @@
-# Anti-Slop Design Skills v3.0 — Türkçe Rehber
+# Anti-Slop Design Skills v3.1 — Türkçe Rehber
 
 ![Tasarım galerisi](gallery/cover.png)
 
-**82 skill, 42 görsel stil, 20 sektörel site yapısı, 14 renk paleti, 5 sosyal medya tasarımı ve 1 Tasarım Direktörü.**
+**92 skill, 52 görsel stil, 20 sektörel site yapısı, 14 renk paleti, 5 sosyal medya tasarımı ve 1 Tasarım Direktörü.**
 
 Geleneksel grafik tasarımdan farklı sektörlerin gerçek web sitesi ihtiyaçlarına uzanan, **görselliği olan** bir Agent Skills kütüphanesi. Klişe yapay zekâ arayüzlerinden kurtulmanın yolu yalnızca rengi değiştirmek değil; her projeye **uygun mimari + estetik + kullanıcı yolculuğu** seçmek.
 
 - [Tüm skill'leri filtreli galeride gör](gallery/index.html) (HTML'yi yerel tarayıcıda aç)
-- [42 görsel stilin tek sayfalık görseli](gallery/contact-sheet.jpg)
+- [52 görsel stilin tek sayfalık görseli](gallery/contact-sheet.jpg)
 - [Sektörlere göre hazır kombinasyon örnekleri](examples/industry-recipes.md)
 
 Her skill klasöründe: `SKILL.md`, `preview.png`, `demo.html` var. Görseller gerçek tarayıcıda render edilmiş özgün statik demoların ekran görüntüleridir; çalışan rezervasyon sistemi, üretime hazır site veya yayımlanmış ürün oldukları iddia edilmez.
@@ -16,11 +16,30 @@ Her skill klasöründe: `SKILL.md`, `preview.png`, `demo.html` var. Görseller g
 
 | Katman | Adet | İşlev |
 |---|---:|---|
-| Görsel stil | 42 | Tasarım karakteri ve tarihsel esin |
+| Görsel stil | 52 | Tasarım karakteri ve tarihsel esin |
 | Sektörel site yerleşimi | 20 | Restoran, otel, emlak, hukuk, etkinlik ve daha fazlası |
 | Renk paleti | 14 | Uyumlu ortak token sistemi |
 | Sosyal medya | 5 | Kampanya / duyuru düzeni |
 | Tasarım Direktörü | 1 | Doğru seçim, uyumluluk ve eleştiri kontrolü |
+
+## v3.1'de yeni: 10 farklı tasarım dili
+
+Her yeni stil, ortak bir kahraman şablonuna yeni renk giydirmek yerine **kendi sayfa kompozisyonuyla** gelir.
+
+| Stil | Esin | Nerede iyi çalışır |
+|---|---|---|
+| [`ebru-marbling`](styles/ebru-marbling/SKILL.md) | Osmanlı ebru kâğıdı | Atölye, ciltevi, kırtasiye, çay-kahve, kültür |
+| [`iznik-ceramic`](styles/iznik-ceramic/SKILL.md) | 16. yy İznik çinisi | Restoran, çay evi, otel, müze dükkânı |
+| [`op-art-optical`](styles/op-art-optical/SKILL.md) | 1960'lar Op-Art | Galeri, sergi, müzik etkinliği, kampanya |
+| [`new-wave-1980s`](styles/new-wave-1980s/SKILL.md) | 80'ler Basel/LA yeni dalga tipografi | Tasarım okulu, stüdyo, kültür programı |
+| [`wood-type-broadside`](styles/wood-type-broadside/SKILL.md) | 19. yy ahşap harf afişi | Pazar, panayır, bira evi, berber, mahalle etkinliği |
+| [`thermal-receipt`](styles/thermal-receipt/SKILL.md) | Termal kasa fişi | Kafe siparişi, sipariş takibi, ödeme onayı |
+| [`paperback-tri-band`](styles/paperback-tri-band/SKILL.md) | 1930–50 cep kitabı serileri | Yayınevi, okuma kulübü, bülten, katalog |
+| [`solarpunk-commons`](styles/solarpunk-commons/SKILL.md) | Umutlu ekolojik gelecek | Kooperatif, enerji, kent bostanı, iklim |
+| [`vienna-secession-1905`](styles/vienna-secession-1905/SKILL.md) | Viyana Secession / Werkstätte | Mücevher, gümüş, mimari, iç mimari |
+| [`illuminated-manuscript`](styles/illuminated-manuscript/SKILL.md) | Tezhipli el yazmaları | Arşiv, kütüphane, nadir kitap, uzun okuma |
+
+Örnek: `restaurant-reservations + iznik-ceramic` ile çini temalı bir rezervasyon sayfası, `online-course-catalog + paperback-tri-band` ile renk kodlu bir kurs kataloğu.
 
 ## Kurulum
 

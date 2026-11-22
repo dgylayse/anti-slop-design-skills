@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>iznik-ceramic — original style study</title><style>
+:root{--color-bg:#F7F3EA;--color-surface:#FFFFFF;--color-ink:#14295A;--color-muted:#4B5873;--color-accent:#B8322A;--color-border:#1F3F8A;--color-turquoise:#2A8C8C;--color-sage:#3E7A4F;--font-display:'Palatino Linotype','Book Antiqua',Georgia,serif;--font-body:'Segoe UI',Corbel,Arial,sans-serif}
+*{box-sizing:border-box}html,body{margin:0}body{background:var(--color-bg);color:var(--color-ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased}
+.page{width:1280px;height:800px;overflow:hidden;position:relative;background:var(--color-bg);display:grid;grid-template-columns:300px 1fr 300px;grid-template-rows:800px}
+.panel{position:relative;overflow:hidden;border-color:var(--color-border);border-style:solid;border-width:0}
+.panel.l{border-right-width:6px}.panel.r{border-left-width:6px}
+.panel svg{position:absolute;inset:0;width:100%;height:100%}
+.center{position:relative;display:flex;flex-direction:column;align-items:center;padding:0 54px}
+header{width:100%;height:84px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--color-border)}
+.mark{font-family:var(--font-display);font-size:23px;letter-spacing:.06em}
+nav{display:flex;gap:22px;font-size:13px;letter-spacing:.05em}nav span{padding:10px 0}nav span[aria-current]{color:var(--color-accent);border-bottom:2px solid var(--color-accent)}
+.arch{margin-top:104px;width:100%;position:relative;background:var(--color-surface);border:2px solid var(--color-border);border-top:0;padding:30px 44px 28px;text-align:center}
+.arch:before{content:"";position:absolute;left:-2px;right:-2px;top:-70px;height:72px;background:var(--color-surface);border:2px solid var(--color-border);border-bottom:0;clip-path:none;border-radius:50% 50% 0 0/100% 100% 0 0}
+.arch .finial{position:absolute;left:50%;top:-88px;transform:translateX(-50%);width:34px;height:34px}
+.kicker{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--color-accent);font-weight:700;margin:0 0 14px;position:relative}
+h1{font-family:var(--font-display);font-weight:400;font-size:50px;line-height:1.02;margin:0 0 14px;position:relative}
+.lede{font-size:15px;line-height:1.6;color:var(--color-muted);max-width:430px;margin:0 auto 22px}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left}
+.field label{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-muted);margin-bottom:6px;font-weight:600}
+.input{height:46px;border:1px solid var(--color-border);display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:15px;background:var(--color-bg)}
+.times{grid-column:1/3;display:flex;gap:8px}.chip{flex:1;height:44px;border:1px solid var(--color-border);display:flex;align-items:center;justify-content:center;font-size:14px}
+.chip[aria-pressed=true]{background:var(--color-ink);color:var(--color-surface)}.chip[aria-disabled=true]{color:#8C93A4;border-style:dashed;text-decoration:line-through}
+.submit{grid-column:1/3;height:50px;background:var(--color-accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+.note{grid-column:1/3;font-size:12px;color:var(--color-muted);text-align:center;margin-top:2px}
+.border-strip{position:absolute;left:0;right:0;bottom:0;height:54px;border-top:2px solid var(--color-border)}
+.label{position:absolute;left:24px;bottom:80px;background:var(--color-surface);border:2px solid var(--color-border);padding:12px 16px;font-family:var(--font-display);font-size:15px;max-width:250px;line-height:1.35}
+.label small{display:block;font-family:var(--font-body);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--color-muted);margin-bottom:4px}
+@media(max-width:860px){.page{transform-origin:top left;transform:scale(.6)}}
+</style></head><body>
+<div class="page">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<pattern id="tile" width="150" height="150" patternUnits="userSpaceOnUse">
+<rect width="150" height="150" fill="#F7F3EA"/>
+<path d="M75 8C112 30 112 52 75 75C38 52 38 30 75 8ZM75 142C38 120 38 98 75 75C112 98 112 120 75 142Z" fill="#1F3F8A"/>
+<path d="M8 75C30 38 52 38 75 75C52 112 30 112 8 75ZM142 75C120 112 98 112 75 75C98 38 120 38 142 75Z" fill="#2A8C8C"/>
+<path d="M75 30C86 44 86 58 75 66C64 58 64 44 75 30ZM75 120C64 106 64 92 75 84C86 92 86 106 75 120Z" fill="#F7F3EA"/>
+<circle cx="75" cy="75" r="15" fill="#B8322A"/><circle cx="75" cy="75" r="6" fill="#F7F3EA"/>
+<g fill="#B8322A"><path d="M0 0h14L0 14Z"/><path d="M150 0v14L136 0Z"/><path d="M0 150v-14L14 150Z"/><path d="M150 150h-14L150 136Z"/></g>
+<g fill="none" stroke="#14295A" stroke-width="1.6"><path d="M75 8C112 30 112 52 75 75C38 52 38 30 75 8Z"/><path d="M75 142C38 120 38 98 75 75C112 98 112 120 75 142Z"/></g>
+<g fill="#3E7A4F"><path d="M22 22C36 20 44 28 44 40C30 40 22 34 22 22Z"/><path d="M128 128C114 130 106 122 106 110C120 110 128 116 128 128Z"/><path d="M128 22C130 36 122 44 110 44C110 30 116 22 128 22Z"/><path d="M22 128C20 114 28 106 40 106C40 120 34 128 22 128Z"/></g>
+</pattern>
+<pattern id="band" width="60" height="54" patternUnits="userSpaceOnUse"><rect width="60" height="54" fill="#1F3F8A"/><path d="M0 27C15 6 45 6 60 27C45 48 15 48 0 27Z" fill="#F7F3EA"/><path d="M30 12C38 20 38 34 30 42C22 34 22 20 30 12Z" fill="#B8322A"/><circle cx="0" cy="27" r="5" fill="#2A8C8C"/><circle cx="60" cy="27" r="5" fill="#2A8C8C"/></pattern>
+</defs></svg>
+<aside class="panel l" aria-hidden="true"><svg><rect width="100%" height="100%" fill="url(#tile)"/></svg></aside>
+<main class="center">
+<header><div class="mark">ÇİNİ HOUSE</div><nav aria-label="Primary"><span>Menu</span><span aria-current="page">Book a table</span><span>Tea room</span></nav></header>
+<section class="arch" aria-labelledby="t">
+<svg class="finial" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 2C25 10 25 22 17 32C9 22 9 10 17 2Z" fill="#B8322A" stroke="#1F3F8A" stroke-width="2"/></svg>
+<p class="kicker">Anatolian kitchen · tea room</p>
+<h1 id="t">A table under the cobalt tiles</h1>
+<p class="lede">Slow-cooked dishes, copper-pot coffee and a long tea service. Tell us when you are coming — we keep two tables for walk-ins.</p>
+<div class="form" role="group" aria-label="Reservation">
+<div class="field"><label>Date</label><div class="input">Friday, 14 March <span aria-hidden="true">▾</span></div></div>
+<div class="field"><label>Guests</label><div class="input">− &nbsp; 4 &nbsp; +</div></div>
+<div class="times" role="group" aria-label="Available times"><span class="chip">18:30</span><span class="chip" aria-pressed="true">19:15</span><span class="chip" aria-disabled="true">20:00</span><span class="chip">21:30</span></div>
+<div class="submit">Request this table</div>
+<p class="note">We confirm by message within an hour · free cancellation until noon</p>
+</div>
+</section>
+</main>
+<aside class="panel r" aria-hidden="true"><svg><rect x="-75" width="400" height="800" fill="url(#tile)"/></svg><div class="label"><small>Tonight's tea</small>Bergamot black tea with a sour-cherry spoon sweet</div></aside>
+<div class="border-strip" aria-hidden="true"><svg width="1280" height="54"><rect width="1280" height="54" fill="url(#band)"/></svg></div>
+</div></body></html>

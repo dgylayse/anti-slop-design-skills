@@ -1,8 +1,8 @@
 {
   "name": "anti-slop-design-skills",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "license": "MIT",
-  "skill_count": 82,
+  "skill_count": 92,
   "skills": [
     {
       "name": "design-director",
@@ -167,6 +167,15 @@
       "demo": "styles/dieter-rams-industrial/demo.html"
     },
     {
+      "name": "ebru-marbling",
+      "category": "styles",
+      "era": "16th-century Ottoman ebru",
+      "description": "Use for craft, stationery, cultural and hospitality sites in a 16th-century Ottoman ebru (marbled paper) direction: a fluid marbled endpaper panel, calm book-plate typography and an unhurried workshop booking flow.",
+      "skill": "styles/ebru-marbling/SKILL.md",
+      "preview": "styles/ebru-marbling/preview.png",
+      "demo": "styles/ebru-marbling/demo.html"
+    },
+    {
       "name": "editorial-fashion-runway",
       "category": "styles",
       "era": "High-fashion magazine / 1980s",
@@ -194,6 +203,15 @@
       "demo": "styles/handmade-zine-collage/demo.html"
     },
     {
+      "name": "illuminated-manuscript",
+      "category": "styles",
+      "era": "13th–15th-century illuminated manuscripts",
+      "description": "Use for archives, libraries, heritage and long-form reading sites in an illuminated manuscript direction: vellum ground, ruled two-column justified text, a painted initial, red rubrics, vine marginalia and folio navigation.",
+      "skill": "styles/illuminated-manuscript/SKILL.md",
+      "preview": "styles/illuminated-manuscript/preview.png",
+      "demo": "styles/illuminated-manuscript/demo.html"
+    },
+    {
       "name": "isotype-information",
       "category": "styles",
       "era": "1930s Isotype",
@@ -201,6 +219,15 @@
       "skill": "styles/isotype-information/SKILL.md",
       "preview": "styles/isotype-information/preview.png",
       "demo": "styles/isotype-information/demo.html"
+    },
+    {
+      "name": "iznik-ceramic",
+      "category": "styles",
+      "era": "16th-century İznik tilework",
+      "description": "Use for hospitality, restaurant and cultural sites in a 16th-century İznik tile direction: cobalt and bole-red repeating tile panels framing a white-slip ogee-arch content area with a clear reservation or booking form.",
+      "skill": "styles/iznik-ceramic/SKILL.md",
+      "preview": "styles/iznik-ceramic/preview.png",
+      "demo": "styles/iznik-ceramic/demo.html"
     },
     {
       "name": "japanese-woodblock-modern",
@@ -257,6 +284,15 @@
       "demo": "styles/neo-brutalist/demo.html"
     },
     {
+      "name": "new-wave-1980s",
+      "category": "styles",
+      "era": "1980s new wave typography",
+      "description": "Use for design schools, studios and culture sites in a 1980s new-wave typography direction: layered and rotated type, pastel planes, halftone dot fields, stepped rules and crosshair marks, balanced by one strictly structured information panel.",
+      "skill": "styles/new-wave-1980s/SKILL.md",
+      "preview": "styles/new-wave-1980s/preview.png",
+      "demo": "styles/new-wave-1980s/demo.html"
+    },
+    {
       "name": "new-york-school",
       "category": "styles",
       "era": "1950s NYC graphic",
@@ -264,6 +300,24 @@
       "skill": "styles/new-york-school/SKILL.md",
       "preview": "styles/new-york-school/preview.png",
       "demo": "styles/new-york-school/demo.html"
+    },
+    {
+      "name": "op-art-optical",
+      "category": "styles",
+      "era": "1960s optical art",
+      "description": "Use for galleries, events and campaigns in a 1960s optical-art direction: black-and-white stripe fields and concentric vibrating circles, heavy grotesque type in solid boxes, one red point, with explicit pattern-sensitivity safeguards.",
+      "skill": "styles/op-art-optical/SKILL.md",
+      "preview": "styles/op-art-optical/preview.png",
+      "demo": "styles/op-art-optical/demo.html"
+    },
+    {
+      "name": "paperback-tri-band",
+      "category": "styles",
+      "era": "1935–1955 paperback series covers",
+      "description": "Use for publishers, reading clubs, newsletters and catalogues in a 1930s–50s paperback series direction: horizontal three-band covers colour-coded by category, a humanist sans, a single hero cover and a shelf of spines as navigation.",
+      "skill": "styles/paperback-tri-band/SKILL.md",
+      "preview": "styles/paperback-tri-band/preview.png",
+      "demo": "styles/paperback-tri-band/demo.html"
     },
     {
       "name": "pixel-workbench",
@@ -300,6 +354,15 @@
       "skill": "styles/scientific-field-notes/SKILL.md",
       "preview": "styles/scientific-field-notes/preview.png",
       "demo": "styles/scientific-field-notes/demo.html"
+    },
+    {
+      "name": "solarpunk-commons",
+      "category": "styles",
+      "era": "2020s solarpunk",
+      "description": "Use for cooperatives, climate, energy and civic projects in a solarpunk direction: an arched window illustration of gardens, solar roofs and turbines, leaf-cut card corners, rounded civic controls and plain-language community data.",
+      "skill": "styles/solarpunk-commons/SKILL.md",
+      "preview": "styles/solarpunk-commons/preview.png",
+      "demo": "styles/solarpunk-commons/demo.html"
     },
     {
       "name": "space-age-1969",
@@ -347,6 +410,15 @@
       "demo": "styles/terracotta-studio/demo.html"
     },
     {
+      "name": "thermal-receipt",
+      "category": "styles",
+      "era": "1990s point-of-sale receipts",
+      "description": "Use for cafés, ordering, checkout and order-tracking flows in a thermal-receipt direction: a monospace paper slip as the central object, dashed separators, barcode and stamp details, and an honest step-by-step order status.",
+      "skill": "styles/thermal-receipt/SKILL.md",
+      "preview": "styles/thermal-receipt/preview.png",
+      "demo": "styles/thermal-receipt/demo.html"
+    },
+    {
       "name": "tropical-travel-poster",
       "category": "styles",
       "era": "1950s travel advertisements",
@@ -354,6 +426,15 @@
       "skill": "styles/tropical-travel-poster/SKILL.md",
       "preview": "styles/tropical-travel-poster/preview.png",
       "demo": "styles/tropical-travel-poster/demo.html"
+    },
+    {
+      "name": "vienna-secession-1905",
+      "category": "styles",
+      "era": "1903–1910 Vienna Secession",
+      "description": "Use for jewellery, architecture, interiors and design-object sites in a 1905 Vienna Secession / Werkstätte direction: a strict square grid, chequerboard borders, gold-and-black square ornament, wide-tracked light capitals and framed panels.",
+      "skill": "styles/vienna-secession-1905/SKILL.md",
+      "preview": "styles/vienna-secession-1905/preview.png",
+      "demo": "styles/vienna-secession-1905/demo.html"
     },
     {
       "name": "vintage-broadsheet",
@@ -381,6 +462,15 @@
       "skill": "styles/web-20-skeuomorphic/SKILL.md",
       "preview": "styles/web-20-skeuomorphic/preview.png",
       "demo": "styles/web-20-skeuomorphic/demo.html"
+    },
+    {
+      "name": "wood-type-broadside",
+      "category": "styles",
+      "era": "1870s wood type broadsides",
+      "description": "Use for markets, fairs, breweries and community events in an 1870s wood-type broadside direction: stacked mixed-width poster lines, slab and condensed faces, a second red ink, printer's ornaments, paper grain and handbill side columns.",
+      "skill": "styles/wood-type-broadside/SKILL.md",
+      "preview": "styles/wood-type-broadside/preview.png",
+      "demo": "styles/wood-type-broadside/demo.html"
     },
     {
       "name": "y2k-early-digital",

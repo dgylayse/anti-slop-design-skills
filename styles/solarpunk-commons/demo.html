@@ -1,0 +1,57 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>solarpunk-commons — original style study</title><style>
+:root{--color-bg:#F3F0E2;--color-surface:#FFFDF3;--color-ink:#1E2D22;--color-muted:#4B5A4D;--color-accent:#C8691C;--color-border:#2F4A35;--leaf:#5E9A5A;--moss:#2F6B45;--sun:#F0B43C;--sky:#BFDCD6;--font-display:'Constantia','Palatino Linotype',Georgia,serif;--font-body:'Candara','Segoe UI',sans-serif}
+*{box-sizing:border-box}html,body{margin:0}body{background:var(--color-bg);color:var(--color-ink);font-family:var(--font-body)}
+.page{width:1280px;height:800px;overflow:hidden;position:relative;background:var(--color-bg);display:grid;grid-template-columns:430px 400px 1fr;grid-template-rows:800px;gap:0}
+.l{padding:40px 30px 40px 60px;display:flex;flex-direction:column}
+.mark{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-size:22px}
+.mark svg{flex:none}
+nav{display:flex;gap:8px;margin-top:30px;flex-wrap:wrap}nav span{min-height:40px;padding:0 16px;display:inline-flex;align-items:center;border:1.5px solid var(--color-border);border-radius:20px;font-size:14px}nav span[aria-current]{background:var(--moss);color:var(--color-surface);border-color:var(--moss)}
+.kicker{margin:54px 0 12px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--color-accent);font-weight:700}
+h1{font-family:var(--font-display);font-weight:400;font-size:56px;line-height:1.02;margin:0;letter-spacing:-.01em}
+h1 em{color:var(--moss)}
+.lede{font-size:17px;line-height:1.6;color:var(--color-muted);margin:18px 0 26px}
+.btns{display:flex;gap:10px}.btn{min-height:48px;padding:0 22px;border-radius:24px;display:inline-flex;align-items:center;font-size:15px;font-weight:700;border:1.5px solid var(--color-border)}.btn.p{background:var(--color-accent);border-color:var(--color-accent);color:#fff}
+.arch{margin-top:34px;height:740px;border-radius:200px 200px 0 0;overflow:hidden;border:3px solid var(--color-border);border-bottom:0;position:relative;background:var(--sky)}
+.arch svg{position:absolute;inset:0}
+.r{padding:120px 60px 40px 44px;display:flex;flex-direction:column;gap:18px}
+.card{background:var(--color-surface);border:1.5px solid var(--color-border);border-radius:22px 4px 22px 4px;padding:20px 22px}
+.card small{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-muted);font-weight:700}
+.card h2{font-family:var(--font-display);font-weight:400;font-size:28px;margin:6px 0 10px;line-height:1.1}
+.meter{height:12px;border-radius:6px;background:#E2E4D1;overflow:hidden;margin:6px 0 8px}.meter i{display:block;height:100%;width:68%;background:linear-gradient(90deg,var(--leaf),var(--moss))}
+.card p{margin:0;font-size:14.5px;line-height:1.5;color:var(--color-muted)}
+.tasks{list-style:none;margin:0;padding:0}.tasks li{display:flex;justify-content:space-between;align-items:center;min-height:44px;border-top:1px dashed #A9B79F;font-size:15px}.tasks b{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--moss)}
+@media(max-width:860px){.page{transform-origin:top left;transform:scale(.6)}}
+</style></head><body>
+<div class="page">
+<section class="l">
+<div class="mark"><svg width="38" height="38" viewBox="0 0 38 38" aria-hidden="true"><circle cx="19" cy="19" r="17" fill="#F0B43C" stroke="#2F4A35" stroke-width="2"/><path d="M19 32C19 22 14 16 8 14C14 13 18 16 19 20C20 14 25 10 31 10C27 14 21 20 19 32Z" fill="#2F6B45"/></svg>Hillside Commons</div>
+<nav aria-label="Primary"><span aria-current="page">Our block</span><span>Garden</span><span>Energy</span><span>Tool library</span></nav>
+<p class="kicker">Neighbourhood cooperative</p>
+<h1>A street that grows its <em>food</em> and makes its <em>power</em>.</h1>
+<p class="lede">Rooftop panels, a shared battery, terraced beds and a repair room. Members decide together what the surplus funds next.</p>
+<div class="btns"><span class="btn p">Become a member</span><span class="btn">Visit on Sunday</span></div>
+</section>
+<div class="arch" role="img" aria-label="Illustration of terraced housing with gardens, solar roofs and a small wind turbine under a large sun">
+<svg viewBox="0 0 400 740" width="400" height="740" aria-hidden="true">
+<defs><pattern id="pv" width="14" height="10" patternUnits="userSpaceOnUse"><rect width="14" height="10" fill="#2B4E66"/><path d="M0 0H14M0 0V10" stroke="#8FB8C9" stroke-width="1"/></pattern></defs>
+<circle cx="200" cy="180" r="120" fill="#F0B43C"/>
+<g stroke="#F0B43C" stroke-width="4" stroke-linecap="round" opacity=".7"><path d="M200 30V44M330 180H316M84 180H70M292 88L282 98M108 88L118 98"/></g>
+<g><path d="M320 120V330" stroke="#1E2D22" stroke-width="4"/><g transform="translate(320 120)"><path d="M0 0L-6 -56L4 -54Z M0 0L50 24L44 32Z M0 0L-46 32L-50 24Z" fill="#FFFDF3" stroke="#1E2D22" stroke-width="2"/><circle r="6" fill="#1E2D22"/></g></g>
+<path d="M0 420C80 380 140 400 200 380C270 356 330 370 400 350V740H0Z" fill="#5E9A5A"/>
+<g stroke="#1E2D22" stroke-width="2.5">
+<path d="M30 470H190V700H30Z" fill="#FFFDF3"/><path d="M20 470L110 410L200 470Z" fill="url(#pv)"/>
+<path d="M200 430H370V700H200Z" fill="#E8D9B8"/><path d="M190 430L285 372L380 430Z" fill="url(#pv)"/>
+</g>
+<g fill="#BFDCD6" stroke="#1E2D22" stroke-width="2"><path d="M54 520H94V560H54Z"/><path d="M126 520H166V560H126Z"/><path d="M226 480a20 20 0 0 1 40 0V530H226Z"/><path d="M304 480a20 20 0 0 1 40 0V530H304Z"/><path d="M54 600H94V640H54Z"/></g>
+<path d="M126 600H166V700H126Z" fill="#C8691C" stroke="#1E2D22" stroke-width="2"/>
+<g fill="#2F6B45"><circle cx="40" cy="468" r="12"/><circle cx="60" cy="462" r="10"/><circle cx="182" cy="466" r="12"/><circle cx="212" cy="428" r="12"/><circle cx="360" cy="426" r="12"/><circle cx="340" cy="430" r="9"/></g>
+<g fill="#2F6B45"><path d="M200 560H370V578H200Z"/><path d="M226 590q10-24 20 0zM256 590q10-30 20 0zM286 590q10-22 20 0zM316 590q10-28 20 0z"/></g>
+<g fill="#F0B43C"><circle cx="236" cy="574" r="5"/><circle cx="296" cy="574" r="5"/><circle cx="350" cy="574" r="5"/></g>
+<path d="M0 700H400V740H0Z" fill="#2F4A35"/>
+<g fill="#5E9A5A"><path d="M20 700q-8-40 10-60q4 30 -2 60z"/><path d="M380 700q8-50 -14-70q-2 40 6 70z"/></g>
+</svg></div>
+<section class="r">
+<article class="card"><small>Shared battery · today</small><h2>Two-thirds full by noon</h2><div class="meter" role="meter" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" aria-label="Battery charge"><i></i></div><p>Laundry and the bread oven are best between 11:00 and 15:00.</p></article>
+<article class="card"><small>This week in the commons</small><ul class="tasks"><li>Seed potatoes, bed 4<b>Sat</b></li><li>Bike repair hour<b>Wed</b></li><li>Rainwater tank clean<b>Need 2 more</b></li></ul></article>
+</section>
+</div></body></html>

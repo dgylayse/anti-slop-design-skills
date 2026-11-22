@@ -1,8 +1,8 @@
-# Anti-Slop Design Skills — v3.0
+# Anti-Slop Design Skills — v3.1
 
 ![Anti-Slop Design Skills](gallery/cover.png)
 
-**82 design skills · 42 visual styles · 20 website architectures · 14 color palettes · 5 social-media directions · one Design Director.**
+**92 design skills · 52 visual styles · 20 website architectures · 14 color palettes · 5 social-media directions · one Design Director.**
 
 An original, visual-first library of design systems for AI coding agents, built for people who want more than the default AI landing page. Explore a historically informed **visual style**, choose a real **website type**, layer one **palette**, and produce accessible UI for actual tasks.
 
@@ -14,15 +14,32 @@ Every skill has `SKILL.md` (agent instructions), `preview.png` (1280×800 browse
 
 | Kind | Count | Purpose |
 |---|---:|---|
-| Historical / editorial visual styles | 42 | Personality, art direction, typography and composition |
+| Historical / editorial visual styles | 52 | Personality, art direction, typography and composition |
 | Industry website architectures | 20 | Real workflows: bookings, search, learning, inquiries and more |
 | Compatible semantic color palettes | 14 | Six-color CSS contract; color without layout clones |
 | Social-media art directions | 5 | Poster and campaign communication systems |
 | Design Director | 1 | Matches category + style + palette and critiques output |
 
+## New in v3.1 · ten more directions
+
+Each new style ships with its **own composition**, not new colours on a shared hero template: a marbled endpaper split, a tiled ogee arch, a full-bleed optical field, a layered new-wave collage, a three-column broadside, a central receipt slip, a cover-and-shelf catalogue, an arched illustration window, a double-framed square grid and a ruled manuscript page.
+
+- [`ebru-marbling`](styles/ebru-marbling/SKILL.md) · *16th-century Ottoman ebru* — a fluid marbled endpaper panel, calm book-plate typography and an unhurried workshop booking flow.
+- [`iznik-ceramic`](styles/iznik-ceramic/SKILL.md) · *16th-century İznik tilework* — cobalt and bole-red repeating tile panels framing a white-slip ogee-arch content area with a clear reservation or booking form.
+- [`op-art-optical`](styles/op-art-optical/SKILL.md) · *1960s optical art* — black-and-white stripe fields and concentric vibrating circles, heavy grotesque type in solid boxes, one red point, with explicit pattern-sensitivity safeguards.
+- [`new-wave-1980s`](styles/new-wave-1980s/SKILL.md) · *1980s new wave typography* — layered and rotated type, pastel planes, halftone dot fields, stepped rules and crosshair marks, balanced by one strictly structured information panel.
+- [`wood-type-broadside`](styles/wood-type-broadside/SKILL.md) · *1870s wood type broadsides* — stacked mixed-width poster lines, slab and condensed faces, a second red ink, printer's ornaments, paper grain and handbill side columns.
+- [`thermal-receipt`](styles/thermal-receipt/SKILL.md) · *1990s point-of-sale receipts* — a monospace paper slip as the central object, dashed separators, barcode and stamp details, and an honest step-by-step order status.
+- [`paperback-tri-band`](styles/paperback-tri-band/SKILL.md) · *1935–1955 paperback series covers* — horizontal three-band covers colour-coded by category, a humanist sans, a single hero cover and a shelf of spines as navigation.
+- [`solarpunk-commons`](styles/solarpunk-commons/SKILL.md) · *2020s solarpunk* — an arched window illustration of gardens, solar roofs and turbines, leaf-cut card corners, rounded civic controls and plain-language community data.
+- [`vienna-secession-1905`](styles/vienna-secession-1905/SKILL.md) · *1903–1910 Vienna Secession* — a strict square grid, chequerboard borders, gold-and-black square ornament, wide-tracked light capitals and framed panels.
+- [`illuminated-manuscript`](styles/illuminated-manuscript/SKILL.md) · *13th–15th-century illuminated manuscripts* — vellum ground, ruled two-column justified text, a painted initial, red rubrics, vine marginalia and folio navigation.
+
+![Ten new v3.1 styles](gallery/new-in-v3.1.jpg)
+
 ## Gallery · visual directions
 
-![42 original styles](gallery/contact-sheet.jpg)
+![52 original styles](gallery/contact-sheet.jpg)
 
 | [acid-graphics-90s](styles/acid-graphics-90s/SKILL.md) | [alpine-trail-map](styles/alpine-trail-map/SKILL.md) |
 |:---:|:---:|
@@ -56,29 +73,41 @@ Every skill has `SKILL.md` (agent instructions), `preview.png` (1280×800 browse
 |:---:|:---:|
 | [![constructivist-poster](styles/constructivist-poster/preview.png)](styles/constructivist-poster/demo.html) | [![dark-precision](styles/dark-precision/preview.png)](styles/dark-precision/demo.html) |
 
-| [dieter-rams-industrial](styles/dieter-rams-industrial/SKILL.md) | [editorial-fashion-runway](styles/editorial-fashion-runway/SKILL.md) |
+| [dieter-rams-industrial](styles/dieter-rams-industrial/SKILL.md) | [ebru-marbling](styles/ebru-marbling/SKILL.md) |
 |:---:|:---:|
-| [![dieter-rams-industrial](styles/dieter-rams-industrial/preview.png)](styles/dieter-rams-industrial/demo.html) | [![editorial-fashion-runway](styles/editorial-fashion-runway/preview.png)](styles/editorial-fashion-runway/demo.html) |
+| [![dieter-rams-industrial](styles/dieter-rams-industrial/preview.png)](styles/dieter-rams-industrial/demo.html) | [![ebru-marbling](styles/ebru-marbling/preview.png)](styles/ebru-marbling/demo.html) |
 
-| [fine-art-gallery](styles/fine-art-gallery/SKILL.md) | [handmade-zine-collage](styles/handmade-zine-collage/SKILL.md) |
+| [editorial-fashion-runway](styles/editorial-fashion-runway/SKILL.md) | [fine-art-gallery](styles/fine-art-gallery/SKILL.md) |
 |:---:|:---:|
-| [![fine-art-gallery](styles/fine-art-gallery/preview.png)](styles/fine-art-gallery/demo.html) | [![handmade-zine-collage](styles/handmade-zine-collage/preview.png)](styles/handmade-zine-collage/demo.html) |
+| [![editorial-fashion-runway](styles/editorial-fashion-runway/preview.png)](styles/editorial-fashion-runway/demo.html) | [![fine-art-gallery](styles/fine-art-gallery/preview.png)](styles/fine-art-gallery/demo.html) |
 
-| [isotype-information](styles/isotype-information/SKILL.md) | [japanese-woodblock-modern](styles/japanese-woodblock-modern/SKILL.md) |
+| [handmade-zine-collage](styles/handmade-zine-collage/SKILL.md) | [illuminated-manuscript](styles/illuminated-manuscript/SKILL.md) |
 |:---:|:---:|
-| [![isotype-information](styles/isotype-information/preview.png)](styles/isotype-information/demo.html) | [![japanese-woodblock-modern](styles/japanese-woodblock-modern/preview.png)](styles/japanese-woodblock-modern/demo.html) |
+| [![handmade-zine-collage](styles/handmade-zine-collage/preview.png)](styles/handmade-zine-collage/demo.html) | [![illuminated-manuscript](styles/illuminated-manuscript/preview.png)](styles/illuminated-manuscript/demo.html) |
 
-| [japanese-zen-minimalism](styles/japanese-zen-minimalism/SKILL.md) | [memphis-milano](styles/memphis-milano/SKILL.md) |
+| [isotype-information](styles/isotype-information/SKILL.md) | [iznik-ceramic](styles/iznik-ceramic/SKILL.md) |
 |:---:|:---:|
-| [![japanese-zen-minimalism](styles/japanese-zen-minimalism/preview.png)](styles/japanese-zen-minimalism/demo.html) | [![memphis-milano](styles/memphis-milano/preview.png)](styles/memphis-milano/demo.html) |
+| [![isotype-information](styles/isotype-information/preview.png)](styles/isotype-information/demo.html) | [![iznik-ceramic](styles/iznik-ceramic/preview.png)](styles/iznik-ceramic/demo.html) |
 
-| [mid-century-editorial](styles/mid-century-editorial/SKILL.md) | [modern-folk-textile](styles/modern-folk-textile/SKILL.md) |
+| [japanese-woodblock-modern](styles/japanese-woodblock-modern/SKILL.md) | [japanese-zen-minimalism](styles/japanese-zen-minimalism/SKILL.md) |
 |:---:|:---:|
-| [![mid-century-editorial](styles/mid-century-editorial/preview.png)](styles/mid-century-editorial/demo.html) | [![modern-folk-textile](styles/modern-folk-textile/preview.png)](styles/modern-folk-textile/demo.html) |
+| [![japanese-woodblock-modern](styles/japanese-woodblock-modern/preview.png)](styles/japanese-woodblock-modern/demo.html) | [![japanese-zen-minimalism](styles/japanese-zen-minimalism/preview.png)](styles/japanese-zen-minimalism/demo.html) |
 
-| [neo-brutalist](styles/neo-brutalist/SKILL.md) | [new-york-school](styles/new-york-school/SKILL.md) |
+| [memphis-milano](styles/memphis-milano/SKILL.md) | [mid-century-editorial](styles/mid-century-editorial/SKILL.md) |
 |:---:|:---:|
-| [![neo-brutalist](styles/neo-brutalist/preview.png)](styles/neo-brutalist/demo.html) | [![new-york-school](styles/new-york-school/preview.png)](styles/new-york-school/demo.html) |
+| [![memphis-milano](styles/memphis-milano/preview.png)](styles/memphis-milano/demo.html) | [![mid-century-editorial](styles/mid-century-editorial/preview.png)](styles/mid-century-editorial/demo.html) |
+
+| [modern-folk-textile](styles/modern-folk-textile/SKILL.md) | [neo-brutalist](styles/neo-brutalist/SKILL.md) |
+|:---:|:---:|
+| [![modern-folk-textile](styles/modern-folk-textile/preview.png)](styles/modern-folk-textile/demo.html) | [![neo-brutalist](styles/neo-brutalist/preview.png)](styles/neo-brutalist/demo.html) |
+
+| [new-wave-1980s](styles/new-wave-1980s/SKILL.md) | [new-york-school](styles/new-york-school/SKILL.md) |
+|:---:|:---:|
+| [![new-wave-1980s](styles/new-wave-1980s/preview.png)](styles/new-wave-1980s/demo.html) | [![new-york-school](styles/new-york-school/preview.png)](styles/new-york-school/demo.html) |
+
+| [op-art-optical](styles/op-art-optical/SKILL.md) | [paperback-tri-band](styles/paperback-tri-band/SKILL.md) |
+|:---:|:---:|
+| [![op-art-optical](styles/op-art-optical/preview.png)](styles/op-art-optical/demo.html) | [![paperback-tri-band](styles/paperback-tri-band/preview.png)](styles/paperback-tri-band/demo.html) |
 
 | [pixel-workbench](styles/pixel-workbench/SKILL.md) | [postmodern-library](styles/postmodern-library/SKILL.md) |
 |:---:|:---:|
@@ -88,25 +117,33 @@ Every skill has `SKILL.md` (agent instructions), `preview.png` (1280×800 browse
 |:---:|:---:|
 | [![psychedelic-seventies](styles/psychedelic-seventies/preview.png)](styles/psychedelic-seventies/demo.html) | [![scientific-field-notes](styles/scientific-field-notes/preview.png)](styles/scientific-field-notes/demo.html) |
 
-| [space-age-1969](styles/space-age-1969/SKILL.md) | [stadium-scoreboard](styles/stadium-scoreboard/SKILL.md) |
+| [solarpunk-commons](styles/solarpunk-commons/SKILL.md) | [space-age-1969](styles/space-age-1969/SKILL.md) |
 |:---:|:---:|
-| [![space-age-1969](styles/space-age-1969/preview.png)](styles/space-age-1969/demo.html) | [![stadium-scoreboard](styles/stadium-scoreboard/preview.png)](styles/stadium-scoreboard/demo.html) |
+| [![solarpunk-commons](styles/solarpunk-commons/preview.png)](styles/solarpunk-commons/demo.html) | [![space-age-1969](styles/space-age-1969/preview.png)](styles/space-age-1969/demo.html) |
 
-| [swiss-editorial](styles/swiss-editorial/SKILL.md) | [terminal-amber-crt](styles/terminal-amber-crt/SKILL.md) |
+| [stadium-scoreboard](styles/stadium-scoreboard/SKILL.md) | [swiss-editorial](styles/swiss-editorial/SKILL.md) |
 |:---:|:---:|
-| [![swiss-editorial](styles/swiss-editorial/preview.png)](styles/swiss-editorial/demo.html) | [![terminal-amber-crt](styles/terminal-amber-crt/preview.png)](styles/terminal-amber-crt/demo.html) |
+| [![stadium-scoreboard](styles/stadium-scoreboard/preview.png)](styles/stadium-scoreboard/demo.html) | [![swiss-editorial](styles/swiss-editorial/preview.png)](styles/swiss-editorial/demo.html) |
 
-| [terracotta-studio](styles/terracotta-studio/SKILL.md) | [tropical-travel-poster](styles/tropical-travel-poster/SKILL.md) |
+| [terminal-amber-crt](styles/terminal-amber-crt/SKILL.md) | [terracotta-studio](styles/terracotta-studio/SKILL.md) |
 |:---:|:---:|
-| [![terracotta-studio](styles/terracotta-studio/preview.png)](styles/terracotta-studio/demo.html) | [![tropical-travel-poster](styles/tropical-travel-poster/preview.png)](styles/tropical-travel-poster/demo.html) |
+| [![terminal-amber-crt](styles/terminal-amber-crt/preview.png)](styles/terminal-amber-crt/demo.html) | [![terracotta-studio](styles/terracotta-studio/preview.png)](styles/terracotta-studio/demo.html) |
 
-| [vintage-broadsheet](styles/vintage-broadsheet/SKILL.md) | [warm-analog](styles/warm-analog/SKILL.md) |
+| [thermal-receipt](styles/thermal-receipt/SKILL.md) | [tropical-travel-poster](styles/tropical-travel-poster/SKILL.md) |
 |:---:|:---:|
-| [![vintage-broadsheet](styles/vintage-broadsheet/preview.png)](styles/vintage-broadsheet/demo.html) | [![warm-analog](styles/warm-analog/preview.png)](styles/warm-analog/demo.html) |
+| [![thermal-receipt](styles/thermal-receipt/preview.png)](styles/thermal-receipt/demo.html) | [![tropical-travel-poster](styles/tropical-travel-poster/preview.png)](styles/tropical-travel-poster/demo.html) |
 
-| [web-20-skeuomorphic](styles/web-20-skeuomorphic/SKILL.md) | [y2k-early-digital](styles/y2k-early-digital/SKILL.md) |
+| [vienna-secession-1905](styles/vienna-secession-1905/SKILL.md) | [vintage-broadsheet](styles/vintage-broadsheet/SKILL.md) |
 |:---:|:---:|
-| [![web-20-skeuomorphic](styles/web-20-skeuomorphic/preview.png)](styles/web-20-skeuomorphic/demo.html) | [![y2k-early-digital](styles/y2k-early-digital/preview.png)](styles/y2k-early-digital/demo.html) |
+| [![vienna-secession-1905](styles/vienna-secession-1905/preview.png)](styles/vienna-secession-1905/demo.html) | [![vintage-broadsheet](styles/vintage-broadsheet/preview.png)](styles/vintage-broadsheet/demo.html) |
+
+| [warm-analog](styles/warm-analog/SKILL.md) | [web-20-skeuomorphic](styles/web-20-skeuomorphic/SKILL.md) |
+|:---:|:---:|
+| [![warm-analog](styles/warm-analog/preview.png)](styles/warm-analog/demo.html) | [![web-20-skeuomorphic](styles/web-20-skeuomorphic/preview.png)](styles/web-20-skeuomorphic/demo.html) |
+
+| [wood-type-broadside](styles/wood-type-broadside/SKILL.md) | [y2k-early-digital](styles/y2k-early-digital/SKILL.md) |
+|:---:|:---:|
+| [![wood-type-broadside](styles/wood-type-broadside/preview.png)](styles/wood-type-broadside/demo.html) | [![y2k-early-digital](styles/y2k-early-digital/preview.png)](styles/y2k-early-digital/demo.html) |
 
 ## Industry website layouts
 

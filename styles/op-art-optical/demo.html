@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>op-art-optical — original style study</title><style>
+:root{--color-bg:#F2F0EA;--color-surface:#FFFFFF;--color-ink:#0B0B0B;--color-muted:#4A4A47;--color-accent:#D62E1F;--color-border:#0B0B0B;--font-display:'Arial Black','Franklin Gothic Heavy',Impact,sans-serif;--font-body:Arial,Helvetica,sans-serif}
+*{box-sizing:border-box}html,body{margin:0}body{background:var(--color-bg);color:var(--color-ink);font-family:var(--font-body)}
+.page{width:1280px;height:800px;overflow:hidden;position:relative;background:var(--color-bg)}
+.field{position:absolute;inset:0}
+.field svg{width:100%;height:100%;display:block}
+header{position:absolute;left:0;right:0;top:0;height:72px;display:flex;align-items:stretch;justify-content:space-between;z-index:3}
+.mark,.navbox{background:var(--color-ink);color:var(--color-surface);display:flex;align-items:center;padding:0 28px;font-family:var(--font-display);letter-spacing:.06em;font-size:18px}
+.navbox{gap:28px;font-family:var(--font-body);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.navbox span[aria-current]{color:var(--color-bg);border-bottom:3px solid var(--color-accent);padding:6px 0}
+.title{position:absolute;left:64px;top:150px;z-index:3}
+.title h1{margin:0;font-family:var(--font-display);font-weight:900;font-size:132px;line-height:.84;letter-spacing:-.04em;text-transform:uppercase}
+.title h1 span{display:inline-block;background:var(--color-surface);padding:6px 18px 0 10px;margin-bottom:10px}
+.title h1 span.inv{background:var(--color-ink);color:var(--color-surface)}
+.card{position:absolute;left:64px;bottom:56px;width:470px;background:var(--color-surface);border:3px solid var(--color-ink);z-index:3}
+.card .top{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:3px solid var(--color-ink);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+.card .top b{color:var(--color-accent)}
+.card p{margin:0;padding:18px 20px 6px;font-size:16px;line-height:1.55}
+.card .row{display:flex;gap:0;margin:14px 20px 20px;border:3px solid var(--color-ink)}
+.card .row span{flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.card .row span.go{background:var(--color-ink);color:var(--color-surface)}
+.card .row span+span{border-left:3px solid var(--color-ink)}
+.stamp{position:absolute;right:56px;bottom:56px;z-index:3;width:250px;background:var(--color-ink);color:var(--color-surface);padding:18px 20px;font-size:13px;line-height:1.5}
+.stamp strong{display:block;font-family:var(--font-display);font-size:34px;line-height:1;margin-bottom:8px}
+.stamp em{font-style:normal;color:#FFB3A8}
+
+@media(max-width:860px){.page{transform-origin:top left;transform:scale(.6)}}
+@media(prefers-reduced-motion:reduce){.field *{animation:none!important}}
+</style></head><body>
+<div class="page">
+<div class="field" aria-hidden="true">
+<svg viewBox="0 0 1280 800" preserveAspectRatio="none">
+<defs>
+<pattern id="v" width="24" height="800" patternUnits="userSpaceOnUse"><rect width="12" height="800" fill="#0B0B0B"/></pattern>
+<pattern id="h" width="1280" height="24" patternUnits="userSpaceOnUse"><rect width="1280" height="12" fill="#0B0B0B"/></pattern>
+<filter id="bulge" x="0" y="0" width="100%" height="100%"><feImage href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1280' height='800'%3E%3Cdefs%3E%3CradialGradient id='g' cx='0.66' cy='0.48' r='0.42'%3E%3Cstop offset='0' stop-color='rgb(255,255,128)'/%3E%3Cstop offset='1' stop-color='rgb(128,128,128)'/%3E%3C/radialGradient%3E%3ClinearGradient id='x'%3E%3Cstop offset='0' stop-color='rgb(0,0,0)'/%3E%3Cstop offset='1' stop-color='rgb(255,0,0)'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1280' height='800' fill='rgb(128,128,128)'/%3E%3Ccircle cx='845' cy='384' r='330' fill='url(%23x)' opacity='.85'/%3E%3C/svg%3E" result="map" x="0" y="0" width="1280" height="800"/><feDisplacementMap in="SourceGraphic" in2="map" scale="120" xChannelSelector="R" yChannelSelector="G"/></filter>
+<clipPath id="disc"><circle cx="845" cy="384" r="300"/></clipPath>
+</defs>
+<rect width="1280" height="800" fill="#F2F0EA"/>
+<rect width="1280" height="800" fill="url(#v)" filter="url(#bulge)"/>
+<g clip-path="url(#disc)"><rect width="1280" height="800" fill="#F2F0EA"/><g>
+<circle cx="845" cy="384" r="300" fill="#0B0B0B"/><circle cx="855" cy="384" r="282" fill="#F2F0EA"/><circle cx="865" cy="384" r="264" fill="#0B0B0B"/><circle cx="875" cy="384" r="246" fill="#F2F0EA"/><circle cx="885" cy="384" r="228" fill="#0B0B0B"/><circle cx="895" cy="384" r="210" fill="#F2F0EA"/><circle cx="905" cy="384" r="192" fill="#0B0B0B"/><circle cx="915" cy="384" r="174" fill="#F2F0EA"/><circle cx="925" cy="384" r="156" fill="#0B0B0B"/><circle cx="935" cy="384" r="138" fill="#F2F0EA"/><circle cx="945" cy="384" r="120" fill="#0B0B0B"/><circle cx="955" cy="384" r="102" fill="#F2F0EA"/><circle cx="965" cy="384" r="84" fill="#0B0B0B"/><circle cx="975" cy="384" r="66" fill="#F2F0EA"/><circle cx="985" cy="384" r="48" fill="#0B0B0B"/><circle cx="995" cy="384" r="30" fill="#F2F0EA"/><circle cx="1003" cy="384" r="12" fill="#D62E1F"/>
+</g></g>
+<circle cx="845" cy="384" r="300" fill="none" stroke="#0B0B0B" stroke-width="6"/>
+</svg>
+</div>
+<header><div class="mark">RETINAL HALL</div><div class="navbox"><span aria-current="page">Exhibition</span><span>Visit</span><span>Tickets</span></div></header>
+<div class="title"><h1><span>Look</span><br><span class="inv">again.</span></h1></div>
+<section class="card" aria-label="Exhibition summary"><div class="top"><span>Exhibition · Hall 2</span><b>Now open</b></div><p>Paintings that seem to move while you stand still: black, white, one red point. A quiet room is available for anyone who needs a pause from the patterns.</p><div class="row"><span class="go">Book a time slot →</span><span>Plan your visit</span></div></section>
+<aside class="stamp"><strong>Mar — Jun</strong>Tue–Sun, 10:00–18:00<br><em>Pattern-sensitive?</em> Use the low-stimulus guide at the door.</aside>
+</div></body></html>

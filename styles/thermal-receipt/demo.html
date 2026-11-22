@@ -1,0 +1,68 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>thermal-receipt — original style study</title><style>
+:root{--color-bg:#E2DFD8;--color-surface:#FBFAF6;--color-ink:#1B1B1B;--color-muted:#4F4D49;--color-accent:#B5172B;--color-border:#1B1B1B;--font-display:'Consolas','Lucida Console','Courier New',monospace;--font-body:'Consolas','Lucida Console','Courier New',monospace}
+*{box-sizing:border-box}html,body{margin:0}body{background:var(--color-bg);color:var(--color-ink);font-family:var(--font-body)}
+.page{width:1280px;height:800px;overflow:hidden;position:relative;background:var(--color-bg);display:grid;grid-template-columns:1fr 440px 1fr;grid-template-rows:800px;column-gap:56px;padding:0 56px}
+.col{padding-top:46px;display:flex;flex-direction:column;gap:26px;min-width:0}
+.mark{font-size:15px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:10px}.mark i{width:14px;height:14px;background:var(--color-ink);display:inline-block}
+h1{font-family:var(--font-display);font-size:64px;line-height:.98;letter-spacing:-.04em;margin:12px 0 0;font-weight:700}
+h1 span{color:var(--color-accent)}
+.lede{font-size:15px;line-height:1.6;color:var(--color-muted);max-width:330px;margin:0}
+.steps{list-style:none;margin:0;padding:0;border-top:2px solid var(--color-ink)}
+.steps li{display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;min-height:52px;border-bottom:1px dashed var(--color-ink);font-size:15px}
+.steps .s{width:18px;height:18px;border:2px solid var(--color-ink);border-radius:50%}
+.steps .done .s{background:var(--color-ink)}.steps .now .s{background:var(--color-accent);border-color:var(--color-accent);box-shadow:0 0 0 4px var(--color-bg),0 0 0 6px var(--color-accent)}
+.steps .now{font-weight:700}.steps small{color:var(--color-muted);font-size:13px}
+.receipt{position:relative;margin-top:-6px;background:var(--color-surface);height:860px;padding:52px 34px 0;font-size:15px;line-height:1.5;box-shadow:0 1px 0 #CFCBC2}
+.receipt:before{content:"";position:absolute;left:0;right:0;top:-1px;height:14px;background:linear-gradient(-45deg,var(--color-bg) 7px,transparent 0) 0 0/14px 14px,linear-gradient(45deg,var(--color-bg) 7px,transparent 0) 0 0/14px 14px;transform:rotate(180deg)}
+.c{text-align:center}.hd{font-size:22px;font-weight:700;letter-spacing:.2em}
+.dash{border:0;border-top:2px dashed var(--color-ink);margin:14px 0}
+.ln{display:flex;justify-content:space-between;gap:12px}.ln.sub{color:var(--color-muted);padding-left:24px;font-size:14px}
+.tot{font-size:26px;font-weight:700}
+.big{font-size:84px;font-weight:700;letter-spacing:-.04em;line-height:1;margin:6px 0}
+.bar{height:58px;margin:14px 6px 4px;background:repeating-linear-gradient(90deg,var(--color-ink) 0 2px,transparent 2px 4px,var(--color-ink) 4px 7px,transparent 7px 9px,var(--color-ink) 9px 10px,transparent 10px 13px)}
+.stamp{position:absolute;right:-58px;top:478px;transform:rotate(-14deg);border:4px solid var(--color-accent);color:var(--color-accent);font-size:30px;font-weight:700;letter-spacing:.18em;padding:6px 16px;background:rgba(251,250,246,.6)}
+.shelf{background:var(--color-ink);color:var(--color-surface);padding:22px 24px}
+.shelf small{display:block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#C9C6BF}
+.shelf strong{display:block;font-size:96px;line-height:1;letter-spacing:-.05em;margin:6px 0}
+.shelf p{margin:0;font-size:14px;line-height:1.5;color:#E6E3DC}
+.btn{display:flex;justify-content:space-between;align-items:center;min-height:50px;padding:0 18px;border:2px solid var(--color-ink);font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.btn.alt{border-style:dashed}
+.live{font-size:13px;color:var(--color-muted);border-left:4px solid var(--color-accent);padding:6px 0 6px 12px}
+@media(max-width:860px){.page{transform-origin:top left;transform:scale(.6)}}
+</style></head><body>
+<div class="page">
+<section class="col" aria-label="Order status">
+<div class="mark"><i aria-hidden="true"></i>Corner Counter Coffee</div>
+<h1>Order 0417 is <span>brewing.</span></h1>
+<p class="lede">No app, no account. This page updates itself; keep it open or come back with the number on your slip.</p>
+<ol class="steps"><li class="done"><span class="s" aria-hidden="true"></span>Received<small>08:41</small></li><li class="done"><span class="s" aria-hidden="true"></span>Paid<small>08:41</small></li><li class="now" aria-current="step"><span class="s" aria-hidden="true"></span>Brewing<small>~4 min</small></li><li><span class="s" aria-hidden="true"></span>Ready on shelf<small>—</small></li></ol>
+<p class="live" role="status">Your oat flat white is on the second grinder.</p>
+</section>
+<article class="receipt" aria-label="Receipt">
+<div class="c hd">CORNER COUNTER</div>
+<div class="c">14 Mill Lane · open 7–15</div>
+<hr class="dash">
+<div class="ln"><span>TUE 11 MAR</span><span>08:41</span></div>
+<div class="ln"><span>ORDER</span><span>#0417</span></div>
+<hr class="dash">
+<div class="ln"><span>1 × FLAT WHITE</span><span>3.40</span></div>
+<div class="ln sub"><span>+ oat milk</span><span>0.40</span></div>
+<div class="ln"><span>1 × CARDAMOM BUN</span><span>2.90</span></div>
+<div class="ln"><span>1 × FILTER, LARGE</span><span>3.10</span></div>
+<div class="ln sub"><span>+ own cup</span><span>−0.30</span></div>
+<hr class="dash">
+<div class="ln tot"><span>TOTAL</span><span>9.50</span></div>
+<div class="ln"><span>CARD ····</span><span>APPROVED</span></div>
+<hr class="dash">
+<div class="c">YOUR NUMBER</div>
+<div class="c big">0417</div>
+<div class="bar" aria-hidden="true"></div>
+<div class="c" style="font-size:13px">THANK YOU · RECYCLE ME (BPA-FREE)</div>
+<div class="stamp" aria-hidden="true">PAID</div>
+</article>
+<section class="col" aria-label="Pickup">
+<div class="shelf"><small>Pick up from shelf</small><strong>B</strong><p>Left of the till, under the green lamp. Your name is not printed — just the number.</p></div>
+<span class="btn">Add another drink <b>+</b></span>
+<span class="btn alt">Email me the receipt <b>→</b></span>
+</section>
+</div></body></html>
