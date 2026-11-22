@@ -1,77 +1,116 @@
 ---
 name: illuminated-manuscript
-description: "Use for archives, libraries, heritage and long-form reading sites in an illuminated manuscript direction: vellum ground, ruled two-column justified text, a painted initial, red rubrics, vine marginalia and folio navigation."
+description: "Use for archives, libraries, rare books, heritage and long-form reading in an illuminated manuscript direction: a living folio reader where each leaf turns like a page and its painted initial draws itself (frame, letter, gold, tendrils), rubricated search results, marginal notes linked to their words, an as-written/modern transcription switch, on vellum with ruled two-column text."
 license: MIT
 metadata:
   category: styles
   preview: preview.png
   era: "13th–15th-century illuminated manuscripts"
-  version: 3.1.0
+  version: 4.0.0
+  tier: living
 ---
 
-# Illuminated Manuscript (Medieval Book Hand)
+# Illuminated Manuscript — Living Style
 
-## 1. Design Philosophy
-A manuscript page is an interface designed over centuries: ruling lines for rhythm, red rubrics for wayfinding, painted initials to mark where a text begins, marginal vines to frame. Use those devices as navigation and hierarchy, not as fantasy decoration, and keep the reading experience generous and calm.
+> **Living style.** The page behaves like a codex: leaves turn, initials are painted as you arrive, the search is a rubricator's red pen, and marginal notes point to their words.
 
-## 2. Color Tokens & Surface Rules
+## 1. Design philosophy
+A manuscript page is an interface refined over centuries: ruling lines for rhythm, red rubrics for wayfinding, painted initials to mark where a text begins, marginalia for commentary. Use those devices **as navigation and hierarchy**, not as fantasy decoration, and keep reading generous and calm.
+
+Test: *would a scribe or a rubricator recognise what this element is for?*
+
+## 2. Colour tokens
 ```css
 :root {
-  --color-bg: #F2E8D0;
-  --color-surface: #F8F1DF;
-  --color-ink: #2A1D14;
+  --color-bg: #F2E8D0;       /* vellum */
+  --color-surface: #F8F1DF;  /* index panel, forms */
+  --color-ink: #2A1D14;      /* iron-gall ink */
   --color-muted: #5C4A39;
-  --color-accent: #9B2A1F;
+  --color-accent: #9B2A1F;   /* vermilion: rubrics, search hits, primary action */
   --color-border: #6B4E2E;
-  --gold: #C79A2E;
-  --lapis: #26437A;
-  --verdigris: #3F6B4A;
+  --gold: #C79A2E;           /* ornament only, never text */
+  --lapis: #26437A;          /* initial grounds */
+  --verdigris: #3F6B4A;      /* vines and tendrils */
 }
 ```
-- **Rule:** `--color-accent` (#9B2A1F) is reserved for the primary action, the current state and one focal detail per view. Additional pigment tokens are for illustration and ornament; verify contrast before using any of them for text.
 
-## 3. Typography & Hierarchy
-- **Display font stack:** `'Palatino Linotype', 'Book Antiqua', Georgia, serif`
-- **Body font stack:** `'Palatino Linotype', 'Book Antiqua', Georgia, serif`
-- One old-style serif family (Palatino) for everything; hierarchy through size, small caps and colour.
-- Rubrics (section openers, nav, buttons) in small caps, 0.06–0.14em tracking, vermilion.
-- Body 18px on a 32px baseline, justified with hyphenation, in two columns with a thin column rule.
-- One painted initial (≈ 3.5 lines tall) per page, lapis ground, gold letter, small vine and dots.
+## 3. Typography
+- One old-style serif family (`'Palatino Linotype', 'Book Antiqua', Georgia, serif`) for everything.
+- Hierarchy through size, **small caps** (`font-variant: small-caps; letter-spacing: .1em`) and vermilion.
+- Body 18px on a 32px baseline, justified with hyphenation, two columns with a thin column rule on desktop, one column on phones.
+- Uncertain readings are printed in [square brackets]; paragraph starts use a vermilion ¶.
 
-## 4. Layout, Grid & Geometry
-- Grid: a 150px decorated margin (vine, leaves, gold and vermilion dots) · reading block · a surface-coloured sidebar for indexes.
-- Faint ruling lines repeat at the text baseline across the reading block.
-- Header uses a double rule below; a catchword at the end of a column or sidebar hints at what comes next.
-- Mobile: drop to a single column, move the vine to a 24px top border strip.
+## 4. Layout
+- **Desktop:** decorated margin (≈130px, sticky vine) · reading block · index sidebar (≈330px).
+- **Tablet:** margin narrows; the index moves under the text as two columns.
+- **Phone:** no margin vine; text single-column; notes follow the text with a gold rule.
+- Inside the reading block: rubric → title (two lines) → italic metadata → text columns + a 170px column for marginal notes → folio pager.
+- Faint ruling lines (`repeating-linear-gradient`, 32px) across the reading block.
 
-## 5. Component Specifications
-- **Search:** bordered field on surface with a vermilion 'Seek' button in small caps.
-- **Folio list:** square thumbnail with a symbol (✠ ❦ ¶), title with folio number, italic note.
-- **Folio pager:** previous/next folio in small caps with a keyboard hint.
-- **Uncertain text:** mark editorial doubt with [square brackets], never guess.
+## 5. Signature interaction — the folio reader
+| Visitor | What happens |
+|---|---|
+| Opens a leaf (pager, index, ← →) | a vellum leaf turns over the text (rotateY around its spine), the new leaf appears, its initial **draws itself** |
+| Hovers or focuses a marked word or its note | both light up together (word background + note colour) |
+| Types in "Seek a word" | matches are rubricated (vermilion, double underline) in the open leaf; each leaf in the index shows its match count; Enter jumps to the first leaf with a match |
+| Switches As written / Modern | the same leaf re-renders in the other transcription; notes and anchors stay linked |
 
-## 6. Strict Forbidden Patterns (Anti-Slop Checklist)
-- NEVER use blackletter for body text or UI; it fails readability.
-- NEVER use gold for text; it is ornament only.
-- NEVER fake parchment with heavy noise or burnt edges.
-- NEVER put more than one painted initial in a viewport.
+Initial drawing sequence: ground fades in → gold frame is drawn (stroke-dashoffset) → the letter is outlined, then gilded (fill) → verdigris tendrils grow → vermilion and gold dots appear. About 2 seconds in total.
 
----
+## 6. Motion language
+| Moment | Motion | Timing |
+|---|---|---|
+| Leaf turn | leaf rotates from 0 to −92° around the spine (or the opposite edge when going back), fading at the end | 0.8s, swap at 0.3s |
+| Initial | stroke-drawing + gilding as above | 0.15–1.8s staggered |
+| Everything else | none | — |
 
-## 7. Distinctive art direction and page anatomy
+`prefers-reduced-motion`: leaves swap instantly; initials appear finished.
 
-**Reference era:** 13th–15th-century illuminated manuscripts. This is a contemporary interpretation, not a reproduction of a historical artefact or a trademarked brand. Make work that feels designed by a person with a point of view.
+## 7. Section library
+1. **Reader hero** — margin vine, header with small-caps nav, the folio (rubric, title, metadata, text with painted initial, marginal notes), pager; index sidebar with search, transcription toggle and folio list.
+2. **Our rules** — three numbered principles (keep spelling, bracket doubt, note every hand) with roman numerals in vermilion.
+3. **Reading room** — booking form (name, email, day, folio) with inline validation and a confirmation in italics with a gold rule.
+4. **Footer** — italic colophon line.
 
-- **Reference composition:** `margin vine · ruled two-column text · index sidebar`. Lead with a purposeful hierarchy, a real content block, and the signature `painted initial and vine margin` treatment; do not assume every product needs a dashboard.
-- **Sample editorial voice:** “Two hundred leaves of vellum, read closely.”. Replace sample copy with authentic project copy; do not ship the preview's fictional brand or made-up details.
-- **Use cases:** Archives, libraries, rare books, heritage, wineries, long-form reading, fantasy games. Develop other applications only when the visual language matches their audience and task.
-- **Key visual device:** `painted initial and vine margin`; create it with original vector or CSS geometry, real user-provided photography, or properly licensed assets.
-- **Minimum component vocabulary:** header/navigation, primary action, secondary action, content grouping, form/input, an item or list row, and visible feedback state.
-- **Repeatable signature:** keep the typographic proportion and materiality on subsequent pages; vary composition based on content so the site is not one repeated hero template.
+## 8. Code recipes
+```js
+// text model: [[word|noteId]] links a word to a marginal note; {word} is an uncertain reading; " ¶ " starts a paragraph
+"…whanne the [[vynes|n1]] ben kut … The {laboure} of this monthe … ¶ In the firste weke…"
+// rendering: escape → anchors → [brackets] → ¶ paragraphs → (if searching) wrap hits in text parts only
+h.split(/(<[^>]+>)/).map(part => part.startsWith('<') ? part : part.replace(re, '<mark class="hit">$1</mark>'))
+```
+```css
+.ini.draw .frame { stroke-dasharray: 420; stroke-dashoffset: 420; animation: ink .7s .15s forwards }
+.ini.draw .let   { fill-opacity: 0; stroke-dasharray: 520; stroke-dashoffset: 520;
+                   animation: ink 1.1s .5s forwards, gild .6s 1.4s forwards }
+@keyframes ink  { to { stroke-dashoffset: 0 } }
+@keyframes gild { to { fill-opacity: 1 } }
+.leaf.turn { animation: turn .8s cubic-bezier(.4,0,.2,1) }  /* transform-origin: left center */
+```
+Escape the search query before building a RegExp; never inject it into attributes.
+
+## 9. Content rules
+- Transcriptions must be genuine or clearly marked as illustrative. Never invent provenance, dates or shelfmarks for real collections.
+- Keep both "as written" and "modern" texts; the modern one is an aid, not a replacement.
+- Images of real manuscripts must carry their rights statement.
+
+## 10. Forbidden patterns (anti-slop)
+- NEVER use blackletter for body text or UI.
+- NEVER use gold for text, or more than one painted initial per leaf.
+- NEVER fake parchment with heavy noise, burnt edges or coffee stains.
+- NEVER add fantasy clichés (dragons, candles, wax-seal buttons) unless the collection actually contains them.
+- NEVER animate anything idle; leaves turn and initials draw only on navigation.
+
+## 11. Accessibility
+- The initial SVG has `role="img"` and an `aria-label`; the dropped first letter is also present as visually hidden text so the word reads correctly.
+- Linked words are focusable (`tabindex=0`); notes are buttons; both highlight on focus as well as hover.
+- The folio has `aria-live="polite"`; search results are announced in a `role=status` line; arrow-key paging ignores form fields.
+- Vermilion and ink pass AA on vellum; gold is never used for text.
+
+## 12. Quality gate
+(1) Does every leaf open with a drawn initial and a turn (or instantly under reduced motion)? (2) Do notes and words highlight together for mouse and keyboard? (3) Does search work in both transcriptions and jump to the right leaf? (4) Is the text comfortable at 18px/32px in one column on phones? (5) No blackletter, no gold text?
 
 ## Required semantic-token interface
-The implementation MUST use these shared CSS custom properties (the palette layer may override them later):
-
 ```css
 :root {
   --color-bg: #F2E8D0;
@@ -87,35 +126,15 @@ The implementation MUST use these shared CSS custom properties (the palette laye
 }
 ```
 
-Use `var(--color-bg)` rather than hardcoding background colors throughout components. When combining a palette, **load style tokens first, then palette tokens** (the later palette overrides the six `--color-*` values). A palette changes color only, not the style's spatial or typographic DNA.
-
-## 8. Responsive behavior (do not skip)
-
-- At `>= 1200px`, use the full composition described above. At `768–1199px`, reduce columns and proportionally scale headlines. Below `768px`, collapse to a single deliberate reading path; keep the primary action visible without floating overlays.
-- Typography: scale the display size with `clamp()` (for example `clamp(2.5rem, 6vw, 4rem)`), keep body text between 16px and 18px.
-- Use `minmax(0, 1fr)` for long content, `overflow-wrap: anywhere` for technical tokens, and a horizontal overflow wrapper for necessary data tables.
-- All interactive controls have touch targets around 44×44 CSS pixels. Do not hide access to important workflows on mobile.
-- Offer low-motion alternatives; respect `prefers-reduced-motion: reduce`.
-
-## 9. Accessible components and states
-
-- Text contrast: normal text at least WCAG AA 4.5:1 and large text at least 3:1, including muted labels. Decorative pigments and pattern colours are **not** automatically safe for foreground copy; test the actual pair.
-- Keyboard: visible `:focus-visible` ring, logical tab order, Escape on dismissible overlays, proper native controls; hover is never the only feedback.
-- Supply designed states: default, hover, focus, pressed, disabled, loading, empty, error, success, and selected where applicable. Announce async outcomes in a polite live region, not by color alone.
-- Use semantic landmarks (`header`, `nav`, `main`, `aside`, `footer`) and ordered heading levels. Ornamental SVG uses `aria-hidden="true"`; meaningful illustrations get a short `role="img"` label.
-
-## 10. Anti-clone quality gate
-
-Before delivery, check: (1) Could the result be mistaken for another skill in this library? If so, change the **composition**, not merely its colors. (2) Are the content and controls plausible for the product? (3) Are there illegible labels or invented statistics? (4) Do mobile, keyboard and reduced-motion states work? (5) Has AI-default hero/card/glow styling slipped back in?
-
-## 11. Invocation example
-
+## Invocation example
 ```text
-Use the illuminated-manuscript design skill. Identify the product's core workflow, map its content hierarchy, apply its tokens and signature composition, and build a usable responsive page with real content states. Do not mimic the sample preview's fictional brand; do not introduce generic AI gradient/card patterns. Explain design choices in 5 concise sentences after implementation.
+Use the illuminated-manuscript living style for this archive. Build a folio reader:
+leaves turn on pager/arrow keys, each leaf's painted initial draws itself (frame,
+letter outline, gilding, tendrils), search rubricates matches and counts them per
+leaf, marginal notes highlight their anchored words, and an as-written/modern toggle
+swaps transcriptions. One serif family, small-caps rubrics, no blackletter.
 ```
 
-## 12. Visual reference
+![illuminated-manuscript living preview](./preview.png)
 
-![illuminated-manuscript original design preview](./preview.png)
-
-`demo.html` is the local, self-contained composition used to generate this preview. It illustrates a style direction, not a production-ready application.
+`demo.html` is a complete, interactive single-file page; the preview shows its first screen.

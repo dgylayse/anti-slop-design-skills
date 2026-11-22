@@ -1,73 +1,106 @@
 ---
 name: op-art-optical
-description: "Use for galleries, events and campaigns in a 1960s optical-art direction: black-and-white stripe fields and concentric vibrating circles, heavy grotesque type in solid boxes, one red point, with explicit pattern-sensitivity safeguards."
+description: "Use for galleries, exhibitions, music events and bold campaigns in a 1960s optical-art direction: a living per-pixel stripe field that bulges around the pointer and eccentric rings that turn to follow it, heavy grotesque type locked in solid boxes, one red point, a visible Calm view switch (on by default for reduced motion) and timed-entry booking with a calm hour."
 license: MIT
 metadata:
   category: styles
   preview: preview.png
   era: "1960s optical art"
-  version: 3.1.0
+  version: 4.0.0
+  tier: living
 ---
 
-# Op-Art Optical (1960s Retinal Art)
+# Op-Art Optical — Living Style
 
-## 1. Design Philosophy
-Op-art makes the eye do the work: regular stripes and offset circles appear to bulge and shimmer. On the web this is powerful and risky. Use the optical field as a single hero object, then lock every piece of text into solid, opaque boxes so reading is never disturbed by the pattern.
+> **Living style.** The hero is a painting that reacts to the visitor — and a switch that turns it off. Both halves matter equally.
 
-## 2. Color Tokens & Surface Rules
+## 1. Design philosophy
+Op-art makes the eye do the work: regular stripes and offset circles appear to bulge and shimmer. On the web this is powerful and risky. The pattern is a **single hero object** that responds only to the pointer; all text sits in **opaque boxes**; and a **Calm view** switch is always visible.
+
+Test: *is every motion caused by the visitor, and can they stop it in one click?*
+
+## 2. Colour tokens
 ```css
 :root {
-  --color-bg: #F2F0EA;
-  --color-surface: #FFFFFF;
+  --color-bg: #F2F0EA;      /* gallery white */
+  --color-surface: #FFFFFF; /* text boxes */
   --color-ink: #0B0B0B;
   --color-muted: #4A4A47;
-  --color-accent: #D62E1F;
+  --color-accent: #D62E1F;  /* one red point: target centre, "now open", focus */
   --color-border: #0B0B0B;
 }
 ```
-- **Rule:** `--color-accent` (#D62E1F) is reserved for the primary action, the current state and one focal detail per view. Additional pigment tokens are for illustration and ornament; verify contrast before using any of them for text.
+Calm view colours: stripes `#B2B4B8` on `#E2E6E8` — low contrast, no rings.
 
-## 3. Typography & Hierarchy
-- **Display font stack:** `'Arial Black', 'Franklin Gothic Heavy', Impact, sans-serif`
-- **Body font stack:** `Arial, Helvetica, sans-serif`
-- Display: a heavy grotesque at 110–140px, uppercase, tight leading (0.84), set inside solid white or black boxes that sit on top of the pattern.
-- Body: 15–16px Arial/Helvetica on solid white; never on stripes.
-- Labels: 12px bold uppercase with 0.14–0.16em tracking.
+## 3. Typography
+- **Display:** heavy grotesque (`'Arial Black', 'Franklin Gothic Heavy', Impact`), uppercase, 70–140px, leading 0.84, set inside inline white or inverted black boxes.
+- **Body/UI:** Arial/Helvetica 14–16px on solid white only.
+- **Labels:** 12px bold uppercase, 0.14–0.16em tracking.
 
-## 4. Layout, Grid & Geometry
-- The optical field (stripes + offset concentric circle) fills the viewport behind content; content blocks are opaque rectangles with 3px black borders.
-- Anchor content to the left and bottom edges; the circle sits right-of-centre so the eye travels from headline to target.
-- Exactly one red accent: the centre of the target or the status label.
-- On mobile, replace the full field with a static square tile of the pattern above the content.
+## 4. Layout
+- The field fills the hero; header pieces are solid black blocks with the Calm switch as a white block at the right.
+- Content anchors to the left and bottom edges; the target sits right of centre so the eye travels headline → target.
+- Below the hero, everything is a strict 3px black grid: works strip, booking split, care grid.
+- Mobile: hide the hint and stamp, keep the title, card and Calm switch.
 
-## 5. Component Specifications
-- **Optical field:** SVG stripe pattern (12px on / 12px off) plus a stack of concentric circles whose centres shift slightly, so the rings converge to one side; a red centre point.
-- **Text boxes:** inline white (or inverted black) spans behind each headline line.
-- **Split action bar:** two equal buttons in one 3px-bordered bar; primary is inverted.
-- **Accessibility stamp:** a solid black block naming opening hours and a low-stimulus alternative.
+## 5. Signature interaction — the reactive field
+| Visitor | Field response |
+|---|---|
+| Moves the pointer outside the target | stripes magnify around the pointer (a lens): `X = x − (x − px) · 0.62 · e^(−r²/150²)` |
+| Moves the pointer anywhere | the eccentric rings turn toward it: offset `v` (max 0.32R) points at the pointer; ring distance uses `p − c − v·(1 − r/R)` |
+| Leaves the hero | field returns to rest |
+| Presses **Calm view** | field becomes static low-contrast stripes; works are dimmed; pointer ignored |
 
-## 6. Strict Forbidden Patterns (Anti-Slop Checklist)
-- NEVER animate the pattern (no scrolling stripes, no rotating rings); respect `prefers-reduced-motion` and offer a 'calm' toggle that swaps the field for flat colour.
-- NEVER put body text, form fields or links over stripes.
+Nothing moves on a timer. `prefers-reduced-motion: reduce` turns Calm view **on** by default (the visitor can still turn it off).
+
+## 6. Motion language
+- Only pointer-driven redraws (one per animation frame).
+- No scroll-linked motion, no rotating rings, no animated stripes, no hover zoom.
+- The only CSS transition is the Calm switch knob (0.15s).
+
+## 7. Section library
+1. **Hero** — field canvas, black header blocks + Calm switch, boxed headline, summary card with a split action bar, dates stamp, a small hint box.
+2. **Works** — five studies drawn by the same per-pixel painter, each from a single-mark rule (wavy stripes, star rings, compressing lines, falling checkerboard, spiral with one red point).
+3. **Tickets** — day chips (with the calm hour marked), time chips with capacity (full = dashed, disabled), adult/concession steppers, total, inline validation, confirmation.
+4. **If patterns bother you** — calm hour, quiet room, printed guide, Calm view: four boxes.
+5. **Footer** — access facts in one line.
+
+## 8. Code recipes
+```js
+// per-pixel painter: fn(x, y, W, H) → 0 light, 1 ink, 2 red; Uint32 writes (ABGR on little-endian)
+function paint(canvas, fn, scale) { /* createImageData → buf[i] = colours[fn(x/scale, y/scale, W, H)] */ }
+// hero: render at ~0.55 of CSS size, redraw once per frame on pointermove
+const S = 0.55;
+// works (examples)
+(x, y) => Math.floor((x + 14 * Math.sin(y / 22)) / 9) % 2                      // Current
+(x, y, W, H) => { const r = Math.hypot(x - W/2, y - H/2), a = Math.atan2(y - H/2, x - W/2);
+                  return Math.floor((r + 6 * Math.sin(a * 14)) / 9) % 2 }        // Blaze
+(x, y, W, H) => { const s = 4 + Math.abs(y - H * .55) / 5;
+                  return (Math.floor(x / s) + Math.floor(y / s)) % 2 }           // Square fall
+```
+Never use stripes thinner than ~6 CSS px (moiré on screens and in screenshots).
+
+## 9. Safety and content
+- Always say plainly what the patterns can do (headaches, dizziness, rarely seizures) and what help exists (calm hour, quiet room, printed guide).
+- Never autoplay video of the works. Never flash.
+- Fictional or real artworks must be credited correctly; do not imitate a living artist's specific painting.
+
+## 10. Forbidden patterns (anti-slop)
+- NEVER animate the field without pointer input; NEVER hide the Calm switch.
+- NEVER put text, inputs or links directly on stripes.
 - NEVER add gradients, shadows or a second accent colour.
-- NEVER use fine stripes under 6px; they cause moiré on screens and in screenshots.
+- NEVER use the reactive field on long reading pages; one hero, once.
 
----
+## 11. Accessibility
+- The field canvas is `aria-hidden`; works canvases have short `aria-label`s.
+- Calm switch is a `button` with `aria-pressed`, labelled, reachable in the header.
+- Chips are radios with `aria-checked`; full slots are disabled with dashed borders and a text label.
+- Booking errors and confirmations use `role=status`.
 
-## 7. Distinctive art direction and page anatomy
-
-**Reference era:** 1960s optical art. This is a contemporary interpretation, not a reproduction of a historical artefact or a trademarked brand. Make work that feels designed by a person with a point of view.
-
-- **Reference composition:** `full-bleed optical field with boxed type`. Lead with a purposeful hierarchy, a real content block, and the signature `stripe and concentric-ring field` treatment; do not assume every product needs a dashboard.
-- **Sample editorial voice:** “LOOK AGAIN.”. Replace sample copy with authentic project copy; do not ship the preview's fictional brand or made-up details.
-- **Use cases:** Galleries, exhibitions, music events, design festivals, campaign landing pages. Develop other applications only when the visual language matches their audience and task.
-- **Key visual device:** `stripe and concentric-ring field`; create it with original vector or CSS geometry, real user-provided photography, or properly licensed assets.
-- **Minimum component vocabulary:** header/navigation, primary action, secondary action, content grouping, form/input, an item or list row, and visible feedback state.
-- **Repeatable signature:** keep the typographic proportion and materiality on subsequent pages; vary composition based on content so the site is not one repeated hero template.
+## 12. Quality gate
+(1) Does anything move without the pointer? (2) Is Calm view one click away and default under reduced motion? (3) Is all text on solid boxes? (4) Does one redraw stay around 30ms or less at 1280×800 (measure it)? (5) Is the pattern-safety section present?
 
 ## Required semantic-token interface
-The implementation MUST use these shared CSS custom properties (the palette layer may override them later):
-
 ```css
 :root {
   --color-bg: #F2F0EA;
@@ -83,35 +116,14 @@ The implementation MUST use these shared CSS custom properties (the palette laye
 }
 ```
 
-Use `var(--color-bg)` rather than hardcoding background colors throughout components. When combining a palette, **load style tokens first, then palette tokens** (the later palette overrides the six `--color-*` values). A palette changes color only, not the style's spatial or typographic DNA.
-
-## 8. Responsive behavior (do not skip)
-
-- At `>= 1200px`, use the full composition described above. At `768–1199px`, reduce columns and proportionally scale headlines. Below `768px`, collapse to a single deliberate reading path; keep the primary action visible without floating overlays.
-- Typography: scale the display size with `clamp()` (for example `clamp(2.5rem, 6vw, 4rem)`), keep body text between 16px and 18px.
-- Use `minmax(0, 1fr)` for long content, `overflow-wrap: anywhere` for technical tokens, and a horizontal overflow wrapper for necessary data tables.
-- All interactive controls have touch targets around 44×44 CSS pixels. Do not hide access to important workflows on mobile.
-- Offer low-motion alternatives; respect `prefers-reduced-motion: reduce`.
-
-## 9. Accessible components and states
-
-- Text contrast: normal text at least WCAG AA 4.5:1 and large text at least 3:1, including muted labels. Decorative pigments and pattern colours are **not** automatically safe for foreground copy; test the actual pair.
-- Keyboard: visible `:focus-visible` ring, logical tab order, Escape on dismissible overlays, proper native controls; hover is never the only feedback.
-- Supply designed states: default, hover, focus, pressed, disabled, loading, empty, error, success, and selected where applicable. Announce async outcomes in a polite live region, not by color alone.
-- Use semantic landmarks (`header`, `nav`, `main`, `aside`, `footer`) and ordered heading levels. Ornamental SVG uses `aria-hidden="true"`; meaningful illustrations get a short `role="img"` label.
-
-## 10. Anti-clone quality gate
-
-Before delivery, check: (1) Could the result be mistaken for another skill in this library? If so, change the **composition**, not merely its colors. (2) Are the content and controls plausible for the product? (3) Are there illegible labels or invented statistics? (4) Do mobile, keyboard and reduced-motion states work? (5) Has AI-default hero/card/glow styling slipped back in?
-
-## 11. Invocation example
-
+## Invocation example
 ```text
-Use the op-art-optical design skill. Identify the product's core workflow, map its content hierarchy, apply its tokens and signature composition, and build a usable responsive page with real content states. Do not mimic the sample preview's fictional brand; do not introduce generic AI gradient/card patterns. Explain design choices in 5 concise sentences after implementation.
+Use the op-art-optical living style. Paint the hero field per pixel: stripes that
+magnify around the pointer and eccentric rings that turn toward it, redrawn only on
+pointer movement. Put a Calm view switch in the header (on by default for reduced
+motion). Text only in solid boxes; one red point; add a pattern-safety section.
 ```
 
-## 12. Visual reference
+![op-art-optical living preview](./preview.png)
 
-![op-art-optical original design preview](./preview.png)
-
-`demo.html` is the local, self-contained composition used to generate this preview. It illustrates a style direction, not a production-ready application.
+`demo.html` is a complete, interactive single-file page; the preview shows its first screen.

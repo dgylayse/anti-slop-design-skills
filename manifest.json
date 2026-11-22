@@ -206,7 +206,7 @@
       "name": "illuminated-manuscript",
       "category": "styles",
       "era": "13th–15th-century illuminated manuscripts",
-      "description": "Use for archives, libraries, heritage and long-form reading sites in an illuminated manuscript direction: vellum ground, ruled two-column justified text, a painted initial, red rubrics, vine marginalia and folio navigation.",
+      "description": "Use for archives, libraries, rare books, heritage and long-form reading in an illuminated manuscript direction: a living folio reader where each leaf turns like a page and its painted initial draws itself (frame, letter, gold, tendrils), rubricated search results, marginal notes linked to their words, an as-written/modern transcription switch, on vellum with ruled two-column text.",
       "skill": "styles/illuminated-manuscript/SKILL.md",
       "preview": "styles/illuminated-manuscript/preview.png",
       "demo": "styles/illuminated-manuscript/demo.html"
@@ -305,7 +305,7 @@
       "name": "op-art-optical",
       "category": "styles",
       "era": "1960s optical art",
-      "description": "Use for galleries, events and campaigns in a 1960s optical-art direction: black-and-white stripe fields and concentric vibrating circles, heavy grotesque type in solid boxes, one red point, with explicit pattern-sensitivity safeguards.",
+      "description": "Use for galleries, exhibitions, music events and bold campaigns in a 1960s optical-art direction: a living per-pixel stripe field that bulges around the pointer and eccentric rings that turn to follow it, heavy grotesque type locked in solid boxes, one red point, a visible Calm view switch (on by default for reduced motion) and timed-entry booking with a calm hour.",
       "skill": "styles/op-art-optical/SKILL.md",
       "preview": "styles/op-art-optical/preview.png",
       "demo": "styles/op-art-optical/demo.html"

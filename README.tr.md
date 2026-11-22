@@ -32,6 +32,8 @@ Her skill klasöründe: `SKILL.md`, `preview.png`, `demo.html` var. Görseller g
 | [`iznik-ceramic`](styles/iznik-ceramic/SKILL.md) | [▶ canlı demo](https://dgylayse.github.io/anti-slop-design-skills/styles/iznik-ceramic/demo.html) | Tek bir çini tasarla, bütün duvar yeniden döşensin |
 | [`thermal-receipt`](styles/thermal-receipt/SKILL.md) | [▶ canlı demo](https://dgylayse.github.io/anti-slop-design-skills/styles/thermal-receipt/demo.html) | Menüden sipariş ver, fiş satır satır basılsın; çıkarılan ürün VOID, ödeme PAID damgası |
 | [`wood-type-broadside`](styles/wood-type-broadside/SKILL.md) | [▶ canlı demo](https://dgylayse.github.io/anti-slop-design-skills/styles/wood-type-broadside/demo.html) | Kendi afişini ahşap harfle diz, mürekkeple, her biri farklı baskı al |
+| [`op-art-optical`](styles/op-art-optical/SKILL.md) | [▶ canlı demo](https://dgylayse.github.io/anti-slop-design-skills/styles/op-art-optical/demo.html) | İmleci gezdir: çizgiler bükülür, hedef seni izler; tek tıkla sakin görünüm |
+| [`illuminated-manuscript`](styles/illuminated-manuscript/SKILL.md) | [▶ canlı demo](https://dgylayse.github.io/anti-slop-design-skills/styles/illuminated-manuscript/demo.html) | Yaprakları çevir, her baş harf boyanarak açılsın, arama sonuçları kırmızı mürekkeple işaretlensin |
 
 ## v3.1'de yeni: 10 farklı tasarım dili
 

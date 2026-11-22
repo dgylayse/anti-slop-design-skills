@@ -1,11 +1,13 @@
 # Changelog
 
 ## v4.0.0 — Living styles
-- `ebru-marbling`, `iznik-ceramic`, `thermal-receipt` and `wood-type-broadside` are now **living styles**: complete interactive single-file pages plus SKILL.md files with a signature interaction, motion language, section library, code recipes, imagery rules and a quality gate.
+- `ebru-marbling`, `iznik-ceramic`, `thermal-receipt`, `wood-type-broadside`, `op-art-optical` and `illuminated-manuscript` are now **living styles**: complete interactive single-file pages plus SKILL.md files with a signature interaction, motion language, section library, code recipes, imagery rules and a quality gate.
 - Ebru: marbling tray on the drop/tine/swirl fluid model (drop, hold, stylus, comb, lift onto paper), replayable pattern families, booking with validation.
 - İznik: tile studio composed from symmetric parts, wall re-laid in a diagonal wave, live bands and process drawings, ready panels, commission form.
 - Thermal receipt: append-only printing slip (items, modifiers, VOID lines, totals, PAID stamp, tear-off) with honest pickup steps.
 - Wood type broadside: compose five auto-fitted poster lines, ink the forme with a roller, pull unique prints with ink texture and misregistration; stall booking.
+- Op-art optical: per-pixel stripe field that bulges around the pointer and rings that follow it, Calm view switch (default under reduced motion), five generated works, timed tickets with a calm hour, pattern-safety section.
+- Illuminated manuscript: folio reader with page turns, self-drawing painted initials, rubricated search with per-leaf counts, linked marginal notes, as-written/modern transcription, reading-room booking.
 
 ## v3.1.0 — Ten new compositions
 - Expanded from 82 to 92 Agent Skills (42 → 52 visual styles).

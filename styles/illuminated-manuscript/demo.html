@@ -1,50 +1,230 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>illuminated-manuscript — original style study</title><style>
-:root{--color-bg:#F2E8D0;--color-surface:#F8F1DF;--color-ink:#2A1D14;--color-muted:#5C4A39;--color-accent:#9B2A1F;--color-border:#6B4E2E;--gold:#C79A2E;--lapis:#26437A;--verd:#3F6B4A;--font-display:'Palatino Linotype','Book Antiqua',Georgia,serif;--font-body:'Palatino Linotype','Book Antiqua',Georgia,serif}
-*{box-sizing:border-box}html,body{margin:0}body{background:var(--color-bg);color:var(--color-ink);font-family:var(--font-body)}
-.page{width:1280px;height:800px;overflow:hidden;position:relative;background:var(--color-bg);display:grid;grid-template-columns:150px 1fr 330px;grid-template-rows:800px}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>illuminated-manuscript — living style study</title>
+<style>
+:root{
+  --color-bg:#F2E8D0;--color-surface:#F8F1DF;--color-ink:#2A1D14;--color-muted:#5C4A39;--color-accent:#9B2A1F;--color-border:#6B4E2E;
+  --gold:#C79A2E;--lapis:#26437A;--verdigris:#3F6B4A;
+  --font-display:'Palatino Linotype','Book Antiqua',Georgia,serif;--font-body:'Palatino Linotype','Book Antiqua',Georgia,serif;--focus-ring:3px solid var(--color-accent);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--color-bg);color:var(--color-ink);font-family:var(--font-body);font-size:18px;line-height:1.6}
+:focus-visible{outline:var(--focus-ring);outline-offset:3px}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sc{font-variant:small-caps;letter-spacing:.1em}
+.rubric{color:var(--color-accent);font-variant:small-caps;letter-spacing:.12em;font-size:16px}
+
+/* ---------- reader ---------- */
+.reader{display:grid;grid-template-columns:130px minmax(0,1fr) 330px;min-height:100vh}
 .margin{position:relative;border-right:1px solid var(--color-border)}
-.margin svg{position:absolute;inset:0}
-.text{padding:40px 54px 30px 56px;min-width:0;position:relative}
-.ruling{position:absolute;inset:0;background:repeating-linear-gradient(transparent 0 31px,rgba(107,78,46,.13) 31px 32px);pointer-events:none}
-header{display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px double var(--color-border);padding-bottom:14px;position:relative}
-.mark{font-size:22px;letter-spacing:.14em;font-variant:small-caps}.mark span{color:var(--color-accent)}
-nav{display:flex;gap:24px;font-size:16px;font-variant:small-caps;letter-spacing:.06em}nav span[aria-current]{color:var(--color-accent);text-decoration:underline;text-underline-offset:6px}
-.rubric{color:var(--color-accent);font-variant:small-caps;letter-spacing:.12em;font-size:16px;margin:26px 0 6px;position:relative}
-h1{font-family:var(--font-display);font-weight:400;font-size:48px;line-height:1.08;margin:0 0 18px;position:relative}
-.body{position:relative;font-size:18px;line-height:32px;columns:2;column-gap:40px;column-rule:1px solid rgba(107,78,46,.35);text-align:justify;hyphens:auto}
-.body p{margin:0 0 0}
-.initial{float:left;width:112px;height:112px;margin:4px 14px 2px 0}
-.search{position:relative;margin-top:22px;display:flex;border:2px solid var(--color-border);background:var(--color-surface);height:52px}
-.search span{flex:1;display:flex;align-items:center;padding:0 16px;color:var(--color-muted);font-style:italic;font-size:17px}
-.search b{display:flex;align-items:center;padding:0 22px;background:var(--color-accent);color:var(--color-surface);font-weight:400;font-variant:small-caps;letter-spacing:.12em;font-size:17px}
-aside{border-left:1px solid var(--color-border);padding:40px 34px;background:var(--color-surface);display:flex;flex-direction:column}
-aside h2{margin:0 0 12px;font-weight:400;font-size:15px;letter-spacing:.2em;font-variant:small-caps;color:var(--color-accent);font-size:18px}
-.folio{display:grid;grid-template-columns:60px 1fr;gap:14px;padding:14px 0;border-top:1px solid rgba(107,78,46,.45)}
-.folio .f{height:76px;border:1px solid var(--color-border);background:var(--color-bg);display:flex;align-items:center;justify-content:center;font-size:30px;color:var(--color-accent)}
-.folio b{display:block;font-weight:400;font-size:17px;line-height:1.25}.folio span{font-size:14px;color:var(--color-muted);font-style:italic}
-.catch{margin-top:auto;text-align:right;font-style:italic;color:var(--color-muted);font-size:15px}
-@media(max-width:860px){.page{transform-origin:top left;transform:scale(.6)}}
-</style></head><body>
-<div class="page">
-<div class="margin" aria-hidden="true"><svg width="150" height="800" viewBox="0 0 150 800">
-<path d="M90 0C40 60 120 120 70 190S30 320 90 380S120 520 60 580S80 720 100 800" fill="none" stroke="#3F6B4A" stroke-width="4"/>
-<g fill="#3F6B4A"><path d="M80 60c-30-10-48 6-52 18c22 6 40 0 52-18z"/><path d="M92 150c28-14 46-2 52 10c-20 8-40 4-52-10z"/><path d="M62 260c-30-6-44 10-46 22c22 4 38-4 46-22z"/><path d="M98 350c26-16 44-6 50 6c-18 10-38 8-50-6z"/><path d="M82 470c-28-12-46 2-50 14c22 6 38 0 50-14z"/><path d="M66 610c-30-6-44 10-46 22c22 4 38-4 46-22z"/><path d="M96 700c26-16 44-6 50 6c-18 10-38 8-50-6z"/></g>
-<g fill="#9B2A1F"><circle cx="40" cy="120" r="9"/><circle cx="118" cy="300" r="9"/><circle cx="34" cy="540" r="9"/><circle cx="120" cy="650" r="9"/></g>
-<g fill="#C79A2E"><circle cx="40" cy="120" r="3.5"/><circle cx="118" cy="300" r="3.5"/><circle cx="34" cy="540" r="3.5"/><circle cx="120" cy="650" r="3.5"/><circle cx="58" cy="410" r="6"/><circle cx="110" cy="80" r="5"/><circle cx="104" cy="760" r="6"/></g>
-<g fill="#26437A"><circle cx="58" cy="410" r="2.5"/></g>
-</svg></div>
-<main class="text"><div class="ruling" aria-hidden="true"></div>
-<header><div class="mark">The <span>Quire</span> Archive</div><nav aria-label="Primary"><span aria-current="page">Folios</span><span>Scribes</span><span>Visit the reading room</span></nav></header>
-<p class="rubric">Here beginneth · the collection</p>
-<h1>Two hundred leaves of vellum, read closely.</h1>
-<div class="body"><svg class="initial" viewBox="0 0 112 112" role="img" aria-label="Decorated initial letter E"><rect width="112" height="112" fill="#26437A"/><rect x="5" y="5" width="102" height="102" fill="none" stroke="#C79A2E" stroke-width="3"/><path d="M14 98C30 80 20 60 38 48" stroke="#3F6B4A" stroke-width="3" fill="none"/><circle cx="90" cy="22" r="6" fill="#9B2A1F"/><circle cx="22" cy="24" r="4" fill="#C79A2E"/><text x="56" y="88" text-anchor="middle" font-family="Palatino Linotype,Georgia,serif" font-size="88" fill="#C79A2E" stroke="#2A1D14" stroke-width="1.2">E</text></svg><p>ach folio in this archive was photographed under daylight and raking light, then transcribed line by line by our volunteers. Read the hand as the scribe wrote it, or switch to a plain modern transcription. Marginal notes, corrections and the occasional doodle of a cat are kept, because they are part of the book. Rubrics in red mark where a new text begins; gold marks the feasts and the names the makers thought worth honouring. If a word is uncertain, we say so in square brackets rather than guess. Researchers may book the reading room; everyone else can turn the pages here, with the zoom, at any hour.</p></div>
-<div class="search" role="search"><span>Search folios, scribes, or a word in the margin…</span><b>Seek</b></div>
-<div style="position:relative;margin-top:22px;display:flex;justify-content:space-between;align-items:center;font-variant:small-caps;letter-spacing:.1em;font-size:17px;border-top:1px solid rgba(107,78,46,.45);padding-top:14px"><span>‹ fol. 13v</span><span style="color:var(--color-accent)">Folio 14r of 212 · <i style="font-variant:normal;letter-spacing:0;color:var(--color-muted)">turn with ← →</i></span><span>fol. 14v ›</span></div>
-</main>
-<aside><h2>Recently transcribed</h2>
-<div class="folio"><span class="f" aria-hidden="true">✠</span><div><b>Book of seasons, fol. 14r</b><span>Calendar for March · two hands</span></div></div>
-<div class="folio"><span class="f" aria-hidden="true">❦</span><div><b>Herbal, fol. 52v</b><span>Rosemary, with a marginal recipe</span></div></div>
-<div class="folio"><span class="f" aria-hidden="true">¶</span><div><b>Letter collection, fol. 3r</b><span>Transcription needs review</span></div></div>
-<p class="catch">— the reading room ·</p>
-</aside>
-</div></body></html>
+.margin svg{position:sticky;top:0;width:130px;height:100vh;display:block}
+.vine{stroke-dasharray:2400;stroke-dashoffset:0}
+.text{padding:34px 48px 30px 52px;position:relative;min-width:0}
+.ruling{position:absolute;inset:0;background:repeating-linear-gradient(transparent 0 31px,rgba(107,78,46,.12) 31px 32px);pointer-events:none}
+header.site{display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px double var(--color-border);padding-bottom:12px;position:relative;gap:20px}
+.mark{font-size:22px;font-variant:small-caps;letter-spacing:.14em;text-decoration:none;color:inherit}.mark span{color:var(--color-accent)}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-variant:small-caps;letter-spacing:.08em;font-size:17px}
+nav a{color:inherit;text-decoration:none}nav a[aria-current]{color:var(--color-accent);text-decoration:underline;text-underline-offset:6px}
+.leafwrap{position:relative;perspective:1600px}
+.folio{position:relative;padding-top:20px}
+.folio h1{font-weight:400;font-size:clamp(34px,3.6vw,46px);line-height:1.08;margin:4px 0 14px}
+.meta{display:flex;gap:18px;flex-wrap:wrap;font-size:15px;color:var(--color-muted);font-style:italic;margin-bottom:12px}
+.body{display:grid;grid-template-columns:minmax(0,1fr) 170px;gap:28px}
+.cols{columns:2;column-gap:34px;column-rule:1px solid rgba(107,78,46,.35);text-align:justify;hyphens:auto;line-height:32px}
+.cols p{margin:0}.cols p+p{margin-top:0;text-indent:0}.pil{color:var(--color-accent);font-weight:700}
+.ini{float:left;width:108px;height:108px;margin:5px 14px 0 0}
+.ini .bg{fill:var(--lapis)}
+.ini .frame{fill:none;stroke:var(--gold);stroke-width:3}
+.ini .let{fill:var(--gold);stroke:#2A1D14;stroke-width:1.2;font-family:var(--font-display);font-size:86px}
+.ini .tend{fill:none;stroke:var(--verdigris);stroke-width:3;stroke-linecap:round}
+.ini .dot{fill:var(--color-accent)}.ini .gd{fill:var(--gold)}
+.ini.draw .bg{animation:bg .5s ease both}
+.ini.draw .frame{stroke-dasharray:420;stroke-dashoffset:420;animation:ink .7s .15s ease forwards}
+.ini.draw .let{fill-opacity:0;stroke-dasharray:520;stroke-dashoffset:520;animation:ink 1.1s .5s ease forwards,gild .6s 1.4s ease forwards}
+.ini.draw .tend{stroke-dasharray:160;stroke-dashoffset:160;animation:ink .8s 1.2s ease forwards}
+.ini.draw .dot,.ini.draw .gd{opacity:0;animation:pop .3s ease forwards}
+@keyframes bg{from{opacity:0}}
+@keyframes ink{to{stroke-dashoffset:0}}
+@keyframes gild{to{fill-opacity:1}}
+@keyframes pop{to{opacity:1}}
+mark{background:none;color:inherit}
+mark.note{border-bottom:1.5px dotted var(--color-accent);cursor:help}
+mark.note.on{background:rgba(155,42,31,.12)}
+mark.hit{color:var(--color-accent);font-weight:700;text-decoration:underline double;text-underline-offset:4px}
+.notes{list-style:none;margin:0;padding:0;font-size:14.5px;line-height:1.45;font-style:italic;color:var(--color-muted)}
+.notes li+li{margin-top:16px}
+.notes button{border:0;background:transparent;padding:0;text-align:left;font-style:italic;color:inherit;line-height:1.45}
+.notes b{font-style:normal;color:var(--color-accent);font-variant:small-caps;letter-spacing:.08em;display:block}
+.notes button.on{color:var(--color-ink)}
+.leaf{position:absolute;inset:0;background:var(--color-surface);transform-origin:left center;transform:rotateY(-92deg);opacity:0;pointer-events:none;box-shadow:inset -30px 0 40px -20px rgba(107,78,46,.35)}
+.leaf.turn{animation:turn .8s cubic-bezier(.4,0,.2,1)}
+@keyframes turn{0%{transform:rotateY(0);opacity:1}50%{transform:rotateY(-45deg);opacity:1}100%{transform:rotateY(-92deg);opacity:0}}
+.leaf.back{transform-origin:right center}
+.pager{position:relative;display:flex;justify-content:space-between;align-items:center;margin-top:24px;border-top:1px solid rgba(107,78,46,.45);padding-top:12px;font-variant:small-caps;letter-spacing:.1em;font-size:17px}
+.pager button{border:0;background:transparent;font-variant:small-caps;letter-spacing:.1em;min-height:44px;padding:0 6px}
+.pager button:disabled{color:#A8957C;cursor:default}
+.pager span i{font-variant:normal;letter-spacing:0;color:var(--color-muted);font-size:14px}
+
+aside.index{border-left:1px solid var(--color-border);background:var(--color-surface);padding:34px 28px;display:flex;flex-direction:column;gap:18px}
+.search label{display:block;margin-bottom:6px}
+.search div{display:flex;border:2px solid var(--color-border);background:var(--color-bg);height:48px}
+.search input{flex:1;border:0;background:transparent;padding:0 12px;font-style:italic;min-width:0}
+.search button{border:0;background:var(--color-accent);color:var(--color-surface);padding:0 16px;font-variant:small-caps;letter-spacing:.12em}
+.found{font-size:14.5px;color:var(--color-muted);font-style:italic;margin:6px 0 0;min-height:22px}
+.toggle{display:flex;border:2px solid var(--color-border)}
+.toggle button{flex:1;min-height:42px;border:0;background:transparent;font-variant:small-caps;letter-spacing:.08em;font-size:16px}
+.toggle button[aria-pressed=true]{background:var(--color-ink);color:var(--color-surface)}
+.list{list-style:none;margin:0;padding:0}
+.list button{width:100%;display:grid;grid-template-columns:54px 1fr;gap:12px;text-align:left;border:0;border-top:1px solid rgba(107,78,46,.45);background:transparent;padding:12px 0}
+.list .f{height:70px;border:1px solid var(--color-border);background:var(--color-bg);display:flex;align-items:center;justify-content:center;font-size:28px;color:var(--color-accent)}
+.list b{display:block;font-weight:400;font-size:16.5px;line-height:1.25}.list small{display:block;font-size:13.5px;color:var(--color-muted);font-style:italic}
+.list small.hits{color:var(--color-accent);font-style:normal;font-variant:small-caps;letter-spacing:.06em}
+.list button[aria-current=true] b{color:var(--color-accent)}
+.list button[aria-current=true] .f{border-width:2px;border-color:var(--color-accent)}
+
+/* ---------- below ---------- */
+section.block{padding:clamp(56px,7vw,96px) clamp(20px,6vw,96px);border-top:3px double var(--color-border)}
+.block h2{font-weight:400;font-size:clamp(32px,3.6vw,46px);line-height:1.08;margin:0 0 24px}
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px}
+.rules h3{font-weight:400;font-size:24px;margin:6px 0 6px}.rules p{margin:0;font-size:16.5px;color:var(--color-muted)}
+.rules .n{font-size:44px;color:var(--color-accent);line-height:1}
+.visit{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:48px;align-items:start}
+form.room{background:var(--color-surface);border:2px solid var(--color-border);padding:26px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+form.room label{display:block;margin-bottom:4px}
+form.room input,form.room select{width:100%;height:46px;border:1.5px solid var(--color-border);background:var(--color-bg);padding:0 10px;border-radius:0}
+form.room [aria-invalid=true]{border-color:var(--color-accent);border-width:2.5px}
+form.room .full{grid-column:1/-1}
+form.room .err{grid-column:1/-1;margin:0;color:var(--color-accent);font-size:15.5px}
+form.room .ok{grid-column:1/-1;margin:0;display:none;font-style:italic;border-left:3px solid var(--gold);padding:8px 12px}
+.seek{min-height:50px;border:0;background:var(--color-accent);color:var(--color-surface);font-variant:small-caps;letter-spacing:.14em;font-size:18px}
+footer.site{border-top:3px double var(--color-border);padding:24px clamp(20px,6vw,96px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:15px;font-style:italic;color:var(--color-muted)}
+
+@media (max-width:1150px){.reader{grid-template-columns:90px minmax(0,1fr)}.margin svg{width:90px}aside.index{grid-column:1/-1;border-left:0;border-top:3px double var(--color-border);display:grid;grid-template-columns:1fr 1fr;gap:24px}}
+@media (max-width:820px){
+  .reader{grid-template-columns:1fr}.margin{display:none}.text{padding:22px 18px}
+  nav ul li:nth-child(n+2){display:none}
+  .body{grid-template-columns:1fr}.cols{columns:1}.notes{border-left:3px solid var(--gold);padding-left:14px}
+  aside.index{grid-template-columns:1fr}.rules,.visit{grid-template-columns:1fr}form.room{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ini.draw *{animation:none!important;fill-opacity:1!important;opacity:1!important;stroke-dashoffset:0!important}.leaf.turn{animation:none}}
+</style>
+</head>
+<body>
+<div class="reader">
+  <div class="margin" aria-hidden="true"><svg viewBox="0 0 130 800" preserveAspectRatio="xMidYMin slice">
+    <path class="vine" d="M80 0C34 60 108 120 62 190S26 320 80 380S108 520 54 580S72 720 90 800" fill="none" stroke="#3F6B4A" stroke-width="4"/>
+    <g fill="#3F6B4A"><path d="M70 60c-28-10-44 6-48 18c20 6 36 0 48-18z"/><path d="M82 150c26-14 42-2 46 10c-18 8-36 4-46-10z"/><path d="M56 260c-28-6-40 10-42 22c20 4 34-4 42-22z"/><path d="M88 350c24-16 40-6 44 6c-16 10-34 8-44-6z"/><path d="M72 470c-26-12-42 2-46 14c20 6 34 0 46-14z"/><path d="M58 610c-28-6-40 10-42 22c20 4 34-4 42-22z"/><path d="M86 700c24-16 40-6 44 6c-16 10-34 8-44-6z"/></g>
+    <g fill="#9B2A1F"><circle cx="34" cy="120" r="8"/><circle cx="108" cy="300" r="8"/><circle cx="30" cy="540" r="8"/><circle cx="108" cy="650" r="8"/></g>
+    <g fill="#C79A2E"><circle cx="34" cy="120" r="3"/><circle cx="108" cy="300" r="3"/><circle cx="30" cy="540" r="3"/><circle cx="108" cy="650" r="3"/><circle cx="52" cy="410" r="6"/><circle cx="98" cy="80" r="5"/><circle cx="94" cy="760" r="6"/></g>
+  </svg></div>
+
+  <main class="text" id="main"><div class="ruling" aria-hidden="true"></div>
+    <header class="site"><a class="mark" href="#">The <span>Quire</span> Archive</a><nav aria-label="Primary"><ul><li><a href="#main" aria-current="page">Folios</a></li><li><a href="#rules">How we transcribe</a></li><li><a href="#visit">Reading room</a></li></ul></nav></header>
+    <div class="leafwrap">
+      <article class="folio" id="folio" aria-live="polite"></article>
+      <div class="leaf" id="leaf" aria-hidden="true"></div>
+    </div>
+    <div class="pager"><button type="button" id="prev">‹ previous leaf</button><span id="where"></span><button type="button" id="next">next leaf ›</button></div>
+  </main>
+
+  <aside class="index" aria-label="Archive tools">
+    <div class="search" role="search"><label class="rubric" for="q">Seek a word</label><div><input id="q" type="search" placeholder="e.g. vynes, wine, mother" autocomplete="off"><button type="button" id="seek">Seek</button></div><p class="found" id="found" role="status"></p></div>
+    <div><span class="rubric" id="tl">Transcription</span><div class="toggle" role="group" aria-labelledby="tl"><button type="button" aria-pressed="true" data-v="orig">As written</button><button type="button" aria-pressed="false" data-v="mod">Modern</button></div></div>
+    <div><span class="rubric">Recently transcribed</span><ul class="list" id="list"></ul></div>
+  </aside>
+</div>
+
+<section class="block" id="rules" aria-labelledby="rh">
+  <p class="rubric">Here followeth · our rules</p><h2 id="rh">How we transcribe, line by line.</h2>
+  <div class="rules"><div><span class="n">i.</span><h3>We keep the spelling</h3><p>“As written” shows the scribe's own spelling. “Modern” is a reading aid, never a replacement.</p></div><div><span class="n">ii.</span><h3>We bracket doubt</h3><p>Where a word is worn or uncertain, we write it in [square brackets] rather than guess.</p></div><div><span class="n">iii.</span><h3>We note every hand</h3><p>Marginal notes, later corrections and the occasional doodle are transcribed beside the text.</p></div></div>
+</section>
+
+<section class="block" id="visit" aria-labelledby="vh">
+  <div class="visit"><div><p class="rubric">The reading room</p><h2 id="vh">See the leaves themselves.</h2><p style="color:var(--color-muted)">Researchers and curious readers may book a two-hour place. Pencils only; we provide cradles and weights.</p></div>
+  <form class="room" id="room" novalidate>
+    <div><label class="rubric" for="rn">Name</label><input id="rn" name="name" autocomplete="name"></div>
+    <div><label class="rubric" for="re">Email</label><input id="re" name="email" type="email" autocomplete="email"></div>
+    <div><label class="rubric" for="rd">Day</label><select id="rd" name="day"><option value="">Choose a day</option><option>Tuesday 18 March</option><option>Thursday 20 March</option><option>Saturday 22 March</option></select></div>
+    <div><label class="rubric" for="rf">Folio</label><select id="rf" name="folio"></select></div>
+    <p class="err" role="alert"></p>
+    <button class="seek full" type="submit">Request a place</button>
+    <p class="ok" role="status"></p>
+  </form></div>
+</section>
+<footer class="site"><span>The Quire Archive · digitised under daylight and raking light</span><span>Images free to reuse with credit</span></footer>
+
+<script>
+const REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* [[word|note-id]] marks a word that a marginal note refers to; {word} marks an uncertain reading */
+const F=[
+ {sym:'✠',title:'Book of seasons, fol. 14r',sub:'Calendar for March · two hands',letter:'H',rub:'Here bigynneth · the monthe of Marche',meta:['c. 1430','Vellum, 21 × 15 cm','Two scribes'],
+  orig:"ere bigynneth the monthe of Marche, whanne the [[vynes|n1]] ben kut and the gardyns ben dolven. In this monthe men sowen benes and peson, and the shepherde wakith by nyghte for the lambes. Whan the moone is newe, it is good to sette trees; whan it wanyth, to fell tymber. The {laboure} of this monthe is longe and the dayes ben shorte, and therfore men risen erly and eten litel. ¶ In the firste weke of this monthe the reve shal walke the bounds of the feldes and mende the hegges, and se that the dychis ben clene. Whoso hath swyn shal kepe hem out of the corne, and whoso hath bees shal make redy the hyves agayn the swarmyng.",
+  mod:"ere begins the month of March, when the [[vines|n1]] are cut and the gardens are dug. In this month men sow beans and peas, and the shepherd watches by night for the lambs. When the moon is new, it is good to set trees; when it wanes, to fell timber. The {labour} of this month is long and the days are short, and therefore men rise early and eat little. ¶ In the first week of this month the reeve shall walk the bounds of the fields and mend the hedges, and see that the ditches are clean. Whoever has pigs shall keep them out of the corn, and whoever has bees shall make the hives ready for the swarming.",
+  notes:{n1:['A later hand','“and the hennes bigynne to leye” — and the hens begin to lay.']}},
+ {sym:'❦',title:'Herbal, fol. 52v',sub:'Rosemary, with a marginal recipe',letter:'R',rub:'Of rosmarine · and his vertues',meta:['c. 1460','Paper and vellum','One scribe, one reader'],
+  orig:"osmarine is an herbe hoot and drie, and the flouris therof ben of grete vertu. Seethe the leves in [[wyn|n2]] and drynke it, and it wole comforte the herte. Make a box of the wode and smelle therto, and it wole kepe thee yonge. Leye the flouris among clothis and no mothe shal entre. Thei that han {the cough} schal take it with hony. ¶ The rote therof stamped and leyd to the teeth wole cese the akyng. And if a man be wery of longe wey, lete him bathe his feet in water where rosmarine hath ben soden, and he shal walke the lighter on the morwe.",
+  mod:"osemary is a herb hot and dry, and its flowers are of great virtue. Boil the leaves in [[wine|n2]] and drink it, and it will comfort the heart. Make a box of the wood and smell it, and it will keep you young. Lay the flowers among clothes and no moth shall enter. Those who have {the cough} should take it with honey. ¶ The root of it crushed and laid on the teeth will stop the aching. And if a man is weary from a long road, let him bathe his feet in water in which rosemary has been boiled, and he shall walk the lighter in the morning.",
+  notes:{n2:['A reader\'s recipe','“ii pyntes of white wyn, a handful of leves, boille til the thridde part be wasted.”']}},
+ {sym:'¶',title:'Letter collection, fol. 3r',sub:'Transcription needs review',letter:'R',rub:'To my right worshipful · moder',meta:['1471','Paper, folded letter','Seal lost'],
+  orig:"ight worshipful and my most entierly welbeloved [[moder|n3]], I recomaunde me to yow, desiring to here of youre welfare. Plese it yow to wete that I am in good hele, thankid be God. The {wollen} cloth that ye sent me is come, and I have do make a gowne therof agayn Ester. I pray yow sende me word by the berer whan my fader cometh home. ¶ Also, moder, I pray yow that ye wole remembre the boke of houres that my grauntdame lefte, for I wolde fayn lerne to rede therin. No more at this tyme, but the Holy Trinite have yow in kepyng. Wreten at London the morwe after Seynt Gregory.",
+  mod:"ight worshipful and my most entirely beloved [[mother|n3]], I commend myself to you, desiring to hear of your welfare. May it please you to know that I am in good health, thanks be to God. The {woollen} cloth that you sent me has come, and I have had a gown made of it for Easter. I pray you send me word by the bearer when my father comes home. ¶ Also, mother, I pray you to remember the book of hours that my grandmother left, for I would gladly learn to read in it. No more at this time, but the Holy Trinity keep you. Written at London the morning after Saint Gregory's day.",
+  notes:{n3:['On the back','Addressed in a second hand: “To my moder, at Norwich, be this delyvered.”']}}
+];
+let cur=0,mode='orig',query='';
+const folio=document.getElementById('folio');
+function safe(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}
+function esc(s){return s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function markup(text){let h=esc(text).replace(/\[\[([^|\]]+)\|(\w+)\]\]/g,'<mark class="note" data-note="$2" tabindex="0">$1</mark>').replace(/\{([^}]+)\}/g,'[$1]');h=h.replace(/ ¶ /g,'</p><p><span class="pil" aria-hidden="true">¶</span> ');
+  if(query){const re=new RegExp('('+safe(query)+')','gi');h=h.split(/(<[^>]+>)/).map(part=>part.startsWith('<')?part:part.replace(re,'<mark class="hit">$1</mark>')).join('')}
+  return h}
+function initial(L,anim){return `<svg class="ini${anim&&!REDUCED?' draw':''}" viewBox="0 0 108 108" role="img" aria-label="Decorated initial letter ${L}"><rect class="bg" width="108" height="108"/><rect class="frame" x="5" y="5" width="98" height="98"/><path class="tend" d="M12 96C26 80 18 60 36 48"/><path class="tend" d="M96 14C84 26 90 40 76 50"/><circle class="dot" cx="88" cy="22" r="6" style="animation-delay:1.6s"/><circle class="gd" cx="20" cy="22" r="4" style="animation-delay:1.7s"/><circle class="gd" cx="88" cy="90" r="4" style="animation-delay:1.8s"/><text class="let" x="54" y="86" text-anchor="middle">${L}</text></svg>`}
+function count(f){if(!query)return 0;const t=(f[mode]).replace(/ ¶ /g,' ').replace(/\[\[([^|\]]+)\|\w+\]\]/g,'$1').replace(/[{}]/g,'');return (t.match(new RegExp(safe(query),'gi'))||[]).length}
+function render(anim){const f=F[cur];
+  folio.innerHTML=`<p class="rubric">${f.rub}</p><h1>${f.title.replace(', fol.',',<br>fol.')}</h1><div class="meta">${f.meta.map(m=>`<span>${m}</span>`).join('<span aria-hidden="true">·</span>')}</div>
+  <div class="body"><div class="cols">${initial(f.letter,anim)}<p><span class="sr">${f.letter}</span>${markup(f[mode])}</p></div><ul class="notes" aria-label="Marginal notes">${Object.entries(f.notes).map(([k,[w,t]])=>`<li><button type="button" data-note="${k}"><b>${w}</b>${t}</button></li>`).join('')}</ul></div>`;
+  document.getElementById('where').innerHTML=`Folio ${cur+1} of ${F.length} · <i>turn with ← →</i>`;
+  document.getElementById('prev').disabled=cur===0;document.getElementById('next').disabled=cur===F.length-1;
+  document.getElementById('list').innerHTML=F.map((x,i)=>{const n=count(x);return `<li><button type="button" data-i="${i}" aria-current="${i===cur}"><span class="f" aria-hidden="true">${x.sym}</span><span><b>${x.title}</b><small>${x.sub}</small>${query?`<small class="hits">${n} ${n===1?'match':'matches'}</small>`:''}</span></button></li>`}).join('')}
+function go(i,dir){if(i<0||i>=F.length||i===cur)return;const leaf=document.getElementById('leaf');
+  if(REDUCED){cur=i;render(false);return}
+  leaf.className='leaf'+(dir<0?' back':'');void leaf.offsetWidth;leaf.classList.add('turn');setTimeout(()=>{cur=i;render(true)},300)}
+document.getElementById('prev').onclick=()=>go(cur-1,-1);document.getElementById('next').onclick=()=>go(cur+1,1);
+document.getElementById('list').addEventListener('click',e=>{const b=e.target.closest('[data-i]');if(b)go(+b.dataset.i,+b.dataset.i<cur?-1:1)});
+addEventListener('keydown',e=>{if(e.target.matches('input,select,textarea'))return;if(e.key==='ArrowRight')go(cur+1,1);if(e.key==='ArrowLeft')go(cur-1,-1)});
+/* marginal notes link to their word */
+function link(id,on){document.querySelectorAll(`[data-note="${id}"]`).forEach(el=>el.classList.toggle('on',on))}
+folio.addEventListener('pointerover',e=>{const t=e.target.closest('[data-note]');if(t)link(t.dataset.note,true)});
+folio.addEventListener('pointerout',e=>{const t=e.target.closest('[data-note]');if(t)link(t.dataset.note,false)});
+folio.addEventListener('focusin',e=>{const t=e.target.closest('[data-note]');if(t)link(t.dataset.note,true)});
+folio.addEventListener('focusout',e=>{const t=e.target.closest('[data-note]');if(t)link(t.dataset.note,false)});
+/* transcription toggle */
+document.querySelectorAll('.toggle button').forEach(b=>b.onclick=()=>{mode=b.dataset.v;document.querySelectorAll('.toggle button').forEach(o=>o.setAttribute('aria-pressed',o===b));render(false)});
+/* search: rubricate matches, count per folio, jump to the next folio that has one */
+const q=document.getElementById('q'),found=document.getElementById('found');
+function seek(jump){query=q.value.trim();render(false);if(!query){found.textContent='';return}
+  const counts=F.map(count),total=counts.reduce((a,b)=>a+b,0);
+  if(!total){found.textContent=`No leaf contains “${query}” in this transcription.`;return}
+  found.textContent=`“${query}” is rubricated ${total} time${total>1?'s':''} across ${counts.filter(Boolean).length} leaf/leaves.`;
+  if(jump&&!counts[cur]){const n=counts.findIndex(Boolean);go(n,n<cur?-1:1)}}
+q.addEventListener('input',()=>seek(false));q.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();seek(true)}});document.getElementById('seek').onclick=()=>seek(true);
+/* reading room form */
+const rf=document.getElementById('rf');rf.innerHTML='<option value="">Choose a folio</option>'+F.map(f=>`<option>${f.title}</option>`).join('');
+const room=document.getElementById('room');
+room.addEventListener('submit',e=>{e.preventDefault();const f=room.elements,bad=[];[f.name,f.email,f.day,f.folio].forEach(i=>i.removeAttribute('aria-invalid'));
+  if(!f.name.value.trim()){bad.push('your name');f.name.setAttribute('aria-invalid','true')}
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value)){bad.push('an email address');f.email.setAttribute('aria-invalid','true')}
+  if(!f.day.value){bad.push('a day');f.day.setAttribute('aria-invalid','true')}
+  if(!f.folio.value){bad.push('a folio');f.folio.setAttribute('aria-invalid','true')}
+  const err=room.querySelector('.err'),ok=room.querySelector('.ok');
+  if(bad.length){err.textContent='Please give '+bad.join(', ')+'.';room.querySelector('[aria-invalid]').focus();ok.style.display='none';return}
+  err.textContent='';ok.style.display='block';ok.textContent=`A place is held for ${f.name.value.trim()} on ${f.day.value}, with ${f.folio.value} on the cradle. Confirmation to ${f.email.value}.`});
+render(true);
+</script>
+</body>
+</html>

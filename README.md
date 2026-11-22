@@ -30,6 +30,8 @@ Most skills describe a look. **Living styles** also give the AI a signature inte
 | [`iznik-ceramic`](styles/iznik-ceramic/SKILL.md) | [▶ live demo](https://dgylayse.github.io/anti-slop-design-skills/styles/iznik-ceramic/demo.html) | Design one tile from symmetric parts and watch the whole wall re-lay itself |
 | [`thermal-receipt`](styles/thermal-receipt/SKILL.md) | [▶ live demo](https://dgylayse.github.io/anti-slop-design-skills/styles/thermal-receipt/demo.html) | Order from the menu and watch the slip print line by line; removals print VOID, paying stamps PAID |
 | [`wood-type-broadside`](styles/wood-type-broadside/SKILL.md) | [▶ live demo](https://dgylayse.github.io/anti-slop-design-skills/styles/wood-type-broadside/demo.html) | Set your own poster in wood type, ink the forme, pull a unique print |
+| [`op-art-optical`](styles/op-art-optical/SKILL.md) | [▶ live demo](https://dgylayse.github.io/anti-slop-design-skills/styles/op-art-optical/demo.html) | Move across the field: stripes bulge, the target turns to follow you; one click for Calm view |
+| [`illuminated-manuscript`](styles/illuminated-manuscript/SKILL.md) | [▶ live demo](https://dgylayse.github.io/anti-slop-design-skills/styles/illuminated-manuscript/demo.html) | Turn the leaves, watch each initial get painted, search with a rubricator's red pen |
 
 ## New in v3.1 · ten more directions
 

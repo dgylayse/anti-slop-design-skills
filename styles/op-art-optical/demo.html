@@ -1,51 +1,186 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>op-art-optical — original style study</title><style>
-:root{--color-bg:#F2F0EA;--color-surface:#FFFFFF;--color-ink:#0B0B0B;--color-muted:#4A4A47;--color-accent:#D62E1F;--color-border:#0B0B0B;--font-display:'Arial Black','Franklin Gothic Heavy',Impact,sans-serif;--font-body:Arial,Helvetica,sans-serif}
-*{box-sizing:border-box}html,body{margin:0}body{background:var(--color-bg);color:var(--color-ink);font-family:var(--font-body)}
-.page{width:1280px;height:800px;overflow:hidden;position:relative;background:var(--color-bg)}
-.field{position:absolute;inset:0}
-.field svg{width:100%;height:100%;display:block}
-header{position:absolute;left:0;right:0;top:0;height:72px;display:flex;align-items:stretch;justify-content:space-between;z-index:3}
-.mark,.navbox{background:var(--color-ink);color:var(--color-surface);display:flex;align-items:center;padding:0 28px;font-family:var(--font-display);letter-spacing:.06em;font-size:18px}
-.navbox{gap:28px;font-family:var(--font-body);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
-.navbox span[aria-current]{color:var(--color-bg);border-bottom:3px solid var(--color-accent);padding:6px 0}
-.title{position:absolute;left:64px;top:150px;z-index:3}
-.title h1{margin:0;font-family:var(--font-display);font-weight:900;font-size:132px;line-height:.84;letter-spacing:-.04em;text-transform:uppercase}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>op-art-optical — living style study</title>
+<style>
+:root{
+  --color-bg:#F2F0EA;--color-surface:#FFFFFF;--color-ink:#0B0B0B;--color-muted:#4A4A47;--color-accent:#D62E1F;--color-border:#0B0B0B;
+  --font-display:'Arial Black','Franklin Gothic Heavy',Impact,sans-serif;--font-body:Arial,Helvetica,sans-serif;--focus-ring:3px solid var(--color-accent);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--color-bg);color:var(--color-ink);font-family:var(--font-body);font-size:16px;line-height:1.5}
+:focus-visible{outline:var(--focus-ring);outline-offset:3px}
+button{font:inherit;color:inherit;cursor:pointer}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+h1,h2,h3{font-family:var(--font-display);margin:0;text-transform:uppercase;letter-spacing:-.03em}
+.box{background:var(--color-surface);border:3px solid var(--color-ink)}
+.label{font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+
+/* ---------- hero ---------- */
+.hero{position:relative;height:clamp(640px,100vh,900px);overflow:hidden;background:var(--color-bg)}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:crosshair}
+header.site{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space-between;align-items:stretch;z-index:3;height:68px}
+.mark,.navbox{background:var(--color-ink);color:var(--color-surface);display:flex;align-items:center;padding:0 26px}
+.mark{font-family:var(--font-display);letter-spacing:.06em;font-size:18px;text-decoration:none}
+.navbox{gap:26px}
+.navbox a{color:inherit;text-decoration:none;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:8px 0}
+.navbox a[aria-current]{box-shadow:inset 0 -3px var(--color-accent)}
+.calm{background:var(--color-surface);color:var(--color-ink);border:0;border-left:3px solid var(--color-ink);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:0 18px;display:flex;align-items:center;gap:10px}
+.calm i{width:30px;height:16px;border:2px solid var(--color-ink);border-radius:8px;position:relative;display:inline-block}
+.calm i:after{content:"";position:absolute;top:2px;left:2px;width:8px;height:8px;border-radius:50%;background:var(--color-ink);transition:left .15s}
+.calm[aria-pressed=true] i:after{left:16px;background:var(--color-accent)}
+.title{position:absolute;left:clamp(18px,5vw,64px);top:clamp(110px,18vh,160px);z-index:3}
+.title h1{font-size:clamp(70px,10.5vw,138px);line-height:.84}
 .title h1 span{display:inline-block;background:var(--color-surface);padding:6px 18px 0 10px;margin-bottom:10px}
 .title h1 span.inv{background:var(--color-ink);color:var(--color-surface)}
-.card{position:absolute;left:64px;bottom:56px;width:470px;background:var(--color-surface);border:3px solid var(--color-ink);z-index:3}
-.card .top{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:3px solid var(--color-ink);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+.card{position:absolute;left:clamp(18px,5vw,64px);bottom:clamp(24px,6vh,56px);width:min(480px,calc(100% - 36px));z-index:3}
+.card .top{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:3px solid var(--color-ink)}
 .card .top b{color:var(--color-accent)}
-.card p{margin:0;padding:18px 20px 6px;font-size:16px;line-height:1.55}
-.card .row{display:flex;gap:0;margin:14px 20px 20px;border:3px solid var(--color-ink)}
-.card .row span{flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
-.card .row span.go{background:var(--color-ink);color:var(--color-surface)}
-.card .row span+span{border-left:3px solid var(--color-ink)}
-.stamp{position:absolute;right:56px;bottom:56px;z-index:3;width:250px;background:var(--color-ink);color:var(--color-surface);padding:18px 20px;font-size:13px;line-height:1.5}
+.card p{margin:0;padding:16px 18px 4px;font-size:15.5px}
+.card .row{display:flex;margin:14px 18px 18px;border:3px solid var(--color-ink)}
+.card .row a{flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:inherit}
+.card .row a.go{background:var(--color-ink);color:var(--color-surface)}
+.card .row a+a{border-left:3px solid var(--color-ink)}
+.stamp{position:absolute;right:clamp(18px,4vw,56px);bottom:clamp(24px,6vh,56px);z-index:3;width:250px;background:var(--color-ink);color:var(--color-surface);padding:16px 18px;font-size:13.5px}
 .stamp strong{display:block;font-family:var(--font-display);font-size:34px;line-height:1;margin-bottom:8px}
 .stamp em{font-style:normal;color:#FFB3A8}
+.hint{position:absolute;right:clamp(18px,4vw,56px);top:84px;z-index:3;background:var(--color-surface);border:3px solid var(--color-ink);padding:8px 12px;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 
-@media(max-width:860px){.page{transform-origin:top left;transform:scale(.6)}}
-@media(prefers-reduced-motion:reduce){.field *{animation:none!important}}
-</style></head><body>
-<div class="page">
-<div class="field" aria-hidden="true">
-<svg viewBox="0 0 1280 800" preserveAspectRatio="none">
-<defs>
-<pattern id="v" width="24" height="800" patternUnits="userSpaceOnUse"><rect width="12" height="800" fill="#0B0B0B"/></pattern>
-<pattern id="h" width="1280" height="24" patternUnits="userSpaceOnUse"><rect width="1280" height="12" fill="#0B0B0B"/></pattern>
-<filter id="bulge" x="0" y="0" width="100%" height="100%"><feImage href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1280' height='800'%3E%3Cdefs%3E%3CradialGradient id='g' cx='0.66' cy='0.48' r='0.42'%3E%3Cstop offset='0' stop-color='rgb(255,255,128)'/%3E%3Cstop offset='1' stop-color='rgb(128,128,128)'/%3E%3C/radialGradient%3E%3ClinearGradient id='x'%3E%3Cstop offset='0' stop-color='rgb(0,0,0)'/%3E%3Cstop offset='1' stop-color='rgb(255,0,0)'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1280' height='800' fill='rgb(128,128,128)'/%3E%3Ccircle cx='845' cy='384' r='330' fill='url(%23x)' opacity='.85'/%3E%3C/svg%3E" result="map" x="0" y="0" width="1280" height="800"/><feDisplacementMap in="SourceGraphic" in2="map" scale="120" xChannelSelector="R" yChannelSelector="G"/></filter>
-<clipPath id="disc"><circle cx="845" cy="384" r="300"/></clipPath>
-</defs>
-<rect width="1280" height="800" fill="#F2F0EA"/>
-<rect width="1280" height="800" fill="url(#v)" filter="url(#bulge)"/>
-<g clip-path="url(#disc)"><rect width="1280" height="800" fill="#F2F0EA"/><g>
-<circle cx="845" cy="384" r="300" fill="#0B0B0B"/><circle cx="855" cy="384" r="282" fill="#F2F0EA"/><circle cx="865" cy="384" r="264" fill="#0B0B0B"/><circle cx="875" cy="384" r="246" fill="#F2F0EA"/><circle cx="885" cy="384" r="228" fill="#0B0B0B"/><circle cx="895" cy="384" r="210" fill="#F2F0EA"/><circle cx="905" cy="384" r="192" fill="#0B0B0B"/><circle cx="915" cy="384" r="174" fill="#F2F0EA"/><circle cx="925" cy="384" r="156" fill="#0B0B0B"/><circle cx="935" cy="384" r="138" fill="#F2F0EA"/><circle cx="945" cy="384" r="120" fill="#0B0B0B"/><circle cx="955" cy="384" r="102" fill="#F2F0EA"/><circle cx="965" cy="384" r="84" fill="#0B0B0B"/><circle cx="975" cy="384" r="66" fill="#F2F0EA"/><circle cx="985" cy="384" r="48" fill="#0B0B0B"/><circle cx="995" cy="384" r="30" fill="#F2F0EA"/><circle cx="1003" cy="384" r="12" fill="#D62E1F"/>
-</g></g>
-<circle cx="845" cy="384" r="300" fill="none" stroke="#0B0B0B" stroke-width="6"/>
-</svg>
+/* ---------- sections ---------- */
+section.block{padding:clamp(56px,7vw,96px) clamp(18px,5vw,64px);border-top:3px solid var(--color-ink)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:30px;flex-wrap:wrap}
+.head h2{font-size:clamp(40px,6vw,80px);line-height:.86}
+.head p{max-width:440px;margin:0;color:var(--color-muted)}
+.works{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;border:3px solid var(--color-ink)}
+.work{border-right:3px solid var(--color-ink);background:var(--color-surface)}.work:last-child{border-right:0}
+.work canvas{display:block;width:100%;aspect-ratio:4/5;border-bottom:3px solid var(--color-ink)}
+.work div{padding:12px 14px 16px}.work h3{font-size:18px}.work p{margin:4px 0 0;font-size:13.5px;color:var(--color-muted)}
+.calm-on .work canvas{filter:contrast(.35) brightness(1.25)}
+.book{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:0;border:3px solid var(--color-ink)}
+.book>div{padding:24px}.book>div+div{border-left:3px solid var(--color-ink);background:var(--color-surface)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 22px}
+.chip{min-height:48px;min-width:84px;padding:0 14px;border:3px solid var(--color-ink);background:var(--color-surface);font-weight:700;font-size:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.15}
+.chip small{font-weight:400;font-size:11.5px;color:var(--color-muted)}
+.chip[aria-checked=true]{background:var(--color-ink);color:var(--color-surface)}.chip[aria-checked=true] small{color:#D9D7D0}
+.chip:disabled{border-style:dashed;color:#8A8984;background:transparent;cursor:not-allowed;text-decoration:line-through}
+.chip.calmhour{border-color:var(--color-accent)}
+.tix{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:12px 0;border-bottom:2px solid var(--color-ink)}
+.step{display:flex;border:3px solid var(--color-ink);height:44px}.step button{width:42px;border:0;background:transparent;font-size:18px;font-weight:700}.step output{min-width:36px;display:flex;align-items:center;justify-content:center;font-weight:700}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin:18px 0}.total b{font-family:var(--font-display);font-size:40px}
+.cta{width:100%;min-height:54px;border:3px solid var(--color-ink);background:var(--color-ink);color:var(--color-surface);font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.cta:hover{background:var(--color-accent);border-color:var(--color-accent)}
+.msg{margin:12px 0 0;font-size:14.5px;min-height:22px}.msg.err{color:var(--color-accent);font-weight:700}
+.care{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:3px solid var(--color-ink)}
+.care div{padding:20px;border-right:3px solid var(--color-ink);background:var(--color-surface)}.care div:last-child{border-right:0}
+.care b{display:block;font-family:var(--font-display);font-size:22px;text-transform:uppercase;margin-bottom:6px}
+.care p{margin:0;font-size:14.5px;color:var(--color-muted)}
+footer.site{background:var(--color-ink);color:var(--color-surface);padding:30px clamp(18px,5vw,64px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:14px}
+
+@media (max-width:1000px){.works{grid-template-columns:repeat(3,minmax(0,1fr))}.work:nth-child(3){border-right:0}.work:nth-child(n+4){border-top:3px solid var(--color-ink)}.care{grid-template-columns:1fr 1fr}.care div:nth-child(2){border-right:0}.care div:nth-child(n+3){border-top:3px solid var(--color-ink)}}
+@media (max-width:760px){.navbox a:not([aria-current]){display:none}.stamp,.hint{display:none}.book{grid-template-columns:1fr}.book>div+div{border-left:0;border-top:3px solid var(--color-ink)}.works{grid-template-columns:1fr 1fr}.work{border-right:3px solid var(--color-ink)!important;border-top:0!important}.work:nth-child(2n){border-right:0!important}.work:nth-child(n+3){border-top:3px solid var(--color-ink)!important}.care{grid-template-columns:1fr}.care div{border-right:0!important;border-top:3px solid var(--color-ink)}.care div:first-child{border-top:0}.mark{padding:0 14px;font-size:15px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.calm i:after{transition:none}}
+</style>
+</head>
+<body>
+<div class="hero" id="hero">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <header class="site"><a class="mark" href="#">RETINAL HALL</a><div style="display:flex"><nav class="navbox" aria-label="Primary"><a href="#works" aria-current="page">Exhibition</a><a href="#tickets">Tickets</a><a href="#care">Visiting</a></nav><button class="calm" id="calm" aria-pressed="false" title="Turn the moving patterns off">Calm view <i aria-hidden="true"></i></button></div></header>
+  <div class="title"><h1><span>Look</span><br><span class="inv">again.</span></h1></div>
+  <p class="hint" id="hint">Move across the field — the target follows you</p>
+  <section class="card box" aria-label="Exhibition summary"><div class="top"><span class="label">Exhibition · Hall 2</span><b class="label">Now open</b></div><p>Paintings that seem to move while you stand still: black, white, one red point. The field above reacts to your pointer only — switch on <b>Calm view</b> any time.</p><div class="row"><a class="go" href="#tickets">Book a time slot →</a><a href="#care">Plan your visit</a></div></section>
+  <aside class="stamp"><strong>Mar — Jun</strong>Tue–Sun, 10:00–18:00<br><em>Pattern-sensitive?</em> Calm hour every Tuesday at 10:00.</aside>
 </div>
-<header><div class="mark">RETINAL HALL</div><div class="navbox"><span aria-current="page">Exhibition</span><span>Visit</span><span>Tickets</span></div></header>
-<div class="title"><h1><span>Look</span><br><span class="inv">again.</span></h1></div>
-<section class="card" aria-label="Exhibition summary"><div class="top"><span>Exhibition · Hall 2</span><b>Now open</b></div><p>Paintings that seem to move while you stand still: black, white, one red point. A quiet room is available for anyone who needs a pause from the patterns.</p><div class="row"><span class="go">Book a time slot →</span><span>Plan your visit</span></div></section>
-<aside class="stamp"><strong>Mar — Jun</strong>Tue–Sun, 10:00–18:00<br><em>Pattern-sensitive?</em> Use the low-stimulus guide at the door.</aside>
-</div></body></html>
+
+<section class="block" id="works" aria-labelledby="wh">
+  <div class="head"><h2 id="wh">Five works,<br>one rule.</h2><p>Every painting is built from a single repeated mark — a stripe, a ring, a square — bent just enough for the eye to fill in the motion. These studies are drawn live in your browser.</p></div>
+  <div class="works" id="worksGrid"></div>
+</section>
+
+<section class="block" id="tickets" aria-labelledby="th">
+  <div class="head"><h2 id="th">Pick a<br>time slot.</h2><p>Timed entry keeps the hall quiet. Tuesday 10:00 is the calm hour: the strongest works are covered and the lights are softer.</p></div>
+  <form class="book" id="book" novalidate>
+    <div>
+      <span class="label" id="dl">Day</span><div class="chips" role="radiogroup" aria-labelledby="dl" id="days"></div>
+      <span class="label" id="tl">Time</span><div class="chips" role="radiogroup" aria-labelledby="tl" id="times"></div>
+    </div>
+    <div>
+      <span class="label">Tickets</span>
+      <div class="tix"><span>Adult · €14</span><div class="step"><button type="button" data-t="a" data-d="-1" aria-label="Fewer adult tickets">−</button><output id="ta">1</output><button type="button" data-t="a" data-d="1" aria-label="More adult tickets">+</button></div></div>
+      <div class="tix"><span>Concession · €9<br><small style="color:var(--color-muted)">students, 65+, carers free</small></span><div class="step"><button type="button" data-t="c" data-d="-1" aria-label="Fewer concession tickets">−</button><output id="tc">0</output><button type="button" data-t="c" data-d="1" aria-label="More concession tickets">+</button></div></div>
+      <div class="total"><span class="label">Total</span><b id="tot">€14</b></div>
+      <button class="cta" type="submit">Book these tickets</button>
+      <p class="msg" id="msg" role="status"></p>
+    </div>
+  </form>
+</section>
+
+<section class="block" id="care" aria-labelledby="ch">
+  <div class="head"><h2 id="ch">If patterns<br>bother you.</h2><p>Strong stripes can cause headaches, dizziness or, rarely, seizures. You can enjoy the exhibition on your own terms.</p></div>
+  <div class="care"><div><b>Calm hour</b><p>Tuesdays 10:00–11:00. Strongest works covered, softer light.</p></div><div><b>Quiet room</b><p>Plain grey walls and seating, next to Hall 2, always open.</p></div><div><b>Printed guide</b><p>Low-stimulus map with the strongest works marked, at the desk.</p></div><div><b>Calm view</b><p>On this website, the switch at the top stops every moving pattern.</p></div></div>
+</section>
+<footer class="site"><span>RETINAL HALL · Hall 2</span><span>Step-free · Seating in every room · Assistance dogs welcome</span></footer>
+
+<script>
+const REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const C={ink:0xFF0B0B0B,light:0xFFEAF0F2,red:0xFF1F2ED6,soft:0xFFB2B4B8,softL:0xFFE2E6E8};
+/* per-pixel painter: fn(x,y) returns 0 (light), 1 (ink) or 2 (red) */
+function paint(cv,fn,scale=1,colors){const r=cv.getBoundingClientRect(),w=Math.max(2,Math.round(r.width*scale)),h=Math.max(2,Math.round(r.height*scale));if(cv.width!==w||cv.height!==h){cv.width=w;cv.height=h}
+  const g=cv.getContext('2d'),img=g.createImageData(w,h),buf=new Uint32Array(img.data.buffer),k=colors||[C.light,C.ink,C.red];
+  for(let y=0,i=0;y<h;y++)for(let x=0;x<w;x++,i++)buf[i]=k[fn(x/scale,y/scale,w/scale,h/scale)];g.putImageData(img,0,0)}
+
+/* ---- the hero field: stripes that bulge around the pointer + eccentric rings that look at it ---- */
+const cv=document.getElementById('field'),hero=document.getElementById('hero');
+let P=null,calm=REDUCED,queued=false;
+const S=0.55; /* render the field at ~half resolution: smooth enough, ~4× cheaper */
+function heroFn(x,y,W,H){
+  const period=24,cx=W*.66,cy=H*.5,R=Math.min(H*.38,W*.3);
+  // rings
+  const dx=x-cx,dy=y-cy,r=Math.hypot(dx,dy);
+  if(r<R){let vx=R*.22,vy=0;if(P&&!calm){const ax=P[0]-cx,ay=P[1]-cy,al=Math.hypot(ax,ay)||1,m=Math.min(R*.32,al*.3);vx=ax/al*m;vy=ay/al*m}
+    const t=1-r/R,ex=x-cx-vx*t,ey=y-cy-vy*t,d=Math.hypot(ex,ey);
+    if(Math.hypot(x-cx-vx,y-cy-vy)<R*.055)return 2;
+    if(r>R-5)return 1;return Math.floor(d/(R/8.5))%2?0:1}
+  // stripes with a bulge lens at the pointer
+  let X=x;if(P&&!calm){const px=P[0],py=P[1],q=((x-px)**2+(y-py)**2)/(150*150);if(q<9){X=x-(x-px)*.62*Math.exp(-q)}}
+  return Math.floor(X/(period/2))%2}
+function draw(){queued=false;if(calm)paint(cv,(x,y)=>Math.floor(x/12)%2,S*.6,[C.softL,C.soft,C.soft]);else paint(cv,heroFn,S)}
+function req(){if(!queued){queued=true;requestAnimationFrame(draw)}}
+hero.addEventListener('pointermove',e=>{if(calm)return;const r=cv.getBoundingClientRect();P=[e.clientX-r.left,e.clientY-r.top];req()});
+hero.addEventListener('pointerleave',()=>{P=null;req()});
+const calmBtn=document.getElementById('calm');
+function setCalm(v){calm=v;calmBtn.setAttribute('aria-pressed',v);document.body.classList.toggle('calm-on',v);document.getElementById('hint').textContent=v?'Calm view is on — patterns are still':'Move across the field — the target follows you';P=null;draw()}
+calmBtn.addEventListener('click',()=>setCalm(!calm));
+
+/* ---- works: each a different single-mark rule ---- */
+const WORKS=[
+ ['Current','1966 · emulsion on board',(x,y)=>Math.floor((x+14*Math.sin(y/22))/9)%2],
+ ['Blaze','1964 · acrylic on canvas',(x,y,W,H)=>{const dx=x-W/2,dy=y-H/2,r=Math.hypot(dx,dy),a=Math.atan2(dy,dx);return Math.floor((r+6*Math.sin(a*14))/9)%2}],
+ ['Cataract','1967 · tempera on linen',(x,y,W)=>Math.floor(y/(2.2+x/W*9))%2],
+ ['Square fall','1965 · gouache',(x,y,W,H)=>{const s=4+Math.abs(y-H*.55)/5;return(Math.floor(x/s)+Math.floor(y/s))%2}],
+ ['Twist','1968 · acrylic, one red point',(x,y,W,H)=>{const dx=x-W/2,dy=y-H/2,r=Math.hypot(dx,dy);if(r<5)return 2;return Math.floor((Math.atan2(dy,dx)/Math.PI*12)+r/16)%2?1:0}]];
+const grid=document.getElementById('worksGrid');
+WORKS.forEach(([t,m,fn],i)=>{const a=document.createElement('article');a.className='work';a.innerHTML=`<canvas role="img" aria-label="Study for ${t}"></canvas><div><h3>${t}</h3><p>${m}</p></div>`;grid.appendChild(a)});
+function drawWorks(){grid.querySelectorAll('canvas').forEach((c,i)=>paint(c,WORKS[i][2],1))}
+
+/* ---- tickets ---- */
+const DAYS=[['Tue','11',true],['Wed','12'],['Thu','13'],['Fri','14'],['Sat','15']];
+const TIMES={default:[['10:00','12 left'],['11:30','8 left'],['13:00','4 left'],['14:30','Full'],['16:00','15 left']]};
+let day=null,time=null,qa=1,qc=0;
+function chips(){document.getElementById('days').innerHTML=DAYS.map(([d,n,t],i)=>`<button type="button" class="chip" role="radio" aria-checked="${day===i}" data-day="${i}">${d} ${n}<small>${t?'calm hour 10:00':'March'}</small></button>`).join('');
+  document.getElementById('times').innerHTML=TIMES.default.map(([t,c],i)=>{const isCalm=day===0&&i===0,full=c==='Full';return `<button type="button" class="chip${isCalm?' calmhour':''}" role="radio" aria-checked="${time===i}" data-time="${i}" ${full?'disabled aria-disabled="true"':''}>${t}<small>${isCalm?'calm hour':c}</small></button>`}).join('')}
+function total(){document.getElementById('ta').textContent=qa;document.getElementById('tc').textContent=qc;document.getElementById('tot').textContent='€'+(qa*14+qc*9)}
+const form=document.getElementById('book'),msg=document.getElementById('msg');
+form.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.day){day=+b.dataset.day;chips();document.querySelector(`[data-day="${day}"]`).focus()}else if(b.dataset.time){time=+b.dataset.time;chips();document.querySelector(`[data-time="${time}"]`).focus()}else if(b.dataset.t){const d=+b.dataset.d;if(b.dataset.t==='a')qa=Math.max(0,Math.min(8,qa+d));else qc=Math.max(0,Math.min(8,qc+d));total()}});
+form.addEventListener('submit',e=>{e.preventDefault();msg.className='msg';
+  if(day===null||time===null){msg.className='msg err';msg.textContent='Choose a day and a time first.';(day===null?document.querySelector('[data-day]'):document.querySelector('[data-time]:not(:disabled)')).focus();return}
+  if(qa+qc===0){msg.className='msg err';msg.textContent='Add at least one ticket.';return}
+  const[d,n]=DAYS[day],t=TIMES.default[time][0];msg.textContent=`Booked: ${qa+qc} ticket${qa+qc>1?'s':''} for ${d} ${n} March at ${t}${day===0&&time===0?' (calm hour)':''}. Total €${qa*14+qc*9}. Show this page at the desk.`});
+
+chips();total();setCalm(REDUCED);drawWorks();
+let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{draw();drawWorks()},150)});
+</script>
+</body>
+</html>
